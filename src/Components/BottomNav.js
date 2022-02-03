@@ -6,16 +6,11 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import image1 from "../photos/search.png";
-// import MenuIcon from "@mui/icons-material/Menu";
 import Badge from "@mui/material/Badge";
-
-import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
@@ -180,7 +175,7 @@ const ResponsiveAppBar = () => {
                                 },
                             }}
                             src={image1}
-                            alt="Remy Sharp"
+                            alt="Bilai | A True Compainion"
                         />
                     </Box>
                     <Typography
@@ -207,46 +202,90 @@ const ResponsiveAppBar = () => {
                         sx={{
                             display: { xs: "block", md: "none" },
                         }}>
-                        {pages.map((page) => (
-                            <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">
-                                    {page}
-                                </Typography>
-                            </MenuItem>
-                        ))}
+                        <MenuItem
+                            component={Link}
+                            onClick={handleCloseNavMenu}
+                            // the 'to' prop (and any other props not recognized by MenuItem itself)
+                            // will be passed down to the Link component
+                            to="/"
+                        >
+                            home
+                        </MenuItem>
+                        <MenuItem
+                            component={Link}
+                            onClick={handleCloseNavMenu}
+                            // the 'to' prop (and any other props not recognized by MenuItem itself)
+                            // will be passed down to the Link component
+                            to=""
+                        >
+                            Shop
+                        </MenuItem>
+                        <MenuItem
+                            component={Link}
+                            onClick={handleCloseNavMenu}
+                            // the 'to' prop (and any other props not recognized by MenuItem itself)
+                            // will be passed down to the Link component
+                            to=""
+                        >
+                            Medicine
+                        </MenuItem>
+                        <MenuItem
+                            component={Link}
+                            onClick={handleCloseNavMenu}
+                            // the 'to' prop (and any other props not recognized by MenuItem itself)
+                            // will be passed down to the Link component
+                            to="Doctor"
+                        >
+                            Doctors
+                        </MenuItem>
+                        <MenuItem
+                            component={Link}
+                            onClick={handleCloseNavMenu}
+                            // the 'to' prop (and any other props not recognized by MenuItem itself)
+                            // will be passed down to the Link component
+                            to="blogfeed"
+                        >
+                            Blog
+                        </MenuItem>
+                        <MenuItem
+                            component={Link}
+                            onClick={handleCloseNavMenu}
+                            // the 'to' prop (and any other props not recognized by MenuItem itself)
+                            // will be passed down to the Link component
+                            to=""
+                        >
+                            Adoptions
+                        </MenuItem>
+                        <MenuItem
+                            component={Link}
+                            onClick={handleCloseNavMenu}
+                            // the 'to' prop (and any other props not recognized by MenuItem itself)
+                            // will be passed down to the Link component
+                            to=""
+                        >
+                            Daycare
+                        </MenuItem>
                     </Menu>
-
-                    {/* <Box
-                        sx={{
-                            flexGrow: 1,
-                            display: { xs: "flex", md: "none" },
-                        }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit">
-                            <MenuIcon />
-                        </IconButton>
-                    </Box> */}
-                    {/* <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{
-                            flexGrow: 1,
-                            display: { xs: "flex", md: "none" },
-                        }}>
-                        LOGO
-                    </Typography> */}
                     <Box
                         sx={{
                             flexGrow: 1,
                             display: { xs: "none", md: "flex" },
                             ml: 2,
                         }}>
+                        <nav>
+                            <Link to="/">
+                                <Button
+                                    onClick={handleCloseNavMenu}
+                                    sx={{
+
+                                        color: "white",
+                                        display: "block",
+                                        textDecoration: 'none'
+                                    }}>
+                                    Home
+                                </Button>
+                            </Link>
+                        </nav>
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{
@@ -254,16 +293,7 @@ const ResponsiveAppBar = () => {
                                 color: "white",
                                 display: "block",
                                 // mr: 2,
-                            }}>
-                            Home
-                        </Button>
-                        <Button
-                            onClick={handleCloseNavMenu}
-                            sx={{
-                                // my: 2,
-                                color: "white",
-                                display: "block",
-                                // mr: 2,
+                                textDecoration: 'none'
                             }}>
                             Shop
                         </Button>
@@ -286,6 +316,7 @@ const ResponsiveAppBar = () => {
                                         color: "white",
                                         display: "block",
                                         // mr: 2,
+                                        textDecoration: 'none'
                                     }}>
                                     Doctors
                                 </Button>
@@ -300,6 +331,7 @@ const ResponsiveAppBar = () => {
                                         color: "white",
                                         display: "block",
                                         // mr: 2,
+                                        textDecoration: 'none'
                                     }}>
                                     Blog
                                 </Button>
@@ -322,24 +354,11 @@ const ResponsiveAppBar = () => {
                                 // my: 2,
                                 color: "white",
                                 display: "block",
+                                textDecoration: 'none'
                                 // mr: 2,
                             }}>
                             Day Care
                         </Button>
-                        {/* {pages.map((page) => (
-                            
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{
-                                    // my: 2,
-                                    color: "white",
-                                    display: "block",
-                                    // mr: 2,
-                                }}>
-                                {page}
-                            </Button>
-                        ))} */}
                     </Box>
 
                     <Box sx={{ mr: 2 }}>
@@ -389,7 +408,7 @@ const ResponsiveAppBar = () => {
             </AppBar>
             {renderMobileMenu}
             {renderMenu}
-        </Box>
+        </Box >
     );
 };
 export default ResponsiveAppBar;

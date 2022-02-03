@@ -1,0 +1,72 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\KAMRUL HASAN\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add aos@next
+
+PATH: 
+  C:\Program Files\Common Files\Oracle\Java\javapath;C:\app\Rebellion\product\12.2.0\dbhome_1\bin;C:\Users\product\12.2.0\dbhome_1\bin;E:\app\KAMRULHASAN2\virtual\product\12.2.0\dbhome_1\bin;C:\Users\KAMRULHASAN1\Virtual1\product\12.2.0\dbhome_1\bin;C:\app\KAMRULHASAN\virtual\product\12.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\TDM-GCC-32\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\KAMRUL HASAN\AppData\Local\Microsoft\WindowsApps;C:\Program Files\CodeBlocks\MinGW\bin;C:\Users\KAMRUL HASAN\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\KAMRUL HASAN\AppData\Roaming\npm;C:\Program Files\heroku\bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  14.17.6
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\BILAI\Bilai\node_modules\@mui\material\node_modules\react-is\package.json'
+
+npm manifest: 
+  {
+    "name": "mui-verse",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "@emotion/react": "^11.7.1",
+      "@emotion/styled": "^11.6.0",
+      "@mui/icons-material": "^5.2.5",
+      "@mui/material": "^5.2.5",
+      "@mui/styled-engine-sc": "^5.1.0",
+      "@mui/styles": "^5.2.3",
+      "@testing-library/jest-dom": "^5.16.1",
+      "@testing-library/react": "^12.1.2",
+      "@testing-library/user-event": "^13.5.0",
+      "react": "^17.0.2",
+      "react-dom": "^17.0.2",
+      "react-router-dom": "^6.2.1",
+      "react-scripts": "^5.0.0",
+      "react-swipeable-views": "^0.14.0",
+      "styled-components": "^5.3.3",
+      "web-vitals": "^2.1.2"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+      "extends": [
+        "react-app",
+        "react-app/jest"
+      ]
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
