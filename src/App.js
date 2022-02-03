@@ -1,7 +1,7 @@
 import React from "react";
 
 import BlogFeeds from "./Components/BlogFeeds";
-import DocCard from "./Components/doctor/DocCard";
+import DocFeeds from "./Components/doctor/DocFeeds";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
@@ -11,7 +11,7 @@ const App = () => {
             <BrowserRouter>
                 <Home></Home>
                 <Routes>
-                    <Route path="/doctor" element={<DocCard />} />
+                    <Route path="/doctor" element={<DocFeeds />} />
                     <Route path="/blogfeed" element={<BlogFeeds />} />
                 </Routes>
             </BrowserRouter>
