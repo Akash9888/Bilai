@@ -6,7 +6,7 @@ function BlogFeeds() {
     return (
         <div sx={{ display: "flex" }}>
             <Blog />
-            {/* {/* <Blog /> */}
+
             <Blog />
         </div>
     );
