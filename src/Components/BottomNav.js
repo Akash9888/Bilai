@@ -20,6 +20,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { ShoppingCart } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const pages = [
     "Home",
@@ -246,7 +247,87 @@ const ResponsiveAppBar = () => {
                             display: { xs: "none", md: "flex" },
                             ml: 2,
                         }}>
-                        {pages.map((page) => (
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{
+                                // my: 2,
+                                color: "white",
+                                display: "block",
+                                // mr: 2,
+                            }}>
+                            Home
+                        </Button>
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{
+                                // my: 2,
+                                color: "white",
+                                display: "block",
+                                // mr: 2,
+                            }}>
+                            Shop
+                        </Button>
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{
+                                // my: 2,
+                                color: "white",
+                                display: "block",
+                                // mr: 2,
+                            }}>
+                            Medicine
+                        </Button>
+                        <nav>
+                            <Link to="doctor">
+                                <Button
+                                    onClick={handleCloseNavMenu}
+                                    sx={{
+                                        // my: 2,
+                                        color: "white",
+                                        display: "block",
+                                        // mr: 2,
+                                    }}>
+                                    Doctors
+                                </Button>
+                            </Link>
+                        </nav>
+                        <nav>
+                            <Link to="blogfeed">
+                                <Button
+                                    onClick={handleCloseNavMenu}
+                                    sx={{
+                                        // my: 2,
+                                        color: "white",
+                                        display: "block",
+                                        // mr: 2,
+                                    }}>
+                                    Blog
+                                </Button>
+                            </Link>
+                        </nav>
+
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{
+                                // my: 2,
+                                color: "white",
+                                display: "block",
+                                // mr: 2,
+                            }}>
+                            Adaptions
+                        </Button>
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{
+                                // my: 2,
+                                color: "white",
+                                display: "block",
+                                // mr: 2,
+                            }}>
+                            Day Care
+                        </Button>
+                        {/* {pages.map((page) => (
+                            
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
@@ -258,86 +339,9 @@ const ResponsiveAppBar = () => {
                                 }}>
                                 {page}
                             </Button>
-                        ))}
+                        ))} */}
                     </Box>
-                    {/* <Box sx={{ flexGrow: 1 }} />
-                    <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="show 4 new carts"
-                            color="inherit">
-                            <Badge badgeContent={4} color="error">
-                                <ShoppingCart />
-                            </Badge>
-                        </IconButton>
-                        <IconButton
-                            size="large"
-                            aria-label="show 17 new notifications"
-                            color="inherit">
-                            <Badge badgeContent={17} color="error">
-                                <NotificationsIcon />
-                            </Badge>
-                        </IconButton>
-                        <IconButton
-                            size="large"
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
-                            color="inherit">
-                            <AccountCircle />
-                        </IconButton>
-                    </Box>
-                    <Box sx={{ display: { xs: "flex", md: "none" } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="show more"
-                            aria-controls={mobileMenuId}
-                            aria-haspopup="true"
-                            onClick={handleMobileMenuOpen}
-                            color="inherit">
-                            <MoreIcon />
-                        </IconButton>
-                    </Box> */}
-                    {/* 
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton
-                                onClick={handleOpenUserMenu}
-                                sx={{ p: 0 }}>
-                                <Avatar
-                                    alt="Remy Sharp"
-                                    src="/static/images/avatar/2.jpg"
-                                />
-                            </IconButton>
-                        </Tooltip>
-                        <Menu
-                            sx={{ mt: "45px" }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: "top",
-                                horizontal: "right",
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: "top",
-                                horizontal: "right",
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}>
-                            {settings.map((setting) => (
-                                <MenuItem
-                                    key={setting}
-                                    onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">
-                                        {setting}
-                                    </Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box> */}
+
                     <Box sx={{ mr: 2 }}>
                         <Box sx={{ flexGrow: 1 }} />
                         <Box sx={{ display: { xs: "none", md: "flex" } }}>

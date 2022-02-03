@@ -1,14 +1,20 @@
 import React from "react";
-import TopNav from "./Components/TopNav";
-import BottomNav from "./Components/BottomNav";
-import BlogFeeds from "./Components/BlogFeeds";
 
+import BlogFeeds from "./Components/BlogFeeds";
+import DocCard from "./Components/doctor/DocCard";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Components/Home/Home";
 const App = () => {
     return (
         <div>
-            <TopNav></TopNav>
-            <BottomNav />
-            <BlogFeeds />
+            <BrowserRouter>
+                <Home></Home>
+                <Routes>
+                    <Route path="/doctor" element={<DocCard />} />
+                    <Route path="/blogfeed" element={<BlogFeeds />} />
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 };
