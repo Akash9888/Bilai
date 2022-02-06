@@ -5,6 +5,7 @@ import DocFeeds from "./Components/doctor/DocFeeds";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Banner from "./Components/Banner/Banner";
+
 import Products from "./Components/Products/Products";
 // import Products from "./Components/Products/Products";
 // import { StyledEngineProvider } from '@mui/material/styles';
@@ -15,6 +16,9 @@ import TopNav from './Components/TopNav';
 import BottomNav from './Components/BottomNav';
 import Cart from "./Components/Cart/Cart";
 import Checkout from "./Components/ChecoutForm/Checkout/Checkout";
+
+import DayCare from "./Components/Care/DayCare";
+
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -80,7 +84,11 @@ const App = () => {
                     <Route path="/doctor" element={<DocFeeds />} />
                     <Route path="/cart" element={<Cart cart={cart} handleUpdateQuantity={handleUpdateQuantity} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart} />} />
                     <Route path="/blogfeed" element={<BlogFeeds />} />
+
                     <Route path="/checkout" element={<Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />} />
+
+                    <Route path="/daycare" element={<DayCare />} />
+
                 </Routes>
             </BrowserRouter>
         </div>

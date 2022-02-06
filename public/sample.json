@@ -2,8 +2,8 @@
 	"id": "1",
 	"title": "Mr.",
 	"gender": "male",
-	"firstName": "This is first Name",
-	"lastName": "This is the last Name",
+	"firstName": "Shah Abidur Rahman",
+	
 	"email": "test@test.com",
 	"mobile": "9xxxxxxxx",
 	"dob": "1976-12-15",
@@ -12,12 +12,13 @@
 	"specialisation": "DERMATOLOGY",
 	"license": ["Registration No. MMC 2009093394, Medical Council of India 09/33958", "2006113358 Maharashtra Medical Council, 2006"],
 	"rating": 4.3
-}, {
+}, 
+	{
 	"id": "2",
 	"title": "Mr.",
 	"gender": "male",
-	"firstName": "This is first Name",
-	"lastName": "This is the last Name",
+	"firstName": "Sumit Datta",
+
 	"email": "test@test.com",
 	"mobile": "9xxxxxxxx",
 	"dob": "1976-12-15",
@@ -30,8 +31,8 @@
 	"id": "3",
 	"title": "Mr.",
 	"gender": "male",
-	"firstName": "This is first Name",
-	"lastName": "This is the last Name",
+	"firstName": "Kamrul Hasan Juel",
+
 	"email": "test@test.com",
 	"mobile": "9xxxxxxxx",
 	"dob": "1976-12-15",
@@ -44,8 +45,8 @@
 	"id": "4",
 	"title": "Mr.",
 	"gender": "male",
-	"firstName": "This is first Name",
-	"lastName": "This is the last Name",
+	"firstName": "Akash Chanda Tushar",
+
 	"email": "test@test.com",
 	"mobile": "9xxxxxxxx",
 	"dob": "1976-12-15",
@@ -54,4 +55,6 @@
 	"specialisation":"NUTRITION",
 	"license": ["Registration No. MMC 2009093394, Medical Council of India 09/33958", "2006113358 Maharashtra Medical Council, 2006"],
 	"rating": 4.3
-}]
+}
+
+]
