@@ -207,8 +207,7 @@ const ResponsiveAppBar = () => {
                             onClick={handleCloseNavMenu}
                             // the 'to' prop (and any other props not recognized by MenuItem itself)
                             // will be passed down to the Link component
-                            to="/"
-                        >
+                            to="/">
                             home
                         </MenuItem>
                         <MenuItem
@@ -216,8 +215,7 @@ const ResponsiveAppBar = () => {
                             onClick={handleCloseNavMenu}
                             // the 'to' prop (and any other props not recognized by MenuItem itself)
                             // will be passed down to the Link component
-                            to=""
-                        >
+                            to="">
                             Shop
                         </MenuItem>
                         <MenuItem
@@ -225,8 +223,7 @@ const ResponsiveAppBar = () => {
                             onClick={handleCloseNavMenu}
                             // the 'to' prop (and any other props not recognized by MenuItem itself)
                             // will be passed down to the Link component
-                            to=""
-                        >
+                            to="">
                             Medicine
                         </MenuItem>
                         <MenuItem
@@ -234,8 +231,7 @@ const ResponsiveAppBar = () => {
                             onClick={handleCloseNavMenu}
                             // the 'to' prop (and any other props not recognized by MenuItem itself)
                             // will be passed down to the Link component
-                            to="Doctor"
-                        >
+                            to="Doctor">
                             Doctors
                         </MenuItem>
                         <MenuItem
@@ -243,8 +239,7 @@ const ResponsiveAppBar = () => {
                             onClick={handleCloseNavMenu}
                             // the 'to' prop (and any other props not recognized by MenuItem itself)
                             // will be passed down to the Link component
-                            to="blogfeed"
-                        >
+                            to="blogfeed">
                             Blog
                         </MenuItem>
                         <MenuItem
@@ -252,8 +247,7 @@ const ResponsiveAppBar = () => {
                             onClick={handleCloseNavMenu}
                             // the 'to' prop (and any other props not recognized by MenuItem itself)
                             // will be passed down to the Link component
-                            to=""
-                        >
+                            to="">
                             Adoptions
                         </MenuItem>
                         <MenuItem
@@ -261,8 +255,7 @@ const ResponsiveAppBar = () => {
                             onClick={handleCloseNavMenu}
                             // the 'to' prop (and any other props not recognized by MenuItem itself)
                             // will be passed down to the Link component
-                            to=""
-                        >
+                            to="/daycare">
                             Daycare
                         </MenuItem>
                     </Menu>
@@ -277,36 +270,45 @@ const ResponsiveAppBar = () => {
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{
-
                                         color: "white",
                                         display: "block",
-                                        textDecoration: 'none'
+                                        textDecoration: "none",
                                     }}>
                                     Home
                                 </Button>
                             </Link>
                         </nav>
-                        <Button
-                            onClick={handleCloseNavMenu}
-                            sx={{
-                                // my: 2,
-                                color: "white",
-                                display: "block",
-                                // mr: 2,
-                                textDecoration: 'none'
-                            }}>
-                            Shop
-                        </Button>
-                        <Button
-                            onClick={handleCloseNavMenu}
-                            sx={{
-                                // my: 2,
-                                color: "white",
-                                display: "block",
-                                // mr: 2,
-                            }}>
-                            Medicine
-                        </Button>
+                        <nav>
+                            <Link to="shop">
+                                <Button
+                                    onClick={handleCloseNavMenu}
+                                    sx={{
+                                        // my: 2,
+                                        color: "white",
+                                        display: "block",
+                                        // mr: 2,
+                                        textDecoration: "none",
+                                    }}>
+                                    Shop
+                                </Button>
+                            </Link>
+                        </nav>
+
+                        <nav>
+                            <Link to="medicine">
+                                <Button
+                                    onClick={handleCloseNavMenu}
+                                    sx={{
+                                        // my: 2,
+                                        color: "white",
+                                        display: "block",
+                                        // mr: 2,
+                                    }}>
+                                    Medicine
+                                </Button>
+                            </Link>
+                        </nav>
+
                         <nav>
                             <Link to="doctor">
                                 <Button
@@ -316,7 +318,7 @@ const ResponsiveAppBar = () => {
                                         color: "white",
                                         display: "block",
                                         // mr: 2,
-                                        textDecoration: 'none'
+                                        textDecoration: "none",
                                     }}>
                                     Doctors
                                 </Button>
@@ -331,34 +333,42 @@ const ResponsiveAppBar = () => {
                                         color: "white",
                                         display: "block",
                                         // mr: 2,
-                                        textDecoration: 'none'
+                                        textDecoration: "none",
                                     }}>
                                     Blog
                                 </Button>
                             </Link>
                         </nav>
+                        <nav>
+                            <Link to="adaptions">
+                                <Button
+                                    onClick={handleCloseNavMenu}
+                                    sx={{
+                                        // my: 2,
+                                        color: "white",
+                                        display: "block",
+                                        // mr: 2,
+                                    }}>
+                                    Adaptions
+                                </Button>
+                            </Link>
+                        </nav>
 
-                        <Button
-                            onClick={handleCloseNavMenu}
-                            sx={{
-                                // my: 2,
-                                color: "white",
-                                display: "block",
-                                // mr: 2,
-                            }}>
-                            Adaptions
-                        </Button>
-                        <Button
-                            onClick={handleCloseNavMenu}
-                            sx={{
-                                // my: 2,
-                                color: "white",
-                                display: "block",
-                                textDecoration: 'none'
-                                // mr: 2,
-                            }}>
-                            Day Care
-                        </Button>
+                        <nav>
+                            <Link to="daycare">
+                                <Button
+                                    onClick={handleCloseNavMenu}
+                                    sx={{
+                                        // my: 2,
+                                        color: "white",
+                                        display: "block",
+                                        textDecoration: "none",
+                                        // mr: 2,
+                                    }}>
+                                    Day Care
+                                </Button>
+                            </Link>
+                        </nav>
                     </Box>
 
                     <Box sx={{ mr: 2 }}>
@@ -408,7 +418,7 @@ const ResponsiveAppBar = () => {
             </AppBar>
             {renderMobileMenu}
             {renderMenu}
-        </Box >
+        </Box>
     );
 };
 export default ResponsiveAppBar;
