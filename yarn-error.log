@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\KAMRUL HASAN\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add aos@next
+  C:\Program Files\nodejs\node.exe C:\Users\KAMRUL HASAN\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @mui/styles
 
 PATH: 
   C:\Program Files\Common Files\Oracle\Java\javapath;C:\app\Rebellion\product\12.2.0\dbhome_1\bin;C:\Users\product\12.2.0\dbhome_1\bin;E:\app\KAMRULHASAN2\virtual\product\12.2.0\dbhome_1\bin;C:\Users\KAMRULHASAN1\Virtual1\product\12.2.0\dbhome_1\bin;C:\app\KAMRULHASAN\virtual\product\12.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\TDM-GCC-32\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\KAMRUL HASAN\AppData\Local\Microsoft\WindowsApps;C:\Program Files\CodeBlocks\MinGW\bin;C:\Users\KAMRUL HASAN\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\KAMRUL HASAN\AppData\Roaming\npm;C:\Program Files\heroku\bin
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\BILAI\Bilai\node_modules\@mui\material\node_modules\react-is\package.json'
+  Error: EPERM: operation not permitted, copyfile 'C:\Users\KAMRUL HASAN\AppData\Local\Yarn\Cache\v6\npm-hyphenate-style-name-1.0.4-691879af8e220aea5750e8827db4ef62a54e361d-integrity\node_modules\hyphenate-style-name\package.json' -> 'C:\BILAI\Bilai\node_modules\hyphenate-style-name\package.json'
 
 npm manifest: 
   {
@@ -22,17 +22,23 @@ npm manifest:
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+      "@chec/commerce.js": "^2.8.0",
       "@emotion/react": "^11.7.1",
       "@emotion/styled": "^11.6.0",
+      "@material-ui/core": "^4.12.3",
       "@mui/icons-material": "^5.2.5",
       "@mui/material": "^5.2.5",
       "@mui/styled-engine-sc": "^5.1.0",
       "@mui/styles": "^5.2.3",
+      "@stripe/react-stripe-js": "^1.7.0",
+      "@stripe/stripe-js": "^1.22.0",
       "@testing-library/jest-dom": "^5.16.1",
       "@testing-library/react": "^12.1.2",
       "@testing-library/user-event": "^13.5.0",
+      "aos": "^3.0.0-beta.6",
       "react": "^17.0.2",
       "react-dom": "^17.0.2",
+      "react-hook-form": "^7.26.0",
       "react-router-dom": "^6.2.1",
       "react-scripts": "^5.0.0",
       "react-swipeable-views": "^0.14.0",

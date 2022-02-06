@@ -17,18 +17,18 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
-const pages = [
-    "Home",
-    "Toys",
-    "Medicine",
-    "Doctors",
-    "Blog",
-    "Adoption",
-    "Day Care",
-];
+// const pages = [
+//     "Home",
+//     "Toys",
+//     "Medicine",
+//     "Doctors",
+//     "Blog",
+//     "Adoption",
+//     "Day Care",
+// ];
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = ({ totalItems }) => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -94,23 +94,25 @@ const ResponsiveAppBar = () => {
         <Menu
             anchorEl={mobileMoreAnchorEl}
             anchorOrigin={{
-                vertical: "top",
+                vertical: "bottom",
                 horizontal: "right",
             }}
             id={mobileMenuId}
             keepMounted
             transformOrigin={{
                 vertical: "top",
-                horizontal: "right",
+                horizontal: "bottom",
             }}
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}>
             <MenuItem>
                 <IconButton
                     size="large"
+                    component={Link}
+                    to='/cart'
                     aria-label="show 4 new carts"
                     color="inherit">
-                    <Badge badgeContent={4} color="error">
+                    <Badge badgeContent={totalItems} color="error">
                         <ShoppingCart />
                     </Badge>
                 </IconButton>
@@ -143,7 +145,6 @@ const ResponsiveAppBar = () => {
     return (
         <Box>
             <AppBar position="static">
-                {/* <Container> */}
                 <Toolbar
                     sx={{ backgroundColor: "#394366", color: "white" }}
                     disableGutters>
@@ -216,7 +217,7 @@ const ResponsiveAppBar = () => {
                             onClick={handleCloseNavMenu}
                             // the 'to' prop (and any other props not recognized by MenuItem itself)
                             // will be passed down to the Link component
-                            to=""
+                            to="shop"
                         >
                             Shop
                         </MenuItem>
@@ -250,8 +251,6 @@ const ResponsiveAppBar = () => {
                         <MenuItem
                             component={Link}
                             onClick={handleCloseNavMenu}
-                            // the 'to' prop (and any other props not recognized by MenuItem itself)
-                            // will be passed down to the Link component
                             to=""
                         >
                             Adoptions
@@ -259,8 +258,6 @@ const ResponsiveAppBar = () => {
                         <MenuItem
                             component={Link}
                             onClick={handleCloseNavMenu}
-                            // the 'to' prop (and any other props not recognized by MenuItem itself)
-                            // will be passed down to the Link component
                             to=""
                         >
                             Daycare
@@ -273,7 +270,7 @@ const ResponsiveAppBar = () => {
                             ml: 2,
                         }}>
                         <nav>
-                            <Link to="/">
+                            <Link to="/" style={{ textDecoration: 'none' }}>
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{
@@ -286,17 +283,21 @@ const ResponsiveAppBar = () => {
                                 </Button>
                             </Link>
                         </nav>
-                        <Button
-                            onClick={handleCloseNavMenu}
-                            sx={{
-                                // my: 2,
-                                color: "white",
-                                display: "block",
-                                // mr: 2,
-                                textDecoration: 'none'
-                            }}>
-                            Shop
-                        </Button>
+                        <nav>
+                            <Link to="shop" style={{ textDecoration: 'none' }}>
+                                <Button
+                                    onClick={handleCloseNavMenu}
+                                    sx={{
+
+                                        color: "white",
+                                        display: "block",
+                                        textDecoration: 'none'
+                                    }}>
+                                    Shop
+                                </Button>
+                            </Link>
+                        </nav>
+
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{
@@ -308,7 +309,7 @@ const ResponsiveAppBar = () => {
                             Medicine
                         </Button>
                         <nav>
-                            <Link to="doctor">
+                            <Link to="doctor" style={{ textDecoration: 'none' }}>
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{
@@ -323,15 +324,12 @@ const ResponsiveAppBar = () => {
                             </Link>
                         </nav>
                         <nav>
-                            <Link to="blogfeed">
+                            <Link to="blogfeed" style={{ textDecoration: 'none' }}>
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{
-                                        // my: 2,
                                         color: "white",
                                         display: "block",
-                                        // mr: 2,
-                                        textDecoration: 'none'
                                     }}>
                                     Blog
                                 </Button>
@@ -351,11 +349,9 @@ const ResponsiveAppBar = () => {
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{
-                                // my: 2,
                                 color: "white",
                                 display: "block",
                                 textDecoration: 'none'
-                                // mr: 2,
                             }}>
                             Day Care
                         </Button>
@@ -364,20 +360,14 @@ const ResponsiveAppBar = () => {
                     <Box sx={{ mr: 2 }}>
                         <Box sx={{ flexGrow: 1 }} />
                         <Box sx={{ display: { xs: "none", md: "flex" } }}>
+
                             <IconButton
                                 size="large"
+                                component={Link} to="cart"
                                 aria-label="show 4 new carts"
                                 color="inherit">
-                                <Badge badgeContent={4} color="error">
+                                <Badge badgeContent={totalItems} color="error">
                                     <ShoppingCart />
-                                </Badge>
-                            </IconButton>
-                            <IconButton
-                                size="large"
-                                aria-label="show 17 new notifications"
-                                color="inherit">
-                                <Badge badgeContent={17} color="error">
-                                    <NotificationsIcon />
                                 </Badge>
                             </IconButton>
                             <IconButton

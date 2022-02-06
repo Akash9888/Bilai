@@ -14,7 +14,8 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
 const DocCard = (props) => {
-    console.log("lol " + props.doc);
+    // console.log("lol " + props.doc);
+    console.log(props);
     // const [docList, setDocList] = useState([]);
     // useEffect(() => {
     //     fetch("sample.json")
