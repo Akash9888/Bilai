@@ -28,7 +28,6 @@ theme.typography.h3 = {
 
 const images = [
     {
-<<<<<<< HEAD
         label: "San Francisco – Oakland Bay Bridge, United States",
         imgPath: "https://i.ibb.co/yBShXg7/pexels-photo-1378849.jpg",
     },
@@ -40,27 +39,9 @@ const images = [
         label: "Bali, Indonesia",
         imgPath: "https://i.ibb.co/0FFrYbL/Adorable-furry-spitz-with-juice.jpg",
     },
-=======
-        label: 'San Francisco – Oakland Bay Bridge, United States',
-        imgPath:
-            'https://i.ibb.co/23FnFfz/5514209.jpg',
-
-    },
-    {
-        label: 'Bird',
-        imgPath:
-            'https://i.ibb.co/Q9Ymsxy/5559055.jpg',
-    },
-    {
-        label: 'Bali, Indonesia',
-        imgPath:
-            'https://i.ibb.co/JstQVj7/Modern-hospital-for-cats-and-dogs-isolated-flat-vector-illustration-Cartoon-veterinary-office-or-cli.jpg',
-    }
->>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a
 ];
 
 const Carousel = () => {
-
     const theme = useTheme();
     const [activeStep, setActiveStep] = React.useState(0);
     const maxSteps = images.length;
@@ -96,19 +77,12 @@ const Carousel = () => {
                                     component="img"
                                     sx={{
                                         height: "100vh",
-<<<<<<< HEAD
+
                                         display: "block",
                                         maxWidth: "100%",
                                         overflow: "hidden",
                                         width: "100%",
                                         objectFit: "cover",
-=======
-                                        display: 'block',
-                                        maxWidth: "100%",
-                                        overflow: 'hidden',
-                                        width: '100%',
-                                        objectFit: 'cover'
->>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a
                                     }}
                                     src={step.imgPath}
                                     alt={step.label}
@@ -125,18 +99,13 @@ const Carousel = () => {
                                         right: "10%",
                                         transform: "translate(-50%,-50%)",
                                         textAlign: "center",
-<<<<<<< HEAD
+
                                         color: "white",
                                         // display: {
                                         //     md: {
                                         //         fontSize: "16px",
                                         //     },
                                         // },
-=======
-                                        color: 'black',
-                                        fontWeight: 700
-
->>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a
                                     }}
                                     variant="h3"
                                     gutterBottom
@@ -147,7 +116,6 @@ const Carousel = () => {
                                 <ThemeProvider theme={theme}>
                                     <Box
                                         sx={{
-<<<<<<< HEAD
                                             display: {
                                                 xs: "none",
                                                 sm: "none",
@@ -155,12 +123,6 @@ const Carousel = () => {
                                             },
                                             color: "white",
                                         }}>
-=======
-                                            display: { xs: 'none', sm: 'none', md: 'block' },
-                                            color: 'black'
-                                        }}
-                                    >
->>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a
                                         <Typography
                                             data-aos="fade-left"
                                             data-aos-easing="ease-in-sine"
@@ -194,13 +156,11 @@ const Carousel = () => {
                                     sx={{
                                         position: "absolute",
                                         top: "70%",
-<<<<<<< HEAD
+
                                         left: "42%",
                                         right: "42%",
                                         textAlign: "center",
-=======
-                                        left: "45%",
->>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a
+
                                         transform: "translate(-50%,-50%)",
                                         fontSize: "16px",
                                         padding: "12px 24px",

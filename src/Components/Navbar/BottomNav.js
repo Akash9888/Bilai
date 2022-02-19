@@ -11,12 +11,12 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 // import image1 from "../photos/search.png";
 import Badge from "@mui/material/Badge";
-import AccountCircle from "@mui/icons-material/AccountCircle"
+import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
-
+// import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const ResponsiveAppBar = (props) => {
     const { user, logout } = useAuth();
@@ -157,10 +157,7 @@ const ResponsiveAppBar = (props) => {
                                     md: "block",
                                     lg: "block",
                                     xl: "block",
-<<<<<<< HEAD:src/Components/Navbar/BottomNav.js
-=======
                                     ml: 4,
->>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a:src/Components/BottomNav.js
                                 },
                             }}
                             src="https://i.ibb.co/HFQPY4L/cat.png"
@@ -190,7 +187,6 @@ const ResponsiveAppBar = (props) => {
                         onClose={handleCloseNavMenu}
                         sx={{
                             display: { xs: "block", md: "none" },
-
                         }}>
                         <MenuItem
                             component={Link}
@@ -282,13 +278,9 @@ const ResponsiveAppBar = (props) => {
                         </nav>
 
                         <nav>
-<<<<<<< HEAD:src/Components/Navbar/BottomNav.js
                             <Link
                                 to="medicine"
                                 style={{ textDecoration: "none" }}>
-=======
-                            <Link to="medicine" style={{ textDecoration: "none" }}>
->>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a:src/Components/BottomNav.js
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{
@@ -334,13 +326,9 @@ const ResponsiveAppBar = (props) => {
                             </Link>
                         </nav>
                         <nav>
-<<<<<<< HEAD:src/Components/Navbar/BottomNav.js
                             <Link
                                 to="adaptions"
                                 style={{ textDecoration: "none" }}>
-=======
-                            <Link to="adaptions" style={{ textDecoration: "none" }}>
->>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a:src/Components/BottomNav.js
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{
@@ -355,13 +343,9 @@ const ResponsiveAppBar = (props) => {
                         </nav>
 
                         <nav>
-<<<<<<< HEAD:src/Components/Navbar/BottomNav.js
                             <Link
                                 to="daycare"
                                 style={{ textDecoration: "none" }}>
-=======
-                            <Link to="daycare" style={{ textDecoration: "none" }}>
->>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a:src/Components/BottomNav.js
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{
@@ -375,38 +359,24 @@ const ResponsiveAppBar = (props) => {
                                 </Button>
                             </Link>
                         </nav>
-                        {
-                            user?.email ? <Button
+                        {user?.email ? (
+                            <Button
                                 onClick={() => {
                                     handleCloseNavMenu();
                                     logout();
                                 }}
                                 sx={{
-
                                     color: "white",
                                     display: "block",
                                     textDecoration: "none",
-
                                 }}>
-                                Logout                                </Button> :
-                                <nav>
-                                    <Link to="login" style={{ textDecoration: "none" }}>
-                                        <Button
-                                            onClick={handleCloseNavMenu}
-                                            sx={{
-                                                // my: 2,
-                                                color: "white",
-                                                display: "block",
-                                                textDecoration: "none",
-                                                // mr: 2,
-                                            }}>
-                                            Login                                </Button>
-                                    </Link>
-                                </nav>
-                        }
-                        {
-                            !user?.email && <nav>
-                                <Link to="register" style={{ textDecoration: "none" }}>
+                                Logout{" "}
+                            </Button>
+                        ) : (
+                            <nav>
+                                <Link
+                                    to="login"
+                                    style={{ textDecoration: "none" }}>
                                     <Button
                                         onClick={handleCloseNavMenu}
                                         sx={{
@@ -416,13 +386,16 @@ const ResponsiveAppBar = (props) => {
                                             textDecoration: "none",
                                             // mr: 2,
                                         }}>
-                                        Register                                </Button>
+                                        Login{" "}
+                                    </Button>
                                 </Link>
                             </nav>
-                        }
-                        {
-                            user?.email && <nav>
-                                <Link to="dashboard" style={{ textDecoration: "none" }}>
+                        )}
+                        {!user?.email && (
+                            <nav>
+                                <Link
+                                    to="register"
+                                    style={{ textDecoration: "none" }}>
                                     <Button
                                         onClick={handleCloseNavMenu}
                                         sx={{
@@ -432,12 +405,34 @@ const ResponsiveAppBar = (props) => {
                                             textDecoration: "none",
                                             // mr: 2,
                                         }}>
-                                        Dashboard                                </Button>
+                                        Register{" "}
+                                    </Button>
                                 </Link>
                             </nav>
-                        }
+                        )}
+                        {user?.email && (
+                            <nav>
+                                <Link
+                                    to="dashboard"
+                                    style={{ textDecoration: "none" }}>
+                                    <Button
+                                        onClick={handleCloseNavMenu}
+                                        sx={{
+                                            // my: 2,
+                                            color: "white",
+                                            display: "block",
+                                            textDecoration: "none",
+                                            // mr: 2,
+                                        }}>
+                                        Dashboard{" "}
+                                    </Button>
+                                </Link>
+                            </nav>
+                        )}
                         <nav>
-                            <Link to="orderReview" style={{ textDecoration: "none" }}>
+                            <Link
+                                to="orderReview"
+                                style={{ textDecoration: "none" }}>
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{
@@ -447,25 +442,25 @@ const ResponsiveAppBar = (props) => {
                                         textDecoration: "none",
                                         // mr: 2,
                                     }}>
-                                    Order Review                                </Button>
+                                    Order Review{" "}
+                                </Button>
                             </Link>
                         </nav>
-
-
                     </Box>
 
                     <Box sx={{ mr: 2 }}>
                         <Box sx={{ flexGrow: 1 }} />
 
                         <Box sx={{ display: { xs: "none", md: "flex" } }}>
-
                             <IconButton
                                 size="large"
                                 component={Link}
                                 to="orderReview"
                                 aria-label="show 4 new carts"
                                 color="inherit">
-                                <Badge badgeContent={totalQuantity} color="error">
+                                <Badge
+                                    badgeContent={totalQuantity}
+                                    color="error">
                                     <ShoppingCart />
                                 </Badge>
                             </IconButton>
@@ -492,7 +487,6 @@ const ResponsiveAppBar = (props) => {
                                 <MoreIcon />
                             </IconButton>
                         </Box>
-
                     </Box>
                 </Toolbar>
                 {/* </Container> */}

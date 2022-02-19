@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import Grid from "@mui/material/Grid";
 import { Box, Button, Typography } from "@mui/material";
@@ -59,20 +58,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-=======
-import React from 'react';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-import './HeroSection.css';
-
-
-const HeroSection = () => {
-    return (
-        <div>
-
-        </div>
-
-    );
-};
-
-export default HeroSection;
->>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a
