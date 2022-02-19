@@ -11,28 +11,29 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 // import image1 from "../photos/search.png";
 import Badge from "@mui/material/Badge";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import AccountCircle from "@mui/icons-material/AccountCircle"
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
-// const pages = [
-//     "Home",
-//     "Toys",
-//     "Medicine",
-//     "Doctors",
-//     "Blog",
-//     "Adoption",
-//     "Day Care",
-// ];
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-const ResponsiveAppBar = ({ totalItems }) => {
+const ResponsiveAppBar = (props) => {
+    const { user, logout } = useAuth();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const { cart } = props;
+    // console.log(props.cart);
+    let totalQuantity = 0;
+    let total = 0;
+    for (const product of cart) {
+        if (!product.quantity) {
+            product.quantity = 1;
+        }
+        total = total + product.price * product.quantity;
+        totalQuantity = totalQuantity + product.quantity;
+    }
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -43,17 +44,11 @@ const ResponsiveAppBar = ({ totalItems }) => {
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };
@@ -111,24 +106,14 @@ const ResponsiveAppBar = ({ totalItems }) => {
                     component={Link}
                     to="/cart"
                     aria-label="show 4 new carts"
-                    color="inherit">
-                    <Badge badgeContent={totalItems} color="error">
+                    color="primary">
+                    <Badge badgeContent={totalQuantity} color="error">
                         <ShoppingCart />
                     </Badge>
                 </IconButton>
                 <p>cart</p>
             </MenuItem>
-            <MenuItem>
-                <IconButton
-                    size="large"
-                    aria-label="show 17 new notifications"
-                    color="inherit">
-                    <Badge badgeContent={17} color="error">
-                        <NotificationsIcon />
-                    </Badge>
-                </IconButton>
-                <p>Notifications</p>
-            </MenuItem>
+
             <MenuItem onClick={handleProfileMenuOpen}>
                 <IconButton
                     size="large"
@@ -172,6 +157,10 @@ const ResponsiveAppBar = ({ totalItems }) => {
                                     md: "block",
                                     lg: "block",
                                     xl: "block",
+<<<<<<< HEAD:src/Components/Navbar/BottomNav.js
+=======
+                                    ml: 4,
+>>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a:src/Components/BottomNav.js
                                 },
                             }}
                             src="https://i.ibb.co/HFQPY4L/cat.png"
@@ -201,6 +190,7 @@ const ResponsiveAppBar = ({ totalItems }) => {
                         onClose={handleCloseNavMenu}
                         sx={{
                             display: { xs: "block", md: "none" },
+
                         }}>
                         <MenuItem
                             component={Link}
@@ -262,7 +252,7 @@ const ResponsiveAppBar = ({ totalItems }) => {
                         sx={{
                             flexGrow: 1,
                             display: { xs: "none", md: "flex" },
-                            ml: 2,
+                            ml: 4,
                         }}>
                         <nav>
                             <Link to="/" style={{ textDecoration: "none" }}>
@@ -292,9 +282,13 @@ const ResponsiveAppBar = ({ totalItems }) => {
                         </nav>
 
                         <nav>
+<<<<<<< HEAD:src/Components/Navbar/BottomNav.js
                             <Link
                                 to="medicine"
                                 style={{ textDecoration: "none" }}>
+=======
+                            <Link to="medicine" style={{ textDecoration: "none" }}>
+>>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a:src/Components/BottomNav.js
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{
@@ -340,9 +334,13 @@ const ResponsiveAppBar = ({ totalItems }) => {
                             </Link>
                         </nav>
                         <nav>
+<<<<<<< HEAD:src/Components/Navbar/BottomNav.js
                             <Link
                                 to="adaptions"
                                 style={{ textDecoration: "none" }}>
+=======
+                            <Link to="adaptions" style={{ textDecoration: "none" }}>
+>>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a:src/Components/BottomNav.js
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{
@@ -357,9 +355,13 @@ const ResponsiveAppBar = ({ totalItems }) => {
                         </nav>
 
                         <nav>
+<<<<<<< HEAD:src/Components/Navbar/BottomNav.js
                             <Link
                                 to="daycare"
                                 style={{ textDecoration: "none" }}>
+=======
+                            <Link to="daycare" style={{ textDecoration: "none" }}>
+>>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a:src/Components/BottomNav.js
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{
@@ -373,21 +375,101 @@ const ResponsiveAppBar = ({ totalItems }) => {
                                 </Button>
                             </Link>
                         </nav>
+                        {
+                            user?.email ? <Button
+                                onClick={() => {
+                                    handleCloseNavMenu();
+                                    logout();
+                                }}
+                                sx={{
+
+                                    color: "white",
+                                    display: "block",
+                                    textDecoration: "none",
+
+                                }}>
+                                Logout                                </Button> :
+                                <nav>
+                                    <Link to="login" style={{ textDecoration: "none" }}>
+                                        <Button
+                                            onClick={handleCloseNavMenu}
+                                            sx={{
+                                                // my: 2,
+                                                color: "white",
+                                                display: "block",
+                                                textDecoration: "none",
+                                                // mr: 2,
+                                            }}>
+                                            Login                                </Button>
+                                    </Link>
+                                </nav>
+                        }
+                        {
+                            !user?.email && <nav>
+                                <Link to="register" style={{ textDecoration: "none" }}>
+                                    <Button
+                                        onClick={handleCloseNavMenu}
+                                        sx={{
+                                            // my: 2,
+                                            color: "white",
+                                            display: "block",
+                                            textDecoration: "none",
+                                            // mr: 2,
+                                        }}>
+                                        Register                                </Button>
+                                </Link>
+                            </nav>
+                        }
+                        {
+                            user?.email && <nav>
+                                <Link to="dashboard" style={{ textDecoration: "none" }}>
+                                    <Button
+                                        onClick={handleCloseNavMenu}
+                                        sx={{
+                                            // my: 2,
+                                            color: "white",
+                                            display: "block",
+                                            textDecoration: "none",
+                                            // mr: 2,
+                                        }}>
+                                        Dashboard                                </Button>
+                                </Link>
+                            </nav>
+                        }
+                        <nav>
+                            <Link to="orderReview" style={{ textDecoration: "none" }}>
+                                <Button
+                                    onClick={handleCloseNavMenu}
+                                    sx={{
+                                        // my: 2,
+                                        color: "white",
+                                        display: "block",
+                                        textDecoration: "none",
+                                        // mr: 2,
+                                    }}>
+                                    Order Review                                </Button>
+                            </Link>
+                        </nav>
+
+
                     </Box>
 
                     <Box sx={{ mr: 2 }}>
                         <Box sx={{ flexGrow: 1 }} />
+
                         <Box sx={{ display: { xs: "none", md: "flex" } }}>
+
                             <IconButton
                                 size="large"
                                 component={Link}
-                                to="cart"
+                                to="orderReview"
                                 aria-label="show 4 new carts"
                                 color="inherit">
-                                <Badge badgeContent={totalItems} color="error">
+                                <Badge badgeContent={totalQuantity} color="error">
                                     <ShoppingCart />
                                 </Badge>
                             </IconButton>
+
                             <IconButton
                                 size="large"
                                 edge="end"
@@ -410,6 +492,7 @@ const ResponsiveAppBar = ({ totalItems }) => {
                                 <MoreIcon />
                             </IconButton>
                         </Box>
+
                     </Box>
                 </Toolbar>
                 {/* </Container> */}

@@ -26,10 +26,10 @@ const Cart = ({ cart, handleRemoveFromCart, handleUpdateQuantity, handleEmptyCar
             </Grid>
             <Box sx={{ display: 'flex', marginTop: '10%', width: '100%', justifyContent: 'space-between' }}>
                 <Typography variant="h4">&#2547; {cart.subtotal.formatted_with_code}</Typography>
-                <div>
-                    <Button onClick={handleEmptyCart} sx={{ minWidth: '150px' }} size="large" type="button" variant="contained" color="secondary" >Empty cart</Button>
+                <Box sx={{ display: 'flex' }}>
+                    <Button onClick={handleEmptyCart} sx={{ minWidth: '150px', mr: 1 }} size="large" type="button" variant="contained" color="secondary" >Empty cart</Button>
                     <Button sx={{ minWidth: "'150px" }} component={Link} to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout</Button>
-                </div>
+                </Box>
             </Box>
         </>
     );
@@ -43,8 +43,8 @@ const Cart = ({ cart, handleRemoveFromCart, handleUpdateQuantity, handleEmptyCar
     return (
         <Container sx={{ mt: 4 }}>
 
-            <Typography variant="h4" gutterBottom component="div" sx={{ mb: 2 }}>
-                Your Shopping Cart
+            <Typography variant="h4" gutterBottom component="div" align='center' sx={{ mb: 4 }}>
+                YOUR SHOPPING CART
             </Typography>
             {
                 !cart.line_items.length ? <EmptyCart /> : <FilledCart />
