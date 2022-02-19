@@ -1,0 +1,67 @@
+[33mcommit f4037c7b050b4fd50a03fdc2a6cea6a78f9fa0ee[m[33m ([m[1;36mHEAD -> [m[1;32mjuel[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: Akash Chanda Tushar <akash.tushar98@gmail.com>
+Date:   Sat Feb 19 15:03:53 2022 +0600
+
+    Blog, Day care etc added
+
+[33mcommit 02ce1fd47438d33b1aeb42302b4f8e85dacb61f9[m[33m ([m[1;31morigin/juel[m[33m)[m
+Author: Akash Chanda Tushar <akash.tushar98@gmail.com>
+Date:   Sun Feb 6 17:09:29 2022 +0600
+
+    merge complict resolved
+
+[33mcommit 08e9856ad762e5226c2ca0892ea326eb7ba499bf[m
+Author: Akash Chanda Tushar <akash.tushar98@gmail.com>
+Date:   Sun Feb 6 16:53:50 2022 +0600
+
+    merge conflict solved
+
+[33mcommit 9a0b6e41f8f59b79cfd4897927f617d34d33e4e1[m[33m ([m[1;32mchomok[m[33m, [m[1;32mabid[m[33m)[m
+Merge: 1e7c18c 0551a68
+Author: Akash Chanda Tushar <akash.tushar98@gmail.com>
+Date:   Sun Feb 6 16:28:48 2022 +0600
+
+    cart accepted
+
+[33mcommit 0551a68e21bfa9f46cf69684cc8a279dc04286f8[m
+Author: Akash Chanda Tushar <akash.tushar98@gmail.com>
+Date:   Sun Feb 6 16:18:23 2022 +0600
+
+    daycare functionality added
+
+[33mcommit 1e7c18cc290d0a0a1b214d40733cc7813ccff0ef[m
+Author: JhasanKamrul <hkamrulkgt51@gmail.com>
+Date:   Sun Feb 6 16:14:26 2022 +0600
+
+    shopping cart added with functionality
+
+[33mcommit bfc14bf0c08dfdc77fc4fcd751c6b1c625d04b0e[m
+Merge: 9c9cf76 7dd8639
+Author: Akash Chanda Tushar <akash.tushar98@gmail.com>
+Date:   Thu Feb 3 17:05:50 2022 +0600
+
+    solved
+
+[33mcommit 7dd8639b192123a743fd32918e6385b218c1bf18[m
+Author: Akash Chanda Tushar <akash.tushar98@gmail.com>
+Date:   Thu Feb 3 16:39:35 2022 +0600
+
+    doctor card added
+
+[33mcommit 9c9cf7621945b611f5deeb582416969e5a7d8c37[m
+Author: JhasanKamrul <hkamrulkgt51@gmail.com>
+Date:   Thu Feb 3 16:30:22 2022 +0600
+
+    last one
+
+[33mcommit ec45cad52adbecdd003cd4d475a99be873661ee9[m
+Author: Akash Chanda Tushar <akash.tushar98@gmail.com>
+Date:   Thu Feb 3 13:02:36 2022 +0600
+
+    juel brach created
+
+[33mcommit a303ade7289e2e13ca42880eaedd9fea203b4205[m
+Author: Akash Chanda Tushar <akash.tushar98@gmail.com>
+Date:   Mon Jan 31 14:16:21 2022 +0600
+
+    First release
