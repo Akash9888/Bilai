@@ -30,21 +30,23 @@ const images = [
     {
         label: 'San Francisco – Oakland Bay Bridge, United States',
         imgPath:
-            'https://i.ibb.co/yBShXg7/pexels-photo-1378849.jpg',
+            'https://i.ibb.co/23FnFfz/5514209.jpg',
+
     },
     {
         label: 'Bird',
         imgPath:
-            'https://i.ibb.co/T4GX9Z2/pexels-photo-6816858.jpg',
+            'https://i.ibb.co/Q9Ymsxy/5559055.jpg',
     },
     {
         label: 'Bali, Indonesia',
         imgPath:
-            'https://i.ibb.co/NY94D41/Pexels-gustavo-fring-6816858.jpg',
+            'https://i.ibb.co/JstQVj7/Modern-hospital-for-cats-and-dogs-isolated-flat-vector-illustration-Cartoon-veterinary-office-or-cli.jpg',
     }
 ];
 
 const Carousel = () => {
+
     const theme = useTheme();
     const [activeStep, setActiveStep] = React.useState(0);
     const maxSteps = images.length;
@@ -82,11 +84,12 @@ const Carousel = () => {
                                 <Box
                                     component="img"
                                     sx={{
-                                        height: "80vh",
+                                        height: "100vh",
                                         display: 'block',
                                         maxWidth: "100%",
                                         overflow: 'hidden',
                                         width: '100%',
+                                        objectFit: 'cover'
                                     }}
                                     src={step.imgPath}
                                     alt={step.label}
@@ -102,7 +105,8 @@ const Carousel = () => {
                                         left: "30%",
                                         transform: "translate(-50%,-50%)",
                                         textAlign: "center",
-                                        color: 'white',
+                                        color: 'black',
+                                        fontWeight: 700
 
                                     }}
                                     variant="h3" gutterBottom component="div">
@@ -114,7 +118,7 @@ const Carousel = () => {
                                     <Box
                                         sx={{
                                             display: { xs: 'none', sm: 'none', md: 'block' },
-                                            color: 'white'
+                                            color: 'black'
                                         }}
                                     >
                                         <Typography
@@ -137,15 +141,13 @@ const Carousel = () => {
                                     </Box>
                                 </ThemeProvider>
 
-
-
                                 <Button
                                     data-aos="fade-up"
                                     data-aos-anchor-placement="top-bottom"
                                     sx={{
                                         position: "absolute",
                                         top: "70%",
-                                        left: "40%",
+                                        left: "45%",
                                         transform: "translate(-50%,-50%)",
                                         fontSize: "16px",
                                         padding: "12px 24px",

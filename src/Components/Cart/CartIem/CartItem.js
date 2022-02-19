@@ -1,12 +1,11 @@
 
-import { Button, Card, CardActions, CardContent, CardMedia, Typography, } from '@mui/material';
+import { Button, CardActions, CardContent, CardMedia, Paper, Typography, } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 
 const CartItem = ({ item, handleEmptyCart, handleUpdateQuantity, handleRemoveFromCart }) => {
     return (
-        <Card sx={{ maxWidth: 345 }}>
-
+        <Paper elevation={3} sx={{ maxWidth: 345, p: 1 }}>
             <CardMedia
                 component="img"
                 height="260"
@@ -29,7 +28,7 @@ const CartItem = ({ item, handleEmptyCart, handleUpdateQuantity, handleRemoveFro
                 </Box>
                 <Button onClick={() => handleRemoveFromCart(item.id)} variant="contained" type="button" color="secondary">Remove</Button>
             </CardActions>
-        </Card>
+        </Paper>
     );
 };
 

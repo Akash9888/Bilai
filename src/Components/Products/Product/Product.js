@@ -1,22 +1,13 @@
 import React, { useState } from 'react';
-import { Box, Button, CardActions, CardContent, CardMedia, IconButton, Modal, Paper, Typography } from '@mui/material';
+import { Box, Button, CardActions, CardContent, CardMedia, Dialog, DialogActions, DialogTitle, IconButton, Paper, Slide, Typography, } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 import ButtonGroup from '@mui/material/ButtonGroup';
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: `calc(100vw - 200pxpx)`,
-    bgcolor: 'background.paper',
-    border: '2px solid #eee',
-    borderRadius: 1,
-    pt: 2,
-    px: 4,
-    pb: 3,
-};
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
+
 
 const Product = ({ product, onAddToCart }) => {
     const [open, setOpen] = useState(false);
@@ -24,11 +15,13 @@ const Product = ({ product, onAddToCart }) => {
     const handleOpen = () => {
         setOpen(true);
     };
-
+    // console.log(product.length);
     const handleClose = () => {
         setOpen(false);
     };
+
     return (
+
         <Paper elevation={3} sx={{ maxWidth: '100%' }}>
             <CardMedia
                 component="img"
@@ -54,22 +47,28 @@ const Product = ({ product, onAddToCart }) => {
                         <VisibilityIcon />
                     </IconButton>
                 </Button>
-                <IconButton aria-label="Add to Cart" onClick={() => onAddToCart(product.id, 1)}>
+                <IconButton aria-label="Add to Cart" onClick={() => {
+                    onAddToCart(product.id, 1);
+
+                }}>
                     <AddShoppingCart />
                 </IconButton>
             </CardActions>
-            <Modal
+            <Dialog
                 open={open}
+                TransitionComponent={Transition}
+                keepMounted
                 onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
+                aria-describedby="alert-dialog-slide-description"
             >
-                <Box sx={style}>
+                <DialogTitle>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         {product.name}
                     </Typography>
                     <Typography dangerouslySetInnerHTML={{ __html: product.description }} id="modal-modal-description" color="textSecondary" variant="body2" sx={{ mt: 2 }}>
                     </Typography>
+                </DialogTitle>
+                <DialogActions>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                         <Box>
                             <ButtonGroup
@@ -81,12 +80,14 @@ const Product = ({ product, onAddToCart }) => {
                                 <Button disabled={counter >= product['countInStock']} onClick={() => { setCounter(counter + 1) }}>+</Button>
                             </ButtonGroup>
                         </Box>
-                        <IconButton aria-label="Add to Cart" color="primary" onClick={() => onAddToCart(product.id, counter)}>
-                            <AddShoppingCart />
-                        </IconButton>
+                        <Box>
+                            <IconButton aria-label="Add to Cart" color="primary" onClick={() => onAddToCart(product.id, counter)}>
+                                <AddShoppingCart />
+                            </IconButton>
+                        </Box>
                     </Box>
-                </Box>
-            </Modal>
+                </DialogActions>
+            </Dialog>
         </Paper>
     );
 };
