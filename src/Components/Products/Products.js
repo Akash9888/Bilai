@@ -8,6 +8,7 @@ const Products = ({ products, onAddToCart }) => {
     return (
         <Box sx={{ backgroundColor: '' }}>
             <Container sx={{ mt: 4 }}>
+
                 <Grid container justify="center" spacing={4}>
                     {
                         products.map((product) => (

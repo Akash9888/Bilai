@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import {
     Box,
@@ -27,6 +28,18 @@ const style = {
     px: 4,
     pb: 3,
 };
+=======
+import React, { useState } from 'react';
+import { Box, Button, CardActions, CardContent, CardMedia, Dialog, DialogActions, DialogTitle, IconButton, Paper, Slide, Typography, } from '@mui/material';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
+import ButtonGroup from '@mui/material/ButtonGroup';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
+
+>>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a
 
 const Product = ({ product, onAddToCart }) => {
     const [open, setOpen] = useState(false);
@@ -34,12 +47,18 @@ const Product = ({ product, onAddToCart }) => {
     const handleOpen = () => {
         setOpen(true);
     };
-
+    // console.log(product.length);
     const handleClose = () => {
         setOpen(false);
     };
+
     return (
+<<<<<<< HEAD
         <Paper elevation={3} sx={{ maxWidth: "90%" }}>
+=======
+
+        <Paper elevation={3} sx={{ maxWidth: '100%' }}>
+>>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a
             <CardMedia
                 component="img"
                 alt={product.name}
@@ -70,15 +89,25 @@ const Product = ({ product, onAddToCart }) => {
                         <VisibilityIcon />
                     </IconButton>
                 </Button>
+<<<<<<< HEAD
                 <IconButton
                     aria-label="Add to Cart"
                     onClick={() => onAddToCart(product.id, 1)}>
+=======
+                <IconButton aria-label="Add to Cart" onClick={() => {
+                    onAddToCart(product.id, 1);
+
+                }}>
+>>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a
                     <AddShoppingCart />
                 </IconButton>
             </CardActions>
-            <Modal
+            <Dialog
                 open={open}
+                TransitionComponent={Transition}
+                keepMounted
                 onClose={handleClose}
+<<<<<<< HEAD
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description">
                 <Box sx={style}>
@@ -102,6 +131,19 @@ const Product = ({ product, onAddToCart }) => {
                             alignItems: "center",
                             justifyContent: "space-between",
                         }}>
+=======
+                aria-describedby="alert-dialog-slide-description"
+            >
+                <DialogTitle>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        {product.name}
+                    </Typography>
+                    <Typography dangerouslySetInnerHTML={{ __html: product.description }} id="modal-modal-description" color="textSecondary" variant="body2" sx={{ mt: 2 }}>
+                    </Typography>
+                </DialogTitle>
+                <DialogActions>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+>>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a
                         <Box>
                             <ButtonGroup
                                 variant="contained"
@@ -127,15 +169,23 @@ const Product = ({ product, onAddToCart }) => {
                                 </Button>
                             </ButtonGroup>
                         </Box>
+<<<<<<< HEAD
                         <IconButton
                             aria-label="Add to Cart"
                             color="primary"
                             onClick={() => onAddToCart(product.id, counter)}>
                             <AddShoppingCart />
                         </IconButton>
+=======
+                        <Box>
+                            <IconButton aria-label="Add to Cart" color="primary" onClick={() => onAddToCart(product.id, counter)}>
+                                <AddShoppingCart />
+                            </IconButton>
+                        </Box>
+>>>>>>> ab578e10c1bbed51548ed0ec9fa1977015e28c1a
                     </Box>
-                </Box>
-            </Modal>
+                </DialogActions>
+            </Dialog>
         </Paper>
     );
 };

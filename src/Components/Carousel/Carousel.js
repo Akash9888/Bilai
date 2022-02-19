@@ -98,12 +98,8 @@ const Carousel = () => {
                                         right: "10%",
                                         transform: "translate(-50%,-50%)",
                                         textAlign: "center",
-                                        color: "white",
-                                        // display: {
-                                        //     md: {
-                                        //         fontSize: "16px",
-                                        //     },
-                                        // },
+                                        color: "black",
+                                        fontWeight: 700,
                                     }}
                                     variant="h3"
                                     gutterBottom
@@ -154,9 +150,7 @@ const Carousel = () => {
                                     sx={{
                                         position: "absolute",
                                         top: "70%",
-                                        left: "42%",
-                                        right: "42%",
-                                        textAlign: "center",
+                                        left: "45%",
                                         transform: "translate(-50%,-50%)",
                                         fontSize: "16px",
                                         padding: "12px 24px",
