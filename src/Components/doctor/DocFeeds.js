@@ -4,21 +4,18 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { Container } from "@mui/material";
 import DocCard from "./DocCard";
-
+import DocProfile from "./DocProfile";
 
 const DocFeeds = () => {
-
     const [docList, setDocList] = useState([]);
     useEffect(() => {
         fetch("sample.json")
             .then((res) => res.json())
             .then((data) => {
-
                 setDocList(data);
             });
     }, []);
     return (
-
         <>
             <Container sx={{ mt: 3 }}>
                 <Box sx={{ flexGrow: 1 }}>
@@ -29,8 +26,8 @@ const DocFeeds = () => {
                     </Grid>
                 </Box>
             </Container>
+            <DocProfile />
         </>
-
     );
 };
 

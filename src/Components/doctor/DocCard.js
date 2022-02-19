@@ -14,9 +14,7 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
 const DocCard = (props) => {
-
     const { title, firstName, profileURL, specialisation } = props.doc;
-
 
     return (
         <Grid item xs={12} sm={6} md={4}>
@@ -28,7 +26,6 @@ const DocCard = (props) => {
                     sx={{}}
                     image={profileURL}
                 />
-
                 <Box textAlign="center">
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">

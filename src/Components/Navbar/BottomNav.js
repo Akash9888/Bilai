@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import image1 from "../photos/search.png";
+// import image1 from "../photos/search.png";
 import Badge from "@mui/material/Badge";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -146,7 +146,7 @@ const ResponsiveAppBar = ({ totalItems }) => {
         <Box>
             <AppBar position="static">
                 <Toolbar
-                    sx={{ backgroundColor: "#394366", color: "white" }}
+                    sx={{ backgroundColor: "#12B0E8", color: "white" }}
                     disableGutters>
                     <Box
                         sx={{
@@ -172,10 +172,9 @@ const ResponsiveAppBar = ({ totalItems }) => {
                                     md: "block",
                                     lg: "block",
                                     xl: "block",
-                                    ml: 2,
                                 },
                             }}
-                            src={image1}
+                            src="https://i.ibb.co/HFQPY4L/cat.png"
                             alt="Bilai | A True Compainion"
                         />
                     </Box>
@@ -247,7 +246,7 @@ const ResponsiveAppBar = ({ totalItems }) => {
                         <MenuItem
                             component={Link}
                             onClick={handleCloseNavMenu}
-                            to="">
+                            to="/adoption">
                             Adoptions
                         </MenuItem>
                         <MenuItem
@@ -293,7 +292,9 @@ const ResponsiveAppBar = ({ totalItems }) => {
                         </nav>
 
                         <nav>
-                            <Link to="medicine">
+                            <Link
+                                to="medicine"
+                                style={{ textDecoration: "none" }}>
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{
@@ -339,7 +340,9 @@ const ResponsiveAppBar = ({ totalItems }) => {
                             </Link>
                         </nav>
                         <nav>
-                            <Link to="adaptions">
+                            <Link
+                                to="adaptions"
+                                style={{ textDecoration: "none" }}>
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{
@@ -354,7 +357,9 @@ const ResponsiveAppBar = ({ totalItems }) => {
                         </nav>
 
                         <nav>
-                            <Link to="daycare">
+                            <Link
+                                to="daycare"
+                                style={{ textDecoration: "none" }}>
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{

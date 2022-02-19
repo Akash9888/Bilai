@@ -1,5 +1,12 @@
+import { Typography } from "@mui/material";
 import React from "react";
 
-export default function DocProfile() {
-    return <></>;
-}
+const DocProfile = () => {
+    return (
+        <div>
+            <Typography variant="">Doctor profile</Typography>
+        </div>
+    );
+};
+
+export default DocProfile;

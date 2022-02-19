@@ -1,0 +1,48 @@
+ [
+    {
+       " id": 1,
+        "catagory": "cat",
+       " tag": "Grooming",
+       " language": "english",
+        "title": "What to Expect at Your Dog’s Professional Grooming Appointment",
+        "description":
+            "While you might be able to bathe your dog at home when needed, a grooming appointment can save you time and get your dog ....",
+
+        "author": "Abid Hasan",
+        "date": "11-11-2011",
+       " authorPic":
+            "https://i.ibb.co/ZJjMcpx/PXL-20211201-122745748-PORTRAIT-2.jpg",
+        "blogPic":
+            "https://images.pexels.com/photos/2252311/pexels-photo-2252311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+        "id": 2,
+       " catagory": "Dog",
+       " tag": "Grooming",
+        "language": "english",
+        "title": "What to Expect at Your Dog’s Professional Grooming Appointment",
+        "description":
+            "While you might be able to bathe your dog at home when needed, a grooming appointment can save you time and get your dog squeaky clean and looking dapper. Some dogs require frequent and regular professional grooming due to their coat type, such as Poodles or Shih Tzus.",
+        "author": "Kamrul Hasan",
+       " date": "11-11-2011",
+        "authorPic":
+            "https://i.ibb.co/ZJjMcpx/PXL-20211201-122745748-PORTRAIT-2.jpg",
+       " blogPic":
+            "https://images.pexels.com/photos/4555468/pexels-photo-4555468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+        "id": 3,
+        "catagory": "cat",
+        "tag": "Safety",
+        "language": "english",
+        "title": "St. Patrick’s Day Pet Safety Tips",
+        "description":
+            "St. Patrick’s Day is full of fun and festivities. We love the traditions like beer, Irish soda bread, corned beef and cabbage, and shamrocks. Do you know which St. Patty’s Day treats can be dangerous for your dog or cat?",
+        "author": "Abid Hasan",
+       " date": "11-11-2011",
+        "authorPic":
+            "https://i.ibb.co/ZJjMcpx/PXL-20211201-122745748-PORTRAIT-2.jpg",
+        "blogPic":
+            "https://images.pexels.com/photos/1378849/pexels-photo-1378849.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    }
+]
