@@ -1,18 +1,15 @@
 import React from "react";
 import ReactPlayer from "react-player";
 
-import { Container } from "@mui/material";
+// import { Container } from "@mui/material";
 
 import DayCareService from "./DayCareService";
 import DayCarePackage from "./DayCarePackage";
-import FourZeroFour from "../ErorPage/FourZeroFour";
+// import FourZeroFour from "../ErorPage/FourZeroFour";
 import { Box, Container, Grid, Typography, Paper } from "@mui/material";
 import { experimentalStyled as styled } from "@mui/material/styles";
 
-import VideocamIcon from "@mui/icons-material/Videocam";
-import PetsIcon from "@mui/icons-material/Pets";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VaccinesIcon from "@mui/icons-material/Vaccines";
+
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,

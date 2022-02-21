@@ -9,36 +9,6 @@ import './shop.css';
 import useCart from '../../hooks/useCart';
 
 const Shop = ({ cart, products, setProducts, handleAddToCart, displayProdcuts, setDisplayProducts }) => {
-    // const [products, setProducts] = useState([]);
-    // const [cart, setCart] = useCart(products);
-    // const [displayProdcuts, setDisplayProducts] = useState([]);
-    // useEffect(() => {
-    //     fetch('./products.JSON')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setProducts(data);
-    //             setDisplayProducts(data);
-    //         })
-    // }, []);
-
-    // const handleAddToCart = (product) => {
-    //     const exists = cart.find(pd => pd.key === product.key);
-    //     let newCart = [];
-    //     if (exists) {
-    //         const rest = cart.filter(pd => pd.key !== product.key);
-    //         exists.quantity = exists.quantity + 1;
-    //         newCart = [...rest, product];
-    //     }
-    //     else {
-    //         product.quantity = 1;
-    //         newCart = [...cart, product];
-    //     }
-    //     setCart(newCart);
-    //     // save to local storage (for now)
-    //     addToDb(product.key);
-
-    // }
-
     const handleSearch = e => {
         const searchText = e.target.value;
         const matchedProducts = products.filter(product => product.name.toLowerCase().includes(searchText.toLowerCase()));
@@ -48,7 +18,6 @@ const Shop = ({ cart, products, setProducts, handleAddToCart, displayProdcuts, s
     };
     return (
         <Box sx={{ mt: 4 }}>
-
             <Box
                 sx={{
                     width: 800,
@@ -64,8 +33,6 @@ const Shop = ({ cart, products, setProducts, handleAddToCart, displayProdcuts, s
                     onChange={handleSearch}
                     id="fullWidth" />
             </Box>
-
-
             <div className='shop-container'>
                 <Container sx={{ mt: 1 }}>
                     <Grid container justify="center" spacing={1}>

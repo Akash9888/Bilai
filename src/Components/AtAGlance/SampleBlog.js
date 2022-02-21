@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 // const allTags = [...new Set(items.map((item) => item.tag))];
 const allTags = items.slice(0, 3);
-console.log(allTags);
+// console.log(allTags);
 const SampleBlog = () => {
     return (
         <Container sx={{ p: 3, mt: 5 }}>

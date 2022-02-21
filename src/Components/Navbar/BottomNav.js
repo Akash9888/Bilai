@@ -15,7 +15,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
+// import useAuth from "../hooks/useAuth";
 
 const ResponsiveAppBar = (props) => {
     const { user, logout } = useAuth();
@@ -130,7 +131,7 @@ const ResponsiveAppBar = (props) => {
         <Box>
             <AppBar position="static">
                 <Toolbar
-                    sx={{ backgroundColor: "#12B0E8", color: "white" }}
+                    sx={{ backgroundColor: "#1c6bb9", color: "white" }}
                     disableGutters>
                     <Box
                         sx={{

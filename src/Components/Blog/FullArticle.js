@@ -5,12 +5,12 @@ import { useParams } from "react-router";
 
 import items from "./BlogData";
 const allTags = [...new Set(items.map((item) => item))];
-console.log(allTags);
+// console.log(allTags);
 
 const FullArticle = () => {
     const { id } = useParams();
 
-    console.log(id);
+    // console.log(id);
     console.log(allTags[id].author);
 
     // console.log("items" + items[id]);
@@ -50,7 +50,8 @@ const FullArticle = () => {
                             maxHeight: "300px",
                             objectFit: "cover",
                         }}
-                        src={allTags[id].blogPic}></img>
+                        alt="author"
+                        src={allTags[id].blogPic} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
                     <Box sx={{ m: 1 }}>

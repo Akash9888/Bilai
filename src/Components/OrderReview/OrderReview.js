@@ -30,10 +30,47 @@ const OrderReview = () => {
     const [cart, setCart] = useCart(products);
     // console.log(cart);
     const handleRemove = key => {
-        // console.log(key);
         const newCart = cart.filter(product => product.key !== key);
         setCart(newCart);
         DeleteFromDb(key);
+    };
+    const handleIncreased = key => {
+
+        const retriveObject = JSON.parse(localStorage.getItem('shopping_cart'));
+
+        // console.log(retriveObject);
+
+        const keys = Object.keys(retriveObject);
+        // console.log(keys);
+        keys.forEach((item) => {
+            if (item === key) {
+                // retriveObject[key]
+                // console.log(retriveObject[key]);
+                retriveObject[key] = parseInt(retriveObject[key]) + 1;
+            }
+            localStorage.setItem('shopping_cart', JSON.stringify(retriveObject))
+        });
+        window.location.reload(true);
+    };
+    const handleReduce = key => {
+        const retriveObject = JSON.parse(localStorage.getItem('shopping_cart'));
+
+        // console.log(retriveObject);
+
+        const keys = Object.keys(retriveObject);
+
+
+        keys.forEach((item) => {
+            // if (retriveObject[key] === 0) {
+
+            // }
+            if (item === key) {
+
+                retriveObject[key] = parseInt(retriveObject[key]) - 1;
+            }
+            localStorage.setItem('shopping_cart', JSON.stringify(retriveObject))
+        });
+        window.location.reload(true);
     }
     return (
         <Container sx={{ mt: 2 }}>
@@ -44,7 +81,7 @@ const OrderReview = () => {
                             <TableCell>Imgage</TableCell>
                             <TableCell align="right">Name</TableCell>
                             <TableCell align="right">Quantity</TableCell>
-                            <TableCell align="right">Price</TableCell>
+                            <TableCell align="right">Unit Price</TableCell>
                             <TableCell align="right">Action</TableCell>
                         </TableRow>
                     </TableHead>
@@ -63,7 +100,7 @@ const OrderReview = () => {
                                     />
                                 </TableCell>
                                 <TableCell align="right">{row.name}</TableCell>
-                                <TableCell align="right">{row.quantity}</TableCell>
+                                <TableCell align="right"><Button disabled={row.quantity === 1} onClick={() => handleReduce(row.key)}>-</Button>{row.quantity}<Button onClick={() => handleIncreased(row.key)}>+</Button></TableCell>
                                 <TableCell align="right">{row.price}</TableCell>
                                 <TableCell align="right"><Button onClick={() => handleRemove(row.key)}>Remove</Button></TableCell>
                             </TableRow>
