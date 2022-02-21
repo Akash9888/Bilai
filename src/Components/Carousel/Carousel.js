@@ -12,6 +12,7 @@ import { autoPlay } from "react-swipeable-views-utils";
 import { createTheme, Typography, ThemeProvider } from "@mui/material";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const theme = createTheme();
@@ -150,28 +151,33 @@ const Carousel = () => {
                                     </Box>
                                 </ThemeProvider>
 
-                                <Button
-                                    data-aos="fade-up"
-                                    data-aos-anchor-placement="top-bottom"
-                                    sx={{
-                                        position: "absolute",
-                                        top: "70%",
+                                <Link
+                                    to="shop"
+                                    style={{ textDecoration: "none" }}>
+                                    {" "}
+                                    <Button
+                                        data-aos="fade-up"
+                                        data-aos-anchor-placement="top-bottom"
+                                        sx={{
+                                            position: "absolute",
+                                            top: "70%",
 
-                                        left: "42%",
-                                        right: "42%",
-                                        textAlign: "center",
+                                            left: "42%",
+                                            right: "42%",
+                                            textAlign: "center",
 
-                                        transform: "translate(-50%,-50%)",
-                                        fontSize: "16px",
-                                        padding: "12px 24px",
-                                        cursor: "pointer",
-                                        borderRadius: "10px",
-                                        textAlign: "center",
-                                        mt: 4,
-                                    }}
-                                    variant="contained">
-                                    Shop Now
-                                </Button>
+                                            transform: "translate(-50%,-50%)",
+                                            fontSize: "16px",
+                                            padding: "12px 24px",
+                                            cursor: "pointer",
+                                            borderRadius: "10px",
+                                            textAlign: "center",
+                                            mt: 4,
+                                        }}
+                                        variant="contained">
+                                        Shop Now
+                                    </Button>
+                                </Link>
                             </Box>
                         ) : null}
                     </div>
