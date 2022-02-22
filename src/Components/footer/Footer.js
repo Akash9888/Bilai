@@ -4,11 +4,12 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
 import { CardMedia, Typography } from "@mui/material";
-import Link from "@mui/material/Link";
+// import Link from "@mui/material/Link";
 import PetsIcon from "@mui/icons-material/Pets";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
+import { Link } from "react-router-dom";
 function Footer() {
     return (
         <Box sx={{ backgroundColor: "#4c5885", color: "white", mt: 4, p: 5 }}>
@@ -98,7 +99,7 @@ function Footer() {
                                 }}>
                                 <li>
                                     <Link
-                                        href="#"
+                                        to="aboutUs"
                                         style={{
                                             textDecoration: "none",
                                             color: "#ffffff",
@@ -108,7 +109,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href="#"
+                                        to="privacy"
                                         style={{
                                             textDecoration: "none",
                                             color: "#ffffff",
@@ -118,7 +119,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href="#"
+                                        to="term"
                                         style={{
                                             textDecoration: "none",
                                             color: "#ffffff",
@@ -128,7 +129,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href="#"
+                                        to="biling"
                                         style={{
                                             textDecoration: "none",
                                             color: "#ffffff",
@@ -138,7 +139,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href="#"
+                                        to="shipping"
                                         style={{
                                             textDecoration: "none",
                                             color: "#ffffff",
@@ -148,7 +149,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href="#"
+                                        to="return"
                                         style={{
                                             textDecoration: "none",
                                             color: "#ffffff",
@@ -158,7 +159,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href="#"
+                                        to="faqs"
                                         style={{
                                             textDecoration: "none",
                                             color: "#ffffff",
@@ -194,7 +195,7 @@ function Footer() {
                                 }}>
                                 <li>
                                     <Link
-                                        href="#"
+                                        to=""
                                         style={{
                                             textDecoration: "none",
                                             color: "#ffffff",
@@ -204,7 +205,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href="#"
+                                        to="shop"
                                         style={{
                                             textDecoration: "none",
                                             color: "#ffffff",
@@ -214,7 +215,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href="#"
+                                        to="doctor"
                                         style={{
                                             textDecoration: "none",
                                             color: "#ffffff",
@@ -224,7 +225,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href="#"
+                                        to="blogfeed"
                                         style={{
                                             textDecoration: "none",
                                             color: "#ffffff",
@@ -234,7 +235,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href="#"
+                                        to="daycare"
                                         style={{
                                             textDecoration: "none",
                                             color: "#ffffff",

@@ -34,6 +34,13 @@ import AddProduct from "./Components/Dashboard/AddProduct/AddProduct";
 import AddBlog from "./Components/Dashboard/AddBlog/AddBlog";
 import AllUser from "./Components/Dashboard/AllUser/AllUser";
 import DocProfile from "./Components/doctor/DocProfile";
+import About from "./Components/Policy/About";
+import FAQ from "./Components/Policy/Faq";
+import Biling from "./Components/Policy/Biling";
+import Privacy from "./Components/Policy/Privacy";
+import Return from "./Components/Policy/Return";
+import Shipping from "./Components/Policy/Shipping";
+import Term from "./Components/Policy/Term";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -150,8 +157,16 @@ const App = () => {
                         <Route path="/blogfeed" element={<BlogFeeds />} />
                         <Route path="/blogfeed/:id" element={<FullArticle />} />
                         <Route path="/daycare" element={<DayCare />} />
+                        <Route path="/aboutUs" element={<About />} />
+                        <Route path="/biling" element={<Biling />} />
+
+                        <Route path="/faqs" element={<FAQ />} />
+                        <Route path="/privacy" element={<Privacy />} />
+                        <Route path="/return" element={<Return />} />
+                        <Route path="/shipping" element={<Shipping />} />
+                        <Route path="/term" element={<Term />} />
                         {/* <Route path="*" element={<FourZeroFour />} /> */}
-                        <Route path="*" element={<DocProfile />} />
+                        <Route path="*" element={<AddDoctor />} />
                     </Routes>
                     <Footer />
                 </BrowserRouter>
