@@ -22,6 +22,7 @@ const AddProduct = () => {
                     <Grid item xs={6} sm={4} md={3} lg={2}>
                         <TextField
                             id="key"
+                            name="key"
                             type="number"
                             required
                             fullWidth
@@ -30,6 +31,7 @@ const AddProduct = () => {
                     <Grid item xs={6} sm={4} md={3} lg={2}>
                         <TextField
                             id="category"
+                            name="category"
                             type="text"
                             required
                             fullWidth
@@ -39,6 +41,7 @@ const AddProduct = () => {
                     <Grid item xs={6} sm={4} md={3} lg={3}>
                         <TextField
                             id="seller"
+                            name="seller"
                             type="text"
                             required
                             fullWidth
@@ -47,6 +50,7 @@ const AddProduct = () => {
                     <Grid item xs={6} sm={4} md={3} lg={2}>
                         <TextField
                             id="stock"
+                            name="stock"
                             type="number"
                             required
                             fullWidth
@@ -55,6 +59,7 @@ const AddProduct = () => {
                     <Grid item xs={6} sm={4} md={3} lg={3}>
                         <TextField
                             id="star"
+                            name="star"
                             type="number"
                             required
                             fullWidth
@@ -64,6 +69,7 @@ const AddProduct = () => {
                     <Grid item xs={6} sm={4} md={3} lg={2}>
                         <TextField
                             id="price"
+                            name="price"
                             type="number"
                             required
                             fullWidth
@@ -72,6 +78,7 @@ const AddProduct = () => {
                     <Grid item xs={6} sm={4} md={3} lg={2}>
                         <TextField
                             id="shipping"
+                            name="shipping"
                             type="number"
                             required
                             fullWidth
@@ -80,6 +87,7 @@ const AddProduct = () => {
                     <Grid item xs={6} sm={8} md={3} lg={8}>
                         <TextField
                             id="name"
+                            name="name"
                             type="text"
                             multiline
                             maxRows={2}
@@ -90,6 +98,7 @@ const AddProduct = () => {
                     <Grid item xs={12}>
                         <TextField
                             id="description"
+                            name="description"
                             type="text"
                             multiline
                             maxRows={5}

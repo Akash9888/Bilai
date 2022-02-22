@@ -21,6 +21,7 @@ const AddBlog = () => {
                         <TextField
                             id="id"
                             type="number"
+                            name="id"
                             required
                             fullWidth
                             label="Id"></TextField>
@@ -29,6 +30,7 @@ const AddBlog = () => {
                         <TextField
                             id="category"
                             type="text"
+                            name="category"
                             required
                             fullWidth
                             label="Category"></TextField>
@@ -37,6 +39,7 @@ const AddBlog = () => {
                         <TextField
                             id="tag"
                             type="text"
+                            name="tag"
                             required
                             fullWidth
                             label="Tag"></TextField>
@@ -45,6 +48,7 @@ const AddBlog = () => {
                         <TextField
                             id="date"
                             type="text"
+                            name="date"
                             required
                             fullWidth
                             label="Publish Date"></TextField>
@@ -54,6 +58,7 @@ const AddBlog = () => {
                         <TextField
                             id="author"
                             type="text"
+                            name="author"
                             required
                             fullWidth
                             label="Author Name"></TextField>
@@ -63,6 +68,7 @@ const AddBlog = () => {
                         <TextField
                             id="title"
                             type="text"
+                            name="title"
                             multiline
                             // maxRows={2}
                             required
@@ -73,6 +79,7 @@ const AddBlog = () => {
                         <TextField
                             id="description"
                             type="text"
+                            name="description"
                             multiline
                             maxRows={2}
                             required
@@ -82,6 +89,7 @@ const AddBlog = () => {
                     <Grid item xs={12}>
                         <TextField
                             id="block1"
+                            name="block1"
                             type="text"
                             multiline
                             maxRows={5}
@@ -92,6 +100,7 @@ const AddBlog = () => {
                     <Grid item xs={12}>
                         <TextField
                             id="block2"
+                            name="block2"
                             type="text"
                             multiline
                             maxRows={5}
@@ -102,6 +111,7 @@ const AddBlog = () => {
                     <Grid item xs={12}>
                         <TextField
                             id="block3"
+                            name="block3"
                             type="text"
                             multiline
                             maxRows={5}

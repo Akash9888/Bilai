@@ -20,6 +20,7 @@ const AddDoctor = () => {
                     <Grid item xs={4} sm={4} md={2}>
                         <TextField
                             id="id"
+                            name="id"
                             type="number"
                             required
                             fullWidth
@@ -28,6 +29,7 @@ const AddDoctor = () => {
                     <Grid item xs={8} sm={8} md={4}>
                         <TextField
                             id="registrationNumber"
+                            name="registrationNumber"
                             type="text"
                             required
                             fullWidth
@@ -37,6 +39,7 @@ const AddDoctor = () => {
                         <TextField
                             id="name"
                             type="text"
+                            name="name"
                             required
                             fullWidth
                             label="Doctor Name"></TextField>
@@ -44,6 +47,7 @@ const AddDoctor = () => {
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
                             id="qualification"
+                            name="qualification"
                             type="text"
                             required
                             fullWidth
@@ -54,6 +58,7 @@ const AddDoctor = () => {
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
                             id="designation"
+                            name="designation"
                             type="text"
                             required
                             fullWidth
@@ -64,6 +69,7 @@ const AddDoctor = () => {
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
                             id="expertise"
+                            name="expertise"
                             type="text"
                             required
                             fullWidth
@@ -74,6 +80,7 @@ const AddDoctor = () => {
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
                             id="organization"
+                            name="oraganization"
                             type="text"
                             required
                             fullWidth
@@ -84,6 +91,7 @@ const AddDoctor = () => {
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
                             id="address"
+                            name="address"
                             type="text"
                             required
                             fullWidth
@@ -95,6 +103,7 @@ const AddDoctor = () => {
                     <Grid item xs={12} sm={8} md={6}>
                         <TextField
                             id="visitHour"
+                            name="visitHour"
                             type="text"
                             required
                             fullWidth
@@ -104,6 +113,7 @@ const AddDoctor = () => {
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
                             id="phone"
+                            name="phone"
                             type="number"
                             required
                             fullWidth
@@ -112,6 +122,7 @@ const AddDoctor = () => {
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
                             id="email"
+                            name="email"
                             type="email"
                             required
                             fullWidth
