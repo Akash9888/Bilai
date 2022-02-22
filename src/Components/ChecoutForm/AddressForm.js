@@ -42,8 +42,8 @@ const AddressForm = ({ handleNext }) => {
         })
             .then(res => res.json())
             .then(result => {
-                // console.log(result);
-                if (result.insetedId) {
+                console.log(result);
+                if (result.insertedId) {
                     handleNext();
                 }
             })
@@ -151,8 +151,8 @@ const AddressForm = ({ handleNext }) => {
                     </Grid>
                 </Grid>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    <button type="submit" onClick={handleSubmit}>Submit</button>
                 </Box>
-                <button type="submit" onClick={handleSubmit}>Submit</button>
             </Box>
 
 

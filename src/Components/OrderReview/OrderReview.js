@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
 import Cart from '../Shop/Cart/Cart';
@@ -18,7 +18,12 @@ import { Link } from 'react-router-dom';
 const OrderReview = () => {
     const [products] = useProducts();
     const [cart, setCart] = useCart(products);
-
+    const [emptyCart, setEmptyCart] = useState(false);
+    // if (cart.length === 0) {
+    //     setEmptyCart(true);
+    // } else {
+    //     setEmptyCart(false);
+    // }
     const handleRemove = key => {
         const newCart = cart.filter(product => product.key !== key);
         setCart(newCart);
@@ -49,7 +54,9 @@ const OrderReview = () => {
         window.location.reload(true);
     }
     return (
+
         <Container sx={{ mt: 2 }}>
+
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
@@ -92,11 +99,14 @@ const OrderReview = () => {
                 <Cart cart={cart}></Cart>
 
             </Grid>
-            <Grid container justifyContent="flex-end">
-                <Link to="checkout" style={{ textDecoration: 'none' }}>
-                    <Button variant="contained">Proceed To Pay</Button>
-                </Link>
-            </Grid>
+            {
+                cart.length === 0 ? <p>Empty Cart</p> :
+                    <Grid container justifyContent="flex-end">
+                        <Link to="checkout" style={{ textDecoration: 'none' }}>
+                            <Button variant="contained">Proceed To Pay</Button>
+                        </Link>
+                    </Grid>
+            }
 
         </Container>
     );
