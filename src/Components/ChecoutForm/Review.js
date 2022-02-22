@@ -4,6 +4,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Grid from '@mui/material/Grid';
+import { Box, Button } from '@mui/material';
+import useProducts from '../../hooks/useProducts';
+import useCart from '../../hooks/useCart';
 
 const products = [
     {
@@ -36,15 +39,30 @@ const payments = [
     { name: 'Expiry date', detail: '04/2024' },
 ];
 const Review = () => {
+    const [products] = useProducts();
+    const [cart, setCart] = useCart(products);
+    let totalQuantity = 0;
+    let total = 0;
+    for (const product of cart) {
+        if (!product.quantity) {
+            product.quantity = 1;
+        }
+        total = total + product.price * product.quantity;
+        totalQuantity = totalQuantity + product.quantity;
+    }
+
+    const shipping = total > 0 ? 15 : 0;
+    const tax = (total + shipping) * 0.10;
+    const grandTotal = total + shipping + tax;
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
                 Order summary
             </Typography>
             <List disablePadding>
-                {products.map((product) => (
-                    <ListItem key={product.name} sx={{ py: 1, px: 0 }}>
-                        <ListItemText primary={product.name} secondary={product.desc} />
+                {cart.map((product) => (
+                    <ListItem key={product.key} sx={{ py: 1, px: 0 }}>
+                        <ListItemText primary={product.name} />
                         <Typography variant="body2">{product.price}</Typography>
                     </ListItem>
                 ))}
@@ -52,7 +70,13 @@ const Review = () => {
                 <ListItem sx={{ py: 1, px: 0 }}>
                     <ListItemText primary="Total" />
                     <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                        $34.06
+                        {total.toFixed(2)}
+                    </Typography>
+                </ListItem>
+                <ListItem sx={{ py: 1, px: 0 }}>
+                    <ListItemText primary="Grand Total" />
+                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                        {grandTotal.toFixed(2)}
                     </Typography>
                 </ListItem>
             </List>
@@ -82,6 +106,9 @@ const Review = () => {
                     </Grid>
                 </Grid>
             </Grid>
+            {/* <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Button sx={{ mt: 3, ml: 1 }} variant="contained">PLACE ORDER</Button>
+            </Box> */}
         </React.Fragment>
     );
 };

@@ -78,52 +78,49 @@ export default function CustomizedTables() {
         }
     }
     return (
-        <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            minHeight="100vh"
-        >
-            <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 700 }} aria-label="customized table">
-                    <TableHead>
-                        <TableRow>
-                            <StyledTableCell>Customer Name</StyledTableCell>
-                            <StyledTableCell align="right">Email</StyledTableCell>
-                            <StyledTableCell align="right">Phone</StyledTableCell>
-                            <StyledTableCell align="right">Time</StyledTableCell>
-                            <StyledTableCell align="right">Doctor Name</StyledTableCell>
-                            <StyledTableCell align="right">Date</StyledTableCell>
-                            <StyledTableCell align="right">Action</StyledTableCell>
-                            <StyledTableCell align="right">Delete</StyledTableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {appointments.map((row) => (
-                            <StyledTableRow key={row._id}>
-                                <StyledTableCell component="th" scope="row">
-                                    {row.name}
-                                </StyledTableCell>
-                                <StyledTableCell align="right">{row.email}</StyledTableCell>
-                                <StyledTableCell align="right">{row.phone}</StyledTableCell>
-                                <StyledTableCell align="right">{row.time}</StyledTableCell>
-                                <StyledTableCell align="right">{row.doctorName}</StyledTableCell>
-                                <StyledTableCell align="right">{row.date}</StyledTableCell>
-                                <StyledTableCell align="right">
-                                    {
-                                        row?.status === 'Approved' ? <p>Approved</p> :
-                                            <Button onClick={() => updateField(row._id)}>Approve</Button>
-                                    }
-                                </StyledTableCell>
-                                <StyledTableCell align="right">
-                                    <Button vaariant="outlined" color="error" onClick={() => hadleDelete(row._id)}>Delete</Button>
-                                </StyledTableCell>
-                            </StyledTableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </Box>
+        <Grid container justifyContent="center">
+            <Box sx={{ ml: 4, mt: 2 }}>
+                <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                        <TableHead>
+                            <TableRow>
+                                <StyledTableCell>Customer Name</StyledTableCell>
+                                <StyledTableCell align="right">Email</StyledTableCell>
+                                <StyledTableCell align="right">Phone</StyledTableCell>
+                                <StyledTableCell align="right">Time</StyledTableCell>
+                                <StyledTableCell align="right">Doctor Name</StyledTableCell>
+                                <StyledTableCell align="right">Date</StyledTableCell>
+                                <StyledTableCell align="right">Action</StyledTableCell>
+                                <StyledTableCell align="right">Delete</StyledTableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {appointments.map((row) => (
+                                <StyledTableRow key={row._id}>
+                                    <StyledTableCell component="th" scope="row">
+                                        {row.name}
+                                    </StyledTableCell>
+                                    <StyledTableCell align="right">{row.email}</StyledTableCell>
+                                    <StyledTableCell align="right">{row.phone}</StyledTableCell>
+                                    <StyledTableCell align="right">{row.time}</StyledTableCell>
+                                    <StyledTableCell align="right">{row.doctorName}</StyledTableCell>
+                                    <StyledTableCell align="right">{row.date}</StyledTableCell>
+                                    <StyledTableCell align="right">
+                                        {
+                                            row?.status === 'Approved' ? <p>Approved</p> :
+                                                <Button onClick={() => updateField(row._id)}>Approve</Button>
+                                        }
+                                    </StyledTableCell>
+                                    <StyledTableCell align="right">
+                                        <Button vaariant="outlined" color="error" onClick={() => hadleDelete(row._id)}>Delete</Button>
+                                    </StyledTableCell>
+                                </StyledTableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </Box>
+        </Grid>
 
 
 

@@ -22,7 +22,7 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import useAuth from '../../../hooks/useAuth';
 import AddCommentIcon from '@mui/icons-material/AddComment';
 import DensitySmallIcon from '@mui/icons-material/DensitySmall';
-
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -159,6 +159,26 @@ export default function Dashboard() {
                                 </Link>
                             </nav>
                             <nav>
+                                <Link to="addProduct" style={{ textDecoration: 'none' }}>
+                                    <ListItem button>
+                                        <ListItemIcon>
+                                            <ProductionQuantityLimitsIcon color="secondary" />
+                                        </ListItemIcon>
+                                        <ListItemText primary="ADD PRODUCT" />
+                                    </ListItem>
+                                </Link>
+                            </nav>
+                            <nav>
+                                <Link to="addBlog" style={{ textDecoration: 'none' }}>
+                                    <ListItem button>
+                                        <ListItemIcon>
+                                            <AddCommentIcon variant="outlined" color="secondary" />
+                                        </ListItemIcon>
+                                        <ListItemText primary="ADD BLOG" />
+                                    </ListItem>
+                                </Link>
+                            </nav>
+                            <nav>
                                 <Link to="allAppointment" style={{ textDecoration: 'none' }}>
                                     <ListItem button>
                                         <ListItemIcon>
@@ -172,7 +192,7 @@ export default function Dashboard() {
                                 <Link to="makeAdmin" style={{ textDecoration: 'none' }}>
                                     <ListItem button>
                                         <ListItemIcon>
-                                            <AdminPanelSettingsIcon />
+                                            <AdminPanelSettingsIcon variant="outlined" color="primary" />
                                         </ListItemIcon>
                                         <ListItemText primary="Make Admin" />
                                     </ListItem>

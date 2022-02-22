@@ -14,58 +14,34 @@ import { Button, CardMedia, Container, Grid } from '@mui/material';
 import { DeleteFromDb } from '../../utilities/fakeDb';
 import { Link } from 'react-router-dom';
 
-// function createData(name, calories, fat, carbs, protein) {
-//     return { name, calories, fat, carbs, protein };
-// }
 
-// const rows = [
-//     createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-//     createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-//     createData('Eclair', 262, 16.0, 24, 6.0),
-//     createData('Cupcake', 305, 3.7, 67, 4.3),
-//     createData('Gingerbread', 356, 16.0, 49, 3.9),
-// ];
 const OrderReview = () => {
     const [products] = useProducts();
     const [cart, setCart] = useCart(products);
-    // console.log(cart);
+
     const handleRemove = key => {
         const newCart = cart.filter(product => product.key !== key);
         setCart(newCart);
         DeleteFromDb(key);
     };
+
     const handleIncreased = key => {
-
         const retriveObject = JSON.parse(localStorage.getItem('shopping_cart'));
-
-        // console.log(retriveObject);
-
         const keys = Object.keys(retriveObject);
-        // console.log(keys);
         keys.forEach((item) => {
             if (item === key) {
-                // retriveObject[key]
-                // console.log(retriveObject[key]);
                 retriveObject[key] = parseInt(retriveObject[key]) + 1;
             }
             localStorage.setItem('shopping_cart', JSON.stringify(retriveObject))
         });
         window.location.reload(true);
     };
+
     const handleReduce = key => {
         const retriveObject = JSON.parse(localStorage.getItem('shopping_cart'));
-
-        // console.log(retriveObject);
-
         const keys = Object.keys(retriveObject);
-
-
         keys.forEach((item) => {
-            // if (retriveObject[key] === 0) {
-
-            // }
             if (item === key) {
-
                 retriveObject[key] = parseInt(retriveObject[key]) - 1;
             }
             localStorage.setItem('shopping_cart', JSON.stringify(retriveObject))

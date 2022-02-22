@@ -30,6 +30,8 @@ import useCart from "./hooks/useCart";
 import { addToDb } from "./utilities/fakeDb";
 import Footer from "./Components/footer/Footer";
 import FourZeroFour from "./Components/ErorPage/FourZeroFour";
+import AddProduct from "./Components/Dashboard/AddProduct/AddProduct";
+import AddBlog from "./Components/Dashboard/AddBlog/AddBlog";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -37,7 +39,7 @@ const App = () => {
     const [displayProdcuts, setDisplayProducts] = useState([]);
 
     useEffect(() => {
-        fetch("./products.JSON")
+        fetch('http://localhost:5000/products')
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data);
@@ -86,7 +88,11 @@ const App = () => {
 
                         <Route
                             path="/orderReview/checkout"
-                            element={<Checkout cart={cart} />}
+                            element={
+                                <PrivateRoute>
+                                    <Checkout cart={cart} setCart={setCart} />
+                                </PrivateRoute>
+                            }
                         />
 
                         <Route path="/daycare" element={<DayCare />} />
@@ -123,6 +129,22 @@ const App = () => {
                                 element={
                                     <AdminRoute>
                                         <MakeAdmin />
+                                    </AdminRoute>
+                                }
+                            />
+                            <Route
+                                path="addProduct"
+                                element={
+                                    <AdminRoute>
+                                        <AddProduct />
+                                    </AdminRoute>
+                                }
+                            />
+                            <Route
+                                path="addBlog"
+                                element={
+                                    <AdminRoute>
+                                        <AddBlog />
                                     </AdminRoute>
                                 }
                             />
