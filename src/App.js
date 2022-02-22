@@ -32,6 +32,8 @@ import Footer from "./Components/footer/Footer";
 import FourZeroFour from "./Components/ErorPage/FourZeroFour";
 import AddProduct from "./Components/Dashboard/AddProduct/AddProduct";
 import AddBlog from "./Components/Dashboard/AddBlog/AddBlog";
+import AllUser from "./Components/Dashboard/AllUser/AllUser";
+import DocProfile from "./Components/doctor/DocProfile";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -149,7 +151,7 @@ const App = () => {
                         <Route path="/blogfeed/:id" element={<FullArticle />} />
                         <Route path="/daycare" element={<DayCare />} />
                         {/* <Route path="*" element={<FourZeroFour />} /> */}
-                        <Route path="*" element={<AddProduct />} />
+                        <Route path="*" element={<DocProfile />} />
                     </Routes>
                     <Footer />
                 </BrowserRouter>

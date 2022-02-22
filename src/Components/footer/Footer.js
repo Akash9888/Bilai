@@ -437,7 +437,7 @@ function Footer() {
                 variant="subtitle2"
                 align="center"
                 style={{ marginTop: "20px" }}>
-                © Bilai All rights reserved.
+                2022 © Bilai All rights reserved.
             </Typography>
         </Box>
     );
