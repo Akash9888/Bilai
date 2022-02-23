@@ -26,8 +26,10 @@ import TestmonialCard from "./TestomonialCard.css";
 function TestomonialSlide(props) {
     return (
         <Container>
-            <Box sx={{ textAlign: "center", p: 3 }}>
-                <Typography variant="h4">What Our Client Say</Typography>
+            <Box sx={{ textAlign: "center", p: 2 }}>
+                <Typography variant="h4" sx={{ p: 2, color: "#757273" }}>
+                    What Our Client Say
+                </Typography>
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={12} md={3}>
                         <figure class="snip1139">

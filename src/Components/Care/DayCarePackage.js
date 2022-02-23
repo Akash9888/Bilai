@@ -13,10 +13,9 @@ const DayCarePackage = () => {
     return (
         <>
             <Typography
-                variant="h3"
-                color="initial"
+                variant="h4"
                 align="center"
-                sx={{ mt: 5 }}>
+                sx={{ mt: 5, color: "#757273" }}>
                 Our Packages
             </Typography>
             <Grid container spacing={1}>
@@ -35,7 +34,7 @@ const DayCarePackage = () => {
                             <Typography
                                 gutterBottom
                                 variant="h4"
-                                component="div">
+                                sx={{ color: "#4c5885" }}>
                                 Daily
                             </Typography>
                             <Typography variant="body2">
@@ -152,7 +151,8 @@ const DayCarePackage = () => {
                             <Typography
                                 gutterBottom
                                 variant="h4"
-                                component="div">
+                                component="div"
+                                sx={{ color: "#4c5885" }}>
                                 Weekly
                             </Typography>
                             <Typography variant="body2">
@@ -272,7 +272,8 @@ const DayCarePackage = () => {
                             <Typography
                                 gutterBottom
                                 variant="h4"
-                                component="div">
+                                component="div"
+                                sx={{ color: "#4c5885" }}>
                                 Monthly
                             </Typography>
                             <Typography variant="body2">
@@ -416,7 +417,8 @@ const DayCarePackage = () => {
                             <Typography
                                 gutterBottom
                                 variant="h4"
-                                component="div">
+                                component="div"
+                                sx={{ color: "#4c5885" }}>
                                 Yearly
                             </Typography>
                             <Typography variant="body2">

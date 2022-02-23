@@ -11,20 +11,22 @@ const allTags = items.slice(0, 3);
 console.log(allTags);
 const SampleBlog = () => {
     return (
-        <Container sx={{ p: 3, mt: 5 }}>
-            <Typography sx={{ textAlign: "center", mt: 3, mb: 3 }} variant="h5">
-                Read Pet Blog
+        <Container sx={{ p: 2 }}>
+            <Typography
+                variant="h4"
+                sx={{ textAlign: "center", p: 2, color: "#757273" }}>
+                Read Blog
             </Typography>
+            {/* <Grid container spacing={2}> */}
+            {/* <Grid item xs={12} sm={12} md={4}> */}
             <Grid container spacing={2}>
-                {/* <Grid item xs={12} sm={12} md={4}> */}
-                <Grid container spacing={2}>
-                    {allTags.map((blog, index) => (
-                        // console.log("index: " + index)
-                        <Blog key={blog.id} blog={blog} index={index}></Blog>
-                    ))}
-                </Grid>
-                {/* </Grid> */}
+                {allTags.map((blog, index) => (
+                    // console.log("index: " + index)
+                    <Blog key={blog.id} blog={blog} index={index}></Blog>
+                ))}
             </Grid>
+            {/* </Grid> */}
+            {/* </Grid> */}
 
             <Link to="blogfeed" style={{ textDecoration: "none" }}>
                 <Box sx={{ p: 3, textAlign: "center" }}>

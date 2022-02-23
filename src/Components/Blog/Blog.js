@@ -30,7 +30,13 @@ const Blog = ({ blog, index }) => {
     console.log(blog, index);
     return (
         <Grid item xs={12} sm={12} md={6} lg={4}>
-            <Card sx={{ maxWidth: 345, height: 450 }}>
+            <Card
+                sx={{
+                    maxWidth: 345,
+                    height: 450,
+                    // backgroundColor: "#fcfcfc",
+                    boxShadow: 4,
+                }}>
                 <CardHeader
                     avatar={<Avatar alt={author} src={authorPic} />}
                     title={author}
@@ -51,20 +57,14 @@ const Blog = ({ blog, index }) => {
                             color: "#FFFFFF",
                         }}
                     />
-                    {/* <Chip
-                        label="Pet"
-                        variant="outlined"
-                        size="small"
-                        sx={{
-                            marginLeft: "5px",
-                            backgroundColor: "#56CCF2",
-                            color: "#FFFFFF",
-                        }}
-                    /> */}
-                    <Typography gutterBottom variant="h5" component="div">
+
+                    <Typography
+                        gutterBottom
+                        variant="h5"
+                        sx={{ color: "#4c5885" }}>
                         {title.slice(0, 50)}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" sx={{ color: "#414042" }}>
                         {description.slice(0, 100)}
                     </Typography>
                 </CardContent>

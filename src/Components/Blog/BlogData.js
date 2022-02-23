@@ -20,6 +20,25 @@ export default [
     {
         id: 2,
         catagory: "cat",
+        tag: "Disease Prevention",
+        language: "english",
+        title: "Health & Dermatology",
+        description:
+            "We know how critical sight is to our everyday lives — but what about your cat? Do you need to worry about their vision? The short answer is yes! Cats can focus on small objects in the distance, making them great hunters and players. Preserving their vision helps them function in their environment comfortably and lets them do what comes naturally. ",
+        block1: "Cats can develop many of the same eye issues that people do, such as conjunctivitis (pink eye), cataracts, corneal ulcers, glaucoma, and more. Knowing how to recognize common eye issues and their symptoms will help you know when veterinary care is needed to help protect your cat’s vision and maintain their overall health. ",
+
+        block2: "Conjunctivitis occurs when the thin mucous membrane of the eye (conjunctiva) is inflamed. It’s more often caused by viral infections (feline herpesvirus type 1 or calicivirus) than bacterial infections. It can also be caused by environmental allergens or irritants such as dust, airborne chemicals, and plants.",
+        block3: "The symptoms of conjunctivitis in cats can be present in one or both eyes. Often, the third eyelid (the membrane located in the inner corner of your cat’s eye) is also affected. It can become red and swollen. Common symptoms of cat conjunctivitis include redness, swelling, discharge, pain, squinting, frequent blinking, and rubbing at the eye(s). Your cat scratching or rubbing their eyes due to the pain and discomfort can cause additional self-inflicted trauma. This can result in hemorrhage, systemic inflammation, and inflammation of the blood vessels.",
+        author: "Melody R. Conklin, VMD, MBA",
+        date: "15-01-2016",
+        authorPic:
+            "https://dt2n0xjvnpvnu.cloudfront.net/assets/product_images/img_author_melody-conklin.jpg",
+        blogPic:
+            "https://dt2n0xjvnpvnu.cloudfront.net/assets/product_images/common-cat-eye-problems-img_article-head.jpg",
+    },
+    {
+        id: 3,
+        catagory: "cat",
         tag: "Behaviour",
         language: "english",
         title: "Is My Cat Scowling at Me or Are They in Pain?",
@@ -37,7 +56,25 @@ export default [
             "https://dt2n0xjvnpvnu.cloudfront.net/assets/product_images/cat-scowling-pain-img_article-head.jpg",
     },
     {
-        id: 3,
+        id: 4,
+        catagory: "cat",
+        tag: "Health & Dermatology",
+        language: "english",
+        title: "All About Cat Bites & Abscesses",
+        description:
+            "It’s not uncommon for cats to “go a couple of rounds”, even if they’re usually best buds. But fighting cats can turn into biting cats, and those bites can easily get infected with bacteria and turn into skin infections and abscesses. Here’s what you need to know about cat bite abscesses and how to treat them.",
+        block1: "When one cat sinks their tiny razor-sharp teeth into another cat, they make a puncture wound that leaves bacteria from the mouth deep into the skin and muscles. The skin rapidly heals over, leaving the bacteria to multiply and infect the deeper tissues. The not-so-pretty result is often an abscess, which is an infected wound that can swell up, ooze pus and even burst. Abscesses are very painful for cats and can even cause a fever.",
+        block2: "If the cat is fighting with a cat that is infected with certain diseases, such as feline immunodeficiency virus, feline leukemia virus, rabies, or Bartonella, they are also at risk for getting those diseases.It’s not easy to find a bite wound or abscess under all that fur, and the early warning signs are subtle",
+        block3: "If you think your cat has a bite or an abscess, call your veterinarian’s office right away. The bite area needs to be examined and cleaned, and your cat might need antibiotics, pain medication, and/or possibly even surgery. Earlier veterinary treatment typically results in the best outcome for your cat.",
+        author: "Sharon L. Campbell, DVM, MS, DACVIM",
+        date: "13-02-2002",
+        authorPic:
+            "https://dt2n0xjvnpvnu.cloudfront.net/assets/product_images/img_author_sharon-campbell.jpg",
+        blogPic:
+            "https://dt2n0xjvnpvnu.cloudfront.net/assets/product_images/img_article-head_about-cat-bite-abscess.jpg",
+    },
+    {
+        id: 5,
         catagory: "cat",
         tag: "Behaviour",
         language: "english",
@@ -55,7 +92,7 @@ export default [
             "https://dt2n0xjvnpvnu.cloudfront.net/assets/product_images/img_article-inline-header_cats_in_pain-2.jpg",
     },
     {
-        id: 4,
+        id: 6,
         catagory: "cat",
         tag: "Disease Prevention",
         language: "english",
@@ -74,7 +111,7 @@ export default [
             "https://dt2n0xjvnpvnu.cloudfront.net/articles/blog/images/what-vaccines-do-cats-need-img_article-head.jpg",
     },
     {
-        id: 5,
+        id: 7,
         catagory: "cat",
         tag: "Disease Prevention",
         language: "english",
@@ -92,7 +129,7 @@ export default [
             "https://dt2n0xjvnpvnu.cloudfront.net/articles/blog/images/why-dog-risk-diseases-img_article-head.jpg",
     },
     {
-        id: 6,
+        id: 8,
         catagory: "cat",
         tag: "Disease Prevention",
         language: "english",
@@ -109,26 +146,9 @@ export default [
         blogPic:
             "https://dt2n0xjvnpvnu.cloudfront.net/assets/product_images/img-prepare-for-boarding-header.jpg",
     },
+
     {
-        id: 7,
-        catagory: "cat",
-        tag: "Health & Dermatology",
-        language: "english",
-        title: "All About Cat Bites & Abscesses",
-        description:
-            "It’s not uncommon for cats to “go a couple of rounds”, even if they’re usually best buds. But fighting cats can turn into biting cats, and those bites can easily get infected with bacteria and turn into skin infections and abscesses. Here’s what you need to know about cat bite abscesses and how to treat them.",
-        block1: "When one cat sinks their tiny razor-sharp teeth into another cat, they make a puncture wound that leaves bacteria from the mouth deep into the skin and muscles. The skin rapidly heals over, leaving the bacteria to multiply and infect the deeper tissues. The not-so-pretty result is often an abscess, which is an infected wound that can swell up, ooze pus and even burst. Abscesses are very painful for cats and can even cause a fever.",
-        block2: "If the cat is fighting with a cat that is infected with certain diseases, such as feline immunodeficiency virus, feline leukemia virus, rabies, or Bartonella, they are also at risk for getting those diseases.It’s not easy to find a bite wound or abscess under all that fur, and the early warning signs are subtle",
-        block3: "If you think your cat has a bite or an abscess, call your veterinarian’s office right away. The bite area needs to be examined and cleaned, and your cat might need antibiotics, pain medication, and/or possibly even surgery. Earlier veterinary treatment typically results in the best outcome for your cat.",
-        author: "Sharon L. Campbell, DVM, MS, DACVIM",
-        date: "13-02-2002",
-        authorPic:
-            "https://dt2n0xjvnpvnu.cloudfront.net/assets/product_images/img_author_sharon-campbell.jpg",
-        blogPic:
-            "https://dt2n0xjvnpvnu.cloudfront.net/assets/product_images/img_article-head_about-cat-bite-abscess.jpg",
-    },
-    {
-        id: 8,
+        id: 9,
         catagory: "cat",
         tag: "Health & Dermatology",
         language: "english",
@@ -144,24 +164,5 @@ export default [
             "https://dt2n0xjvnpvnu.cloudfront.net/assets/product_images/img_author_melody-conklin.jpg",
         blogPic:
             "https://dt2n0xjvnpvnu.cloudfront.net/articles/blog/images/how-to-treat-cat-conjunctivitis-img_article-head.jpg",
-    },
-    {
-        id: 9,
-        catagory: "cat",
-        tag: "Disease Prevention",
-        language: "english",
-        title: "Health & Dermatology",
-        description:
-            "We know how critical sight is to our everyday lives — but what about your cat? Do you need to worry about their vision? The short answer is yes! Cats can focus on small objects in the distance, making them great hunters and players. Preserving their vision helps them function in their environment comfortably and lets them do what comes naturally. ",
-        block1: "Cats can develop many of the same eye issues that people do, such as conjunctivitis (pink eye), cataracts, corneal ulcers, glaucoma, and more. Knowing how to recognize common eye issues and their symptoms will help you know when veterinary care is needed to help protect your cat’s vision and maintain their overall health. ",
-
-        block2: "Conjunctivitis occurs when the thin mucous membrane of the eye (conjunctiva) is inflamed. It’s more often caused by viral infections (feline herpesvirus type 1 or calicivirus) than bacterial infections. It can also be caused by environmental allergens or irritants such as dust, airborne chemicals, and plants.",
-        block3: "The symptoms of conjunctivitis in cats can be present in one or both eyes. Often, the third eyelid (the membrane located in the inner corner of your cat’s eye) is also affected. It can become red and swollen. Common symptoms of cat conjunctivitis include redness, swelling, discharge, pain, squinting, frequent blinking, and rubbing at the eye(s). Your cat scratching or rubbing their eyes due to the pain and discomfort can cause additional self-inflicted trauma. This can result in hemorrhage, systemic inflammation, and inflammation of the blood vessels.",
-        author: "Melody R. Conklin, VMD, MBA",
-        date: "15-01-2016",
-        authorPic:
-            "https://dt2n0xjvnpvnu.cloudfront.net/assets/product_images/img_author_melody-conklin.jpg",
-        blogPic:
-            "https://dt2n0xjvnpvnu.cloudfront.net/assets/product_images/common-cat-eye-problems-img_article-head.jpg",
     },
 ];

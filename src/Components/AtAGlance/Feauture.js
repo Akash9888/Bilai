@@ -4,14 +4,18 @@ import React from "react";
 
 const Feauture = () => {
     return (
-        <Box sx={{ p: 3, mt: 5 }}>
+        <Container sx={{ p: 3 }}>
+            <Typography
+                variant="h4"
+                sx={{ textAlign: "center", p: 3, color: "#757273" }}>
+                Our products
+            </Typography>
             <Grid container spacing={3}>
                 <Grid
                     item
                     xs={12}
-                    sm={6}
-                    md={4}
-                    lg={3}
+                    md={3}
+
                     // sx={{ backgroundColor: "#32633f" }}
                 >
                     <Grid
@@ -23,16 +27,16 @@ const Feauture = () => {
                             boxShadow: 2,
                             p: 1,
                         }}>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <img
-                                src="https://i.ibb.co/MG8h9Vv/pet-toy.png"
+                                src="https://i.ibb.co/LSgq2pk/pet-1.png"
                                 style={{ width: "100%", color: "red" }}
                                 alt="pet-toy"
                             />
                         </Grid>
-                        <Grid item xs={8}>
+                        <Grid item xs={9}>
                             <Typography
-                                variant="h4"
+                                variant="h5"
                                 sx={{
                                     color: "#4c5885",
                                     fontWeight: "bold",
@@ -40,8 +44,8 @@ const Feauture = () => {
                                 Pet Toys
                             </Typography>
                             <Typography variant="body2" sx={{ color: "gray" }}>
-                                foasjfovnoierjfowiev oirfoiwhvwf
-                                iehrijhevihfivhv hh
+                                We have a baeautiful collections of cllasy
+                                toys.Buy your favorite one.
                             </Typography>
                         </Grid>
                     </Grid>
@@ -49,9 +53,7 @@ const Feauture = () => {
                 <Grid
                     item
                     xs={12}
-                    sm={6}
-                    md={4}
-                    lg={3}
+                    md={3}
                     // sx={{ backgroundColor: "#32633f" }}
                 >
                     <Grid
@@ -63,16 +65,16 @@ const Feauture = () => {
                             boxShadow: 2,
                             p: 1,
                         }}>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <img
                                 src="https://i.ibb.co/4mNkWPj/pet-bowl.png"
                                 style={{ width: "100%" }}
                                 alt="pet-toy"
                             />
                         </Grid>
-                        <Grid item xs={8}>
+                        <Grid item xs={9}>
                             <Typography
-                                variant="h4"
+                                variant="h5"
                                 sx={{
                                     color: "#4c5885",
                                     fontWeight: "bold",
@@ -80,8 +82,8 @@ const Feauture = () => {
                                 Pet Foods
                             </Typography>
                             <Typography variant="body2" sx={{ color: "gray" }}>
-                                foasjfovnoierjfowiev oirfoiwhvwf
-                                iehrijhevihfivhv hh
+                                We have blast collections of both local and
+                                foreign Vet Food
                             </Typography>
                         </Grid>
                     </Grid>
@@ -89,9 +91,7 @@ const Feauture = () => {
                 <Grid
                     item
                     xs={12}
-                    sm={6}
-                    md={4}
-                    lg={3}
+                    md={3}
                     // sx={{ backgroundColor: "#32633f" }}
                 >
                     <Grid
@@ -103,25 +103,25 @@ const Feauture = () => {
                             boxShadow: 2,
                             p: 1,
                         }}>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <img
-                                src="https://i.ibb.co/YyX7FhW/stethoscope.png"
+                                src="https://i.ibb.co/s6v9PVK/medicine.png"
                                 style={{ width: "100%" }}
                                 alt="pet-toy"
                             />
                         </Grid>
-                        <Grid item xs={8}>
+                        <Grid item xs={9}>
                             <Typography
-                                variant="h4"
+                                variant="h5"
                                 sx={{
                                     color: "#4c5885",
                                     fontWeight: "bold",
                                 }}>
-                                Health Care
+                                Medicine
                             </Typography>
                             <Typography variant="body2" sx={{ color: "gray" }}>
-                                foasjfovnoierjfowiev oirfoiwhvwf
-                                iehrijhevihfivhv hh
+                                We have blast collections of both local and
+                                foreign Vet Medicine
                             </Typography>
                         </Grid>
                     </Grid>
@@ -129,9 +129,7 @@ const Feauture = () => {
                 <Grid
                     item
                     xs={12}
-                    sm={6}
-                    md={4}
-                    lg={3}
+                    md={3}
                     // sx={{ backgroundColor: "#32633f" }}
                 >
                     <Grid
@@ -143,31 +141,31 @@ const Feauture = () => {
                             boxShadow: 2,
                             p: 1,
                         }}>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <img
-                                src="https://i.ibb.co/sWbQr1V/pet-love.png"
+                                src="https://i.ibb.co/mCksBdP/pet.png"
                                 style={{ width: "100%" }}
                                 alt="pet-toy"
                             />
                         </Grid>
-                        <Grid item xs={8}>
+                        <Grid item xs={9}>
                             <Typography
-                                variant="h4"
+                                variant="h5"
                                 sx={{
                                     color: "#4c5885",
                                     fontWeight: "bold",
                                 }}>
-                                Pet Blog
+                                Pet
                             </Typography>
                             <Typography variant="body2" sx={{ color: "gray" }}>
-                                foasjfovnoierjfowiev oirfoiwhvwf
-                                iehrijhevihfivhv hh
+                                We are selling different types of pets. Pick
+                                your favorite one.
                             </Typography>
                         </Grid>
                     </Grid>
                 </Grid>
             </Grid>
-        </Box>
+        </Container>
     );
 };
 

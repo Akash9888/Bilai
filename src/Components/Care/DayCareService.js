@@ -14,7 +14,11 @@ const DayCareService = () => {
             </Typography>
             <Typography
                 variant="h4"
-                sx={{ fontSize: "calc(4.45vw - 0.5rem).2rem", mb: 3 }}
+                sx={{
+                    // fontSize: "calc(4.45vw - 0.5rem).2rem",
+                    mb: 3,
+                    color: "#757273",
+                }}
                 color="initial"
                 align="center">
                 Quality, Integrity, Compassion & Service
@@ -30,7 +34,7 @@ const DayCareService = () => {
                             borderRadius: 2,
                             p: 1,
                         }}>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <img
                                 width="100%"
                                 height="100px"
@@ -39,8 +43,8 @@ const DayCareService = () => {
                                 border="0"
                             />
                         </Grid>
-                        <Grid item xs={8}>
-                            <Typography variant="h5">
+                        <Grid item xs={9}>
+                            <Typography variant="h5" sx={{ color: "#4c5885" }}>
                                 Medical Service
                             </Typography>
                             <Typography
@@ -63,7 +67,7 @@ const DayCareService = () => {
                             borderRadius: 2,
                             p: 1,
                         }}>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <img
                                 width="100%"
                                 height="100px"
@@ -72,8 +76,10 @@ const DayCareService = () => {
                                 border="0"
                             />
                         </Grid>
-                        <Grid item xs={8}>
-                            <Typography variant="h5">Spa Center</Typography>
+                        <Grid item xs={9}>
+                            <Typography variant="h5" sx={{ color: "#4c5885" }}>
+                                Spa Center
+                            </Typography>
                             <Typography
                                 variant="subtitle2"
                                 color="text.secondary">
@@ -94,7 +100,7 @@ const DayCareService = () => {
                             borderRadius: 2,
                             p: 1,
                         }}>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <img
                                 width="100%"
                                 height="100px"
@@ -103,8 +109,10 @@ const DayCareService = () => {
                                 border="0"
                             />
                         </Grid>
-                        <Grid item xs={8}>
-                            <Typography variant="h5">WEBCAMS</Typography>
+                        <Grid item xs={9}>
+                            <Typography variant="h5" sx={{ color: "#4c5885" }}>
+                                WEBCAMS
+                            </Typography>
                             <Typography
                                 variant="subtitle2"
                                 color="text.secondary">
@@ -125,7 +133,7 @@ const DayCareService = () => {
                             borderRadius: 2,
                             p: 1,
                         }}>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <img
                                 width="100%"
                                 height="100px"
@@ -134,8 +142,10 @@ const DayCareService = () => {
                                 border="0"
                             />
                         </Grid>
-                        <Grid item xs={8}>
-                            <Typography variant="h5">Playing Zone</Typography>
+                        <Grid item xs={9}>
+                            <Typography variant="h5" sx={{ color: "#4c5885" }}>
+                                Playing Zone
+                            </Typography>
                             <Typography
                                 variant="subtitle2"
                                 color="text.secondary">
@@ -156,7 +166,7 @@ const DayCareService = () => {
                             borderRadius: 2,
                             p: 1,
                         }}>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <img
                                 width="100%"
                                 height="100px"
@@ -165,8 +175,10 @@ const DayCareService = () => {
                                 border="0"
                             />
                         </Grid>
-                        <Grid item xs={8}>
-                            <Typography variant="h5">Healthy Meal</Typography>
+                        <Grid item xs={9}>
+                            <Typography variant="h5" sx={{ color: "#4c5885" }}>
+                                Healthy Meal
+                            </Typography>
                             <Typography
                                 variant="subtitle2"
                                 color="text.secondary">
@@ -187,7 +199,7 @@ const DayCareService = () => {
                             borderRadius: 2,
                             p: 1,
                         }}>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <img
                                 width="100%"
                                 height="100px"
@@ -196,8 +208,8 @@ const DayCareService = () => {
                                 border="0"
                             />
                         </Grid>
-                        <Grid item xs={8}>
-                            <Typography variant="h5">
+                        <Grid item xs={9}>
+                            <Typography variant="h5" sx={{ color: "#4c5885" }}>
                                 Behavior Training
                             </Typography>
                             <Typography
