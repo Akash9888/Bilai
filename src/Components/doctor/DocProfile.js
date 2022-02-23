@@ -1,14 +1,35 @@
 import { Button, Chip, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Doctors from "./DocList";
+
+console.log(Doctors);
 
 const DocProfile = () => {
+    const { id } = useParams();
+    console.log(id);
+    const {
+        name,
+        imgUrl,
+        experience,
+        registrationNumber,
+        qualification,
+        designation,
+        expertise,
+        organization,
+        address,
+        visitHour,
+        phone,
+        email,
+    } = Doctors[id];
+
     return (
         <Container sx={{ p: 3 }}>
             <Grid container spacing={5}>
                 <Grid item xs={12} md={5}>
                     <img
-                        src="https://i.ibb.co/ZJjMcpx/PXL-20211201-122745748-PORTRAIT-2.jpg"
+                        src={imgUrl}
                         alt="PXL-20211201-122745748-PORTRAIT-2"
                         style={{
                             padding: "1px",
@@ -23,21 +44,20 @@ const DocProfile = () => {
                     <Box sx={{ p: 1 }}>
                         <Typography variant="h5">PROFILE</Typography>
                         <Typography variant="h4" sx={{ color: "#6e79f0" }}>
-                            Dr. Arifur Rabbi
+                            {name}
                         </Typography>
 
                         <Typography variant="h6" sx={{ color: "#7d7d80" }}>
-                            DVM, MS (Bangladesh Agricultural University,
-                            Mymensingh)
+                            {qualification}
                         </Typography>
                         <Typography variant="h6" sx={{ color: "#7d7d80" }}>
-                            Pet Animal Practitioner
+                            {designation}
                         </Typography>
                         <Typography variant="h6" sx={{ color: "#7d7d80" }}>
-                            The Pet Vet BD
+                            {organization}
                         </Typography>
                         <Typography variant="h6" sx={{ color: "#7d7d80" }}>
-                            BVA Reg. 2107
+                            {registrationNumber}
                         </Typography>
                     </Box>
                     <Box
@@ -53,7 +73,7 @@ const DocProfile = () => {
                         <Typography
                             variant="h6"
                             sx={{ color: "#7d7d80", ml: 2 }}>
-                            12 years
+                            {experience}
                         </Typography>
                     </Box>
                     <Box
@@ -103,8 +123,7 @@ const DocProfile = () => {
                             <Typography
                                 variant="h6"
                                 sx={{ color: "#7d7d80", ml: 2 }}>
-                                Ta 173/2 Lake view road, Godara ghat to
-                                Hatirjheel Road, Dhaka 1212
+                                {address}
                             </Typography>
                         </Box>
                         <Box
@@ -122,7 +141,7 @@ const DocProfile = () => {
                             <Typography
                                 variant="h6"
                                 sx={{ color: "#7d7d80", ml: 2 }}>
-                                7.30PM to 10.00PM
+                                {visitHour}
                             </Typography>
                         </Box>
                         <Box
@@ -138,7 +157,7 @@ const DocProfile = () => {
                             <Typography
                                 variant="h6"
                                 sx={{ color: "#7d7d80", ml: 2 }}>
-                                akash@gmail.com
+                                {email}
                             </Typography>
                         </Box>
                     </Box>

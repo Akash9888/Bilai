@@ -41,6 +41,7 @@ import Privacy from "./Components/Policy/Privacy";
 import Return from "./Components/Policy/Return";
 import Shipping from "./Components/Policy/Shipping";
 import Term from "./Components/Policy/Term";
+import UserProfile from "./Components/UserProfile/UserProfile";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -159,6 +160,10 @@ const App = () => {
                         <Route path="/daycare" element={<DayCare />} />
                         <Route path="/aboutUs" element={<About />} />
                         <Route path="/biling" element={<Biling />} />
+                        <Route
+                            path="/doctorProfile/:id"
+                            element={<DocProfile />}
+                        />
 
                         <Route path="/faqs" element={<FAQ />} />
                         <Route path="/privacy" element={<Privacy />} />
@@ -166,7 +171,7 @@ const App = () => {
                         <Route path="/shipping" element={<Shipping />} />
                         <Route path="/term" element={<Term />} />
                         {/* <Route path="*" element={<FourZeroFour />} /> */}
-                        <Route path="*" element={<AddDoctor />} />
+                        <Route path="*" element={<UserProfile />} />
                     </Routes>
                     <Footer />
                 </BrowserRouter>

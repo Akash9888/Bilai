@@ -4,7 +4,8 @@
 	"registrationNumber": "BVC Reg. 2107",
 	
 	"name": "Dr. Arifur Rabbi",
-	
+	"imgUrl": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+
 	"qualification": "DVM, MS (Bangladesh Agricultural University, Mymensingh)",
 	"designation": "Veterinary Doctor",
 	"expertise": "Pet Animal Practitioner",
@@ -19,7 +20,7 @@
 	"registrationNumber": "BVA Reg. 1674",
 	
 	"name": " Dr. Sagir Uddin Ahmed",
-	
+	"imgUrl": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 	"qualification": "DVM, MS Vet Science, PhD",
 	"designation": "Pet Doctor, Veterinary Surgeon",
 	"expertise": "Small Animal Veterinary Surgeon",
@@ -33,6 +34,8 @@
 	"registrationNumber": "BVA Reg. 1126",
 	
 	"name": "Dr. Md. Mahbubul Alam Bhuiyan",
+	
+	
 	
 	"qualification": "DVM, MS (Sylhet Agricultural University)",
 	"designation": "Veterinary Doctor",

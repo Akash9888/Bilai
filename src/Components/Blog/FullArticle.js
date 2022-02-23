@@ -4,32 +4,14 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router";
 
 import items from "./BlogData";
-const allTags = [...new Set(items.map((item) => item))];
-console.log(allTags);
+// const allTags = [...new Set(items.map((item) => item))];
+// console.log(allTags);
 
 const FullArticle = () => {
     const { id } = useParams();
-
+    const allTags = [...new Set(items.map((item) => item))];
     console.log(id);
     console.log(allTags[id].author);
-
-    // console.log("items" + items[id]);
-    // console.log("types" + typeof items[id]);
-    // // let val = Object.entries(items[id]);
-    // console.log(Object.entries(items[id]));
-    // Object.entries(items[id]).map((val) => {
-    //     console.log("type of val " + typeof val);
-    // });
-
-    // useEffect(() => {
-    //     fetch("/blog.json")
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             // const filter = data.find((d) => d.id === id);
-    //             const lookup = (id) => data.find((d) => d.id == id);
-    //             console.log("lookup" + lookup);
-    //         });
-    // }, []);
 
     return (
         <>

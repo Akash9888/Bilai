@@ -15,9 +15,11 @@ import Paper from "@mui/material/Paper";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import BookmarksOutlinedIcon from "@mui/icons-material/BookmarksOutlined";
 import BookingModal from "../Appointment/Appointment/BookingModal/BookingModal";
+import { Link } from "react-router-dom";
 
 const DocCard = (props) => {
-    const { title, firstName, profileURL, specialisation } = props.doc;
+    console.log("props", props);
+    const { name, address, specialisation, imgUrl } = props.doc;
     const [openBooking, setBookingOpen] = React.useState(false);
     // const [bookingSuccess, setBookingSuccess] = useState(false);
     const handleBookingOpen = () => setBookingOpen(true);
@@ -33,7 +35,7 @@ const DocCard = (props) => {
                         <Avatar
                             sx={{ width: 100, height: 100 }}
                             alt="Remy Sharp"
-                            src={profileURL}
+                            src={imgUrl}
                         />
                     </Box>
                     <Box textAlign="center">
@@ -42,7 +44,7 @@ const DocCard = (props) => {
                                 gutterBottom
                                 variant="h5"
                                 component="div">
-                                {firstName}
+                                {name}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
                                 {specialisation}
@@ -51,16 +53,20 @@ const DocCard = (props) => {
                                 <IconButton>
                                     <LocationOnIcon />
                                 </IconButton>
-                                Shibgong, Sylhet
+                                {address}
                             </Typography>
                         </CardContent>
                         <Box sx={{ mb: 2 }}>
-                            <Button
-                                size="small"
-                                variant="contained"
-                                endIcon={<PermIdentityIcon />}>
-                                View Profile
-                            </Button>
+                            <Link
+                                style={{ textDecoration: "none" }}
+                                to={`/doctorProfile/${props.index}`}>
+                                <Button
+                                    size="small"
+                                    variant="contained"
+                                    endIcon={<PermIdentityIcon />}>
+                                    View Profile
+                                </Button>
+                            </Link>
                             <Button
                                 sx={{
                                     marginLeft: 2,
@@ -79,7 +85,7 @@ const DocCard = (props) => {
                 date={props.date}
                 booking={props.doc}
                 openBooking={openBooking}
-                firstName={firstName}
+                firstName={name}
                 handleBookingClose={handleBookingClose}
                 setBookingSuccess={props.setBookingSuccess}></BookingModal>
         </>

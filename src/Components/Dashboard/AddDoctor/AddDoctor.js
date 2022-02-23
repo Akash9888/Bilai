@@ -26,6 +26,7 @@ const AddDoctor = () => {
                             fullWidth
                             label="Id"></TextField>
                     </Grid>
+
                     <Grid item xs={8} sm={8} md={4}>
                         <TextField
                             id="registrationNumber"
@@ -43,6 +44,15 @@ const AddDoctor = () => {
                             required
                             fullWidth
                             label="Doctor Name"></TextField>
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={6}>
+                        <TextField
+                            id="experience"
+                            type="text"
+                            name="experience"
+                            required
+                            fullWidth
+                            label="Experience"></TextField>
                     </Grid>
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
