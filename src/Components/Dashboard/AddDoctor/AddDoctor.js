@@ -26,7 +26,6 @@ const AddDoctor = () => {
                             fullWidth
                             label="Id"></TextField>
                     </Grid>
-
                     <Grid item xs={8} sm={8} md={4}>
                         <TextField
                             id="registrationNumber"

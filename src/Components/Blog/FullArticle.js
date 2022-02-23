@@ -32,7 +32,8 @@ const FullArticle = () => {
                             maxHeight: "300px",
                             objectFit: "cover",
                         }}
-                        src={allTags[id].blogPic}></img>
+                        alt="author"
+                        src={allTags[id].blogPic} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
                     <Box sx={{ m: 1 }}>

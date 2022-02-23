@@ -42,6 +42,7 @@ import Return from "./Components/Policy/Return";
 import Shipping from "./Components/Policy/Shipping";
 import Term from "./Components/Policy/Term";
 import UserProfile from "./Components/UserProfile/UserProfile";
+import Success from "./Components/Success/Success";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -49,7 +50,7 @@ const App = () => {
     const [displayProdcuts, setDisplayProducts] = useState([]);
 
     useEffect(() => {
-        fetch("./products.JSON")
+        fetch('http://localhost:5000/products')
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data);
@@ -98,7 +99,11 @@ const App = () => {
 
                         <Route
                             path="/orderReview/checkout"
-                            element={<Checkout cart={cart} />}
+                            element={
+                                <PrivateRoute>
+                                    <Checkout cart={cart} setCart={setCart} />
+                                </PrivateRoute>
+                            }
                         />
 
                         <Route path="/daycare" element={<DayCare />} />
@@ -139,6 +144,22 @@ const App = () => {
                                 }
                             />
                             <Route
+                                path="addProduct"
+                                element={
+                                    <AdminRoute>
+                                        <AddProduct />
+                                    </AdminRoute>
+                                }
+                            />
+                            <Route
+                                path="addBlog"
+                                element={
+                                    <AdminRoute>
+                                        <AddBlog />
+                                    </AdminRoute>
+                                }
+                            />
+                            <Route
                                 path="allAppointment"
                                 element={
                                     <AdminRoute>
@@ -171,7 +192,9 @@ const App = () => {
                         <Route path="/shipping" element={<Shipping />} />
                         <Route path="/term" element={<Term />} />
                         {/* <Route path="*" element={<FourZeroFour />} /> */}
-                        <Route path="*" element={<UserProfile />} />
+                        {/* <Route path="*" element={<UserProfile />} /> */}
+                        <Route path="/success" element={<Success />} />
+                        <Route path="*" element={<FourZeroFour />} />
                     </Routes>
                     <Footer />
                 </BrowserRouter>

@@ -10,9 +10,15 @@ import MyLocationIcon from "@mui/icons-material/MyLocation";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 function Footer() {
+    const location = useLocation();
+    if (location.pathname.includes('/dashboard')) return null;
     return (
-        <Box sx={{ backgroundColor: "#4c5885", color: "white", mt: 4, p: 5 }}>
+        <Box sx={{
+            backgroundColor: "#4c5885", color: "white", mt: 4, p: 5,
+            maxWidth: '100%'
+        }}>
             <Container>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={0}>
@@ -22,7 +28,7 @@ function Footer() {
                             sm={12}
                             md={4}
                             lg={3}
-                            // style={{ backgroundColor: "#4a4444" }}
+                        // style={{ backgroundColor: "#4a4444" }}
                         >
                             <Typography
                                 variant="h6"
@@ -81,7 +87,7 @@ function Footer() {
                             sm={12}
                             md={4}
                             lg={2}
-                            // style={{ backgroundColor: "#e68c8c" }}
+                        // style={{ backgroundColor: "#e68c8c" }}
                         >
                             <Typography
                                 variant="h6"
@@ -177,7 +183,7 @@ function Footer() {
                             sm={12}
                             md={4}
                             lg={2}
-                            // style={{ backgroundColor: "#34e1eb" }}
+                        // style={{ backgroundColor: "#34e1eb" }}
                         >
                             <Typography
                                 variant="h6"
@@ -252,7 +258,7 @@ function Footer() {
                             sm={12}
                             md={4}
                             lg={2}
-                            // style={{ backgroundColor: "#e68c8c" }}
+                        // style={{ backgroundColor: "#e68c8c" }}
                         >
                             <Typography
                                 variant="h6"
@@ -295,7 +301,7 @@ function Footer() {
                             sm={12}
                             md={4}
                             lg={3}
-                            // style={{ backgroundColor: "#360516" }}
+                        // style={{ backgroundColor: "#360516" }}
                         >
                             <Typography
                                 variant="h6"

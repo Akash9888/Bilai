@@ -1,5 +1,6 @@
 [
 	{
+<<<<<<< HEAD
 	"id": "1",
 	"registrationNumber": "BVC Reg. 2107",
 	
@@ -61,4 +62,73 @@
 	"email": "drrasid@gmail.com"
 }
 
+=======
+		"id": "1",
+		"title": "Mr.",
+		"gender": "male",
+		"firstName": "Shah Abidur Rahman",
+		"email": "test@test.com",
+		"mobile": "9xxxxxxxx",
+		"dob": "1976-12-15",
+		"profileURL": "https://i.ibb.co/tLp6Fy1/pexels-chloe-1043474.jpg",
+		"profileDesc": "Dr Prathamesh Kulkarni belives that once you start being more aware of your thoughts and actions, you will start appreciating life in a new way. This is why he specializes in depression, mood disorders, sexual disorders and anxiety disorders, because he feels that every person is capable of bringing about a change from within. His process is supportive, but aimed at direct interaction to help the patient bring about a visible change in himself or herself.",
+		"specialisation": "DERMATOLOGY",
+		"license": [
+			"Registration No. MMC 2009093394, Medical Council of India 09/33958",
+			"2006113358 Maharashtra Medical Council, 2006"
+		],
+		"rating": 4.3
+	},
+	{
+		"id": "2",
+		"title": "Mr.",
+		"gender": "male",
+		"firstName": "Sumit Datta",
+		"email": "test@test.com",
+		"mobile": "9xxxxxxxx",
+		"dob": "1976-12-15",
+		"profileURL": "https://i.ibb.co/82Cq9vL/pexels-nathan-cowley-1300402-1.jpg",
+		"profileDesc": "Dr Prathamesh Kulkarni belives that once you start being more aware of your thoughts and actions, you will start appreciating life in a new way. This is why he specializes in depression, mood disorders, sexual disorders and anxiety disorders, because he feels that every person is capable of bringing about a change from within. His process is supportive, but aimed at direct interaction to help the patient bring about a visible change in himself or herself.",
+		"specialisation": "OPHTHALMOLOGY",
+		"license": [
+			"Registration No. MMC 2009093394, Medical Council of India 09/33958",
+			"2006113358 Maharashtra Medical Council, 2006"
+		],
+		"rating": 4.3
+	},
+	{
+		"id": "3",
+		"title": "Mr.",
+		"gender": "male",
+		"firstName": "Kamrul Hasan Juel",
+		"email": "test@test.com",
+		"mobile": "9xxxxxxxx",
+		"dob": "1976-12-15",
+		"profileURL": "https://i.ibb.co/cYJvqTc/pexels-pixabay-220453.jpg",
+		"profileDesc": "Dr Prathamesh Kulkarni belives that once you start being more aware of your thoughts and actions, you will start appreciating life in a new way. This is why he specializes in depression, mood disorders, sexual disorders and anxiety disorders, because he feels that every person is capable of bringing about a change from within. His process is supportive, but aimed at direct interaction to help the patient bring about a visible change in himself or herself.",
+		"specialisation": "INTERNAL MEDICINE",
+		"license": [
+			"Registration No. MMC 2009093394, Medical Council of India 09/33958",
+			"2006113358 Maharashtra Medical Council, 2006"
+		],
+		"rating": 4.3
+	},
+	{
+		"id": "4",
+		"title": "Mr.",
+		"gender": "male",
+		"firstName": "Akash Chanda Tushar",
+		"email": "test@test.com",
+		"mobile": "9xxxxxxxx",
+		"dob": "1976-12-15",
+		"profileURL": "https://i.ibb.co/GJ22tN3/pexels-simon-robben-614810.jpg",
+		"profileDesc": "Dr Prathamesh Kulkarni belives that once you start being more aware of your thoughts and actions, you will start appreciating life in a new way. This is why he specializes in depression, mood disorders, sexual disorders and anxiety disorders, because he feels that every person is capable of bringing about a change from within. His process is supportive, but aimed at direct interaction to help the patient bring about a visible change in himself or herself.",
+		"specialisation": "NUTRITION",
+		"license": [
+			"Registration No. MMC 2009093394, Medical Council of India 09/33958",
+			"2006113358 Maharashtra Medical Council, 2006"
+		],
+		"rating": 4.3
+	}
+>>>>>>> juel
 ]

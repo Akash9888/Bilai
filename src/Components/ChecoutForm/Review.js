@@ -4,47 +4,51 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Grid from '@mui/material/Grid';
+import { Box, Button } from '@mui/material';
+import useProducts from '../../hooks/useProducts';
+import useCart from '../../hooks/useCart';
 
-const products = [
-    {
-        name: 'Product 1',
-        desc: 'A nice thing',
-        price: '$9.99',
-    },
-    {
-        name: 'Product 2',
-        desc: 'Another thing',
-        price: '$3.45',
-    },
-    {
-        name: 'Product 3',
-        desc: 'Something else',
-        price: '$6.51',
-    },
-    {
-        name: 'Product 4',
-        desc: 'Best thing of all',
-        price: '$14.11',
-    },
-    { name: 'Shipping', desc: '', price: 'Free' },
-];
-const addresses = ['1 MUI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
-const payments = [
-    { name: 'Card type', detail: 'Visa' },
-    { name: 'Card holder', detail: 'Mr John Smith' },
-    { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-    { name: 'Expiry date', detail: '04/2024' },
-];
-const Review = () => {
+// const products = [
+//     {
+//         name: 'Product 1',
+//         desc: 'A nice thing',
+//         price: '$9.99',
+//     },
+//     {
+//         name: 'Product 2',
+//         desc: 'Another thing',
+//         price: '$3.45',
+//     },
+//     {
+//         name: 'Product 3',
+//         desc: 'Something else',
+//         price: '$6.51',
+//     },
+//     {
+//         name: 'Product 4',
+//         desc: 'Best thing of all',
+//         price: '$14.11',
+//     },
+//     { name: 'Shipping', desc: '', price: 'Free' },
+// ];
+// const addresses = ['1 MUI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+// const payments = [
+//     { name: 'Card type', detail: 'Visa' },
+//     { name: 'Card holder', detail: 'Mr John Smith' },
+//     { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
+//     { name: 'Expiry date', detail: '04/2024' },
+// ];
+const Review = ({ cart, total, grandTotal }) => {
+
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
                 Order summary
             </Typography>
             <List disablePadding>
-                {products.map((product) => (
-                    <ListItem key={product.name} sx={{ py: 1, px: 0 }}>
-                        <ListItemText primary={product.name} secondary={product.desc} />
+                {cart.map((product) => (
+                    <ListItem key={product.key} sx={{ py: 1, px: 0 }}>
+                        <ListItemText primary={product.name} />
                         <Typography variant="body2">{product.price}</Typography>
                     </ListItem>
                 ))}
@@ -52,11 +56,17 @@ const Review = () => {
                 <ListItem sx={{ py: 1, px: 0 }}>
                     <ListItemText primary="Total" />
                     <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                        $34.06
+                        {total.toFixed(2)}
+                    </Typography>
+                </ListItem>
+                <ListItem sx={{ py: 1, px: 0 }}>
+                    <ListItemText primary="Grand Total" />
+                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                        {grandTotal}
                     </Typography>
                 </ListItem>
             </List>
-            <Grid container spacing={2}>
+            {/* <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                     <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
                         Shipping
@@ -81,7 +91,10 @@ const Review = () => {
                         ))}
                     </Grid>
                 </Grid>
-            </Grid>
+            </Grid> */}
+            {/* <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Button sx={{ mt: 3, ml: 1 }} variant="contained">PLACE ORDER</Button>
+            </Box> */}
         </React.Fragment>
     );
 };
