@@ -3,7 +3,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Toolbar from '@mui/material/Toolbar';
+// import Toolbar from '@mui/material/Toolbar';
 import Paper from '@mui/material/Paper';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -12,10 +12,11 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AddressForm from '../AddressForm';
-import PaymentForm from '../PaymentForm';
+// import PaymentForm from '../PaymentForm';
 import Review from '../Review';
 import { clearTheCart, getStoredCart } from '../../../utilities/fakeDb';
-
+import useAuth from '../../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 
 const steps = ['Shipping address', 'Payment details'];
@@ -25,30 +26,64 @@ const steps = ['Shipping address', 'Payment details'];
 const theme = createTheme();
 const Checkout = ({ cart, setCart }) => {
     const [activeStep, setActiveStep] = React.useState(0);
+    const { user } = useAuth();
+    let navigate = useNavigate();
+    // navigate('/path')
+    // const [products] = useProducts();
 
+    // console.log(cart);
+    let totalQuantity = 0;
+    let total = 0;
+    for (const product of cart) {
+        if (!product.quantity) {
+            product.quantity = 1;
+        }
+        total = total + product.price * product.quantity;
+        totalQuantity = totalQuantity + product.quantity;
+    }
 
+    const shipping = total > 0 ? 15 : 0;
+    const tax = (total + shipping) * 0.10;
+    const grandTotal = Math.floor(total + shipping + tax);
     const handleSubmit = () => {
-
         setActiveStep(activeStep + 1);
     };
-    const handleBack = () => {
-        setActiveStep(activeStep - 1);
-    };
-    const getStepContent = step => {
+    const handlePlaceOrder = () => {
+        const order = {
+            cus_name: user?.displayName,
+            cus_email: user?.email,
+            // product_name: cart,
+            total_amount: grandTotal,
 
+        };
+        // console.log(order);
+        fetch(`http://localhost:5000/init`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // navigate(data, { replace: true });
+                window.location.replace(data);
+                window.location.replace(data);
+
+            });
+        setCart([]);
+        clearTheCart();
+
+    }
+    const getStepContent = step => {
         switch (step) {
             case 0:
                 return <AddressForm handleNext={handleSubmit} />;
             case 1:
-                return <Review cart={cart} setCart={setCart} />;
+                return <Review cart={cart} setCart={setCart} total={total} grandTotal={grandTotal} />;
             default:
                 throw new Error('Unknown step');
         }
-
-    }
-    const handlePlaceOrder = () => {
-        setCart([]);
-        clearTheCart();
     }
     return (
         <ThemeProvider theme={theme}>
@@ -70,11 +105,8 @@ const Checkout = ({ cart, setCart }) => {
                         <React.Fragment>
                             {getStepContent(activeStep)}
                             <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-
                                 {activeStep === steps.length - 1 && <Button
                                     variant="contained" style={{ color: 'white' }} onClick={handlePlaceOrder}>PLACE ORDER</Button>}
-
-
                             </Box>
                         </React.Fragment>
 

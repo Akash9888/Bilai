@@ -8,52 +8,38 @@ import { Box, Button } from '@mui/material';
 import useProducts from '../../hooks/useProducts';
 import useCart from '../../hooks/useCart';
 
-const products = [
-    {
-        name: 'Product 1',
-        desc: 'A nice thing',
-        price: '$9.99',
-    },
-    {
-        name: 'Product 2',
-        desc: 'Another thing',
-        price: '$3.45',
-    },
-    {
-        name: 'Product 3',
-        desc: 'Something else',
-        price: '$6.51',
-    },
-    {
-        name: 'Product 4',
-        desc: 'Best thing of all',
-        price: '$14.11',
-    },
-    { name: 'Shipping', desc: '', price: 'Free' },
-];
-const addresses = ['1 MUI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
-const payments = [
-    { name: 'Card type', detail: 'Visa' },
-    { name: 'Card holder', detail: 'Mr John Smith' },
-    { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-    { name: 'Expiry date', detail: '04/2024' },
-];
-const Review = () => {
-    const [products] = useProducts();
-    const [cart, setCart] = useCart(products);
-    let totalQuantity = 0;
-    let total = 0;
-    for (const product of cart) {
-        if (!product.quantity) {
-            product.quantity = 1;
-        }
-        total = total + product.price * product.quantity;
-        totalQuantity = totalQuantity + product.quantity;
-    }
+// const products = [
+//     {
+//         name: 'Product 1',
+//         desc: 'A nice thing',
+//         price: '$9.99',
+//     },
+//     {
+//         name: 'Product 2',
+//         desc: 'Another thing',
+//         price: '$3.45',
+//     },
+//     {
+//         name: 'Product 3',
+//         desc: 'Something else',
+//         price: '$6.51',
+//     },
+//     {
+//         name: 'Product 4',
+//         desc: 'Best thing of all',
+//         price: '$14.11',
+//     },
+//     { name: 'Shipping', desc: '', price: 'Free' },
+// ];
+// const addresses = ['1 MUI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+// const payments = [
+//     { name: 'Card type', detail: 'Visa' },
+//     { name: 'Card holder', detail: 'Mr John Smith' },
+//     { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
+//     { name: 'Expiry date', detail: '04/2024' },
+// ];
+const Review = ({ cart, total, grandTotal }) => {
 
-    const shipping = total > 0 ? 15 : 0;
-    const tax = (total + shipping) * 0.10;
-    const grandTotal = total + shipping + tax;
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
@@ -76,11 +62,11 @@ const Review = () => {
                 <ListItem sx={{ py: 1, px: 0 }}>
                     <ListItemText primary="Grand Total" />
                     <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                        {grandTotal.toFixed(2)}
+                        {grandTotal}
                     </Typography>
                 </ListItem>
             </List>
-            <Grid container spacing={2}>
+            {/* <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                     <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
                         Shipping
@@ -105,7 +91,7 @@ const Review = () => {
                         ))}
                     </Grid>
                 </Grid>
-            </Grid>
+            </Grid> */}
             {/* <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 <Button sx={{ mt: 3, ml: 1 }} variant="contained">PLACE ORDER</Button>
             </Box> */}

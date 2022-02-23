@@ -2,18 +2,21 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { useState } from 'react';
-// import useAuth from '../../hooks/useAuth';
-import { getStoredCart } from '../../utilities/fakeDb';
-import { useEffect } from 'react';
+import useProducts from '../../hooks/useProducts';
+import useCart from '../../hooks/useCart';
+import useAuth from '../../hooks/useAuth';
 
 const AddressForm = ({ handleNext }) => {
     const [addressData, setAdressData] = useState({});
-    const [order, setOrder] = useState({});
+    const [products] = useProducts();
+    const [cart] = useCart(products);
+    const [phone, setPhone] = useState('');
 
+    const { user } = useAuth();
 
-    // const { user } = useAuth();
+    const mobileRegex = /^(?:\+88|88)?(01[3-9]\d{8})$/;
     const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
@@ -21,28 +24,27 @@ const AddressForm = ({ handleNext }) => {
         newAdressData[field] = value;
         setAdressData(newAdressData);
     }
-    useEffect(() => {
-        const savedCart = getStoredCart();
-        // const newData = { order: savedCart };
-        setOrder(savedCart);
-    }, []);
-    // console.log(order);
-    // // console.log(addressData);
-    // const handleSubmit2 = () => {
 
-    // }
     const handleSubmit = () => {
-        // handleSubmit2();
+        const order = {
+            email: user?.email,
+            phone: phone,
+            user_order: cart,
+            adress: addressData,
+        };
+        // console.log(order);
+
+
         fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ addressData, order })
+            body: JSON.stringify(order)
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 if (result.insertedId) {
                     handleNext();
                 }
@@ -83,6 +85,18 @@ const AddressForm = ({ handleNext }) => {
                     <Grid item xs={12}>
                         <TextField
                             required
+                            id="phone"
+                            name="phone"
+                            label="Phone"
+                            fullWidth
+                            onBlur={e => setPhone(e.target.value)}
+                            autoComplete="Phone Number"
+                            variant="standard"
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
+                            required
                             id="address1"
                             name="address1"
                             label="Address line 1"
@@ -92,17 +106,7 @@ const AddressForm = ({ handleNext }) => {
                             variant="standard"
                         />
                     </Grid>
-                    <Grid item xs={12}>
-                        <TextField
-                            id="address2"
-                            name="address2"
-                            label="Address line 2"
-                            fullWidth
-                            onBlur={handleOnBlur}
-                            autoComplete="shipping address-line2"
-                            variant="standard"
-                        />
-                    </Grid>
+
                     <Grid item xs={12} sm={6}>
                         <TextField
                             required
@@ -150,8 +154,8 @@ const AddressForm = ({ handleNext }) => {
                         />
                     </Grid>
                 </Grid>
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <button type="submit" onClick={handleSubmit}>Submit</button>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1 }}>
+                    <button variant="contained" type="submit" onClick={handleSubmit}>Submit</button>
                 </Box>
             </Box>
 

@@ -14,7 +14,10 @@ function Footer() {
     const location = useLocation();
     if (location.pathname.includes('/dashboard')) return null;
     return (
-        <Box sx={{ backgroundColor: "#4c5885", color: "white", mt: 4, p: 5 }}>
+        <Box sx={{
+            backgroundColor: "#4c5885", color: "white", mt: 4, p: 5,
+            maxWidth: '100%'
+        }}>
             <Container>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={0}>
