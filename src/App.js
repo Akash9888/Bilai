@@ -3,14 +3,11 @@ import BlogFeeds from "./Components/Blog/BlogFeeds";
 import DocFeeds from "./Components/doctor/DocFeeds";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Banner from "./Components/Banner/Banner";
-// import Products from "./Components/Products/Products";
 import BottomNav from "./Components/Navbar/BottomNav";
 import Cart from "./Components/Cart/Cart";
-// import BottomNav from "./Components/BottomNav";
 import Checkout from "./Components/ChecoutForm/Checkout/Checkout";
 import DayCare from "./Components/Care/DayCare";
 import FullArticle from "./Components/Blog/FullArticle";
-// import Footer from "./Components/footer/Footer";
 import Appointment from "./Components/Appointment/Appointment";
 import Login from "./Login/Login/Login";
 import Register from "./Login/Register/Register";
@@ -41,7 +38,7 @@ import Privacy from "./Components/Policy/Privacy";
 import Return from "./Components/Policy/Return";
 import Shipping from "./Components/Policy/Shipping";
 import Term from "./Components/Policy/Term";
-import UserProfile from "./Components/UserProfile/UserProfile";
+// import UserProfile from "./Components/UserProfile/UserProfile";
 import Success from "./Components/Success/Success";
 
 const App = () => {

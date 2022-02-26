@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
-import { Box, Button, ButtonGroup, Card, CardActions, CardContent, CardMedia, Dialog, DialogActions, DialogTitle, IconButton, Slide, Typography } from '@mui/material';
+import { Box, Button, ButtonGroup, Card, CardActions, CardContent, CardMedia, Dialog, DialogActions, DialogTitle, IconButton, Rating, Slide, Typography } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
-
+const styles = theme => ({
+    root: {
+        minWidth: 275,
+        height: '405px',
+        [theme.breakpoints.down('md')]: {
+            height: '450px',
+        },
+    },
+});
 const Product = ({ product, handleAddToCart }) => {
     // console.log(product);
     const [open, setOpen] = useState(false);
@@ -20,7 +28,7 @@ const Product = ({ product, handleAddToCart }) => {
     };
 
     return (
-        <Card sx={{ manWidth: 275, height: '405px' }}>
+        <Card styles={styles}>
             <CardMedia
                 component="img"
                 alt={product.name}
@@ -68,6 +76,7 @@ const Product = ({ product, handleAddToCart }) => {
                     <Typography id="modal-modal-title" color="textSecondary" variant="subtitle1" component="h2">
                         Only {product.stock} items in Stock-Order Soon
                     </Typography>
+                    <Rating name="read-only" value={product.stock} readOnly />
                 </DialogTitle>
                 <DialogActions>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -82,7 +91,7 @@ const Product = ({ product, handleAddToCart }) => {
                             </ButtonGroup> */}
                         </Box>
                         <Box>
-                            <IconButton aria-label="Add to Cart" color="primary">
+                            <IconButton aria-label="Add to Cart" onClick={() => handleAddToCart(product)} color="primary">
                                 <AddShoppingCart />
                             </IconButton>
                         </Box>
