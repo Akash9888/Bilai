@@ -50,7 +50,7 @@ const App = () => {
     const [displayProdcuts, setDisplayProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch("http://localhost:5000/products")
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data);
@@ -185,7 +185,8 @@ const App = () => {
                             path="/doctorProfile/:id"
                             element={<DocProfile />}
                         />
-
+                        <Route path="/profile" element={<AllUser />} />
+                        <Route path="/userProfile" element={<UserProfile />} />
                         <Route path="/faqs" element={<FAQ />} />
                         <Route path="/privacy" element={<Privacy />} />
                         <Route path="/return" element={<Return />} />

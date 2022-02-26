@@ -1,7 +1,7 @@
 import { Button, Chip, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Doctors from "./DocList";
 
 console.log(Doctors);
@@ -164,7 +164,11 @@ const DocProfile = () => {
                 </Grid>
                 <Grid item xs={12}>
                     <Box sx={{ textAlign: "center" }}>
-                        <Button variant="outlined">get appointment</Button>
+                        <Link
+                            style={{ textDecoration: "none" }}
+                            to={`/appointment`}>
+                            <Button variant="outlined">get appointment</Button>
+                        </Link>
                     </Box>
                 </Grid>
             </Grid>

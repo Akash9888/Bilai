@@ -1,13 +1,22 @@
 import { Container, Grid, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const UserProfile = () => {
+    const { user } = useAuth();
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/singleuser/${user.email}`)
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+    }, []);
     return (
         <Container sx={{ mt: 2 }}>
             <Typography variant="h4" sx={{ m: 2, textAlign: "center" }}>
                 My Profile
+                {user.email}
             </Typography>
             <Grid container spacing={2}>
                 <Grid item xs={0} md={2}></Grid>
@@ -18,8 +27,8 @@ const UserProfile = () => {
                                 id="fname"
                                 fullWidth
                                 label="First Name"
-                                value="Akash Chanda "
-                                // onChange={handleChange}
+                                value={user?.displayName}
+                                //defaultValue={user?.displayName} // onChange={handleChange}
                             />
                         </Grid>
                         <Grid item xs={12} md={6}>
