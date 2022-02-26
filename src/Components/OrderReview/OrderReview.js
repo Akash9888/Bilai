@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
 import Cart from '../Shop/Cart/Cart';
-// import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,8 +9,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button, CardMedia, Container, Grid, Box } from '@mui/material';
-import { DeleteFromDb } from '../../utilities/fakeDb';
+import { Button, CardMedia, Container, Grid, Box, Typography } from '@mui/material';
+import { clearTheCart, DeleteFromDb } from '../../utilities/fakeDb';
 import { Link } from 'react-router-dom';
 import './OrderReview.css';
 
@@ -24,7 +23,11 @@ const OrderReview = () => {
         setCart(newCart);
         DeleteFromDb(key);
     };
-
+    const emptyTheCart = () => {
+        clearTheCart();
+        setCart([]);
+        window.location.reload();
+    }
     const handleIncreased = key => {
         const retriveObject = JSON.parse(localStorage.getItem('shopping_cart'));
         const keys = Object.keys(retriveObject);
@@ -54,8 +57,13 @@ const OrderReview = () => {
 
             {
                 cart.length === 0 ? <Box>
-                    <p>You Have No items in the cart</p>
-                    <Link to="/shop" style={{ textDecoration: 'none' }}>Please Add Some</Link>
+                    <Typography variant="h4" gutterBottom component="div">
+                        You Have No items in the cart
+                    </Typography>
+                    <Typography variant="h6" gutterBottom component="div">
+                        <Link to="/shop" style={{ textDecoration: 'none' }}>Please Add Some</Link>
+                    </Typography>
+
                     <CardMedia
                         component="img"
                         // height="100"
@@ -107,6 +115,9 @@ const OrderReview = () => {
                             <br />
                             <Cart cart={cart}></Cart>
 
+                        </Grid>
+                        <Grid container justifyContent="flex-end" sx={{ mb: 2 }}>
+                            <Button onClick={emptyTheCart} variant="contained">Empty The Cart</Button>
                         </Grid>
                         <Grid container justifyContent="flex-end">
                             <Link to="checkout" style={{ textDecoration: 'none' }}>

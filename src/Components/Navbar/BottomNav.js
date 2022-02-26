@@ -16,7 +16,6 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-// import useAuth from "../hooks/useAuth";
 
 const ResponsiveAppBar = (props) => {
     const { user, logout } = useAuth();
@@ -24,7 +23,7 @@ const ResponsiveAppBar = (props) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const { cart } = props;
-    // console.log(props.cart);
+
     let totalQuantity = 0;
     let total = 0;
     for (const product of cart) {

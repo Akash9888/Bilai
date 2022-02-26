@@ -8,7 +8,7 @@ console.log(Doctors);
 
 const DocProfile = () => {
     const { id } = useParams();
-    console.log(id);
+    // console.log(id);
     const {
         name,
         imgUrl,
