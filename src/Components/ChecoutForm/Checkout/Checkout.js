@@ -1,9 +1,7 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-// import Toolbar from '@mui/material/Toolbar';
 import Paper from '@mui/material/Paper';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -12,11 +10,9 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AddressForm from '../AddressForm';
-// import PaymentForm from '../PaymentForm';
 import Review from '../Review';
-import { clearTheCart, getStoredCart } from '../../../utilities/fakeDb';
+import { clearTheCart } from '../../../utilities/fakeDb';
 import useAuth from '../../../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
 
 
 const steps = ['Shipping address', 'Payment details'];
@@ -27,11 +23,7 @@ const theme = createTheme();
 const Checkout = ({ cart, setCart }) => {
     const [activeStep, setActiveStep] = React.useState(0);
     const { user } = useAuth();
-    let navigate = useNavigate();
-    // navigate('/path')
-    // const [products] = useProducts();
 
-    // console.log(cart);
     let totalQuantity = 0;
     let total = 0;
     for (const product of cart) {
@@ -48,12 +40,15 @@ const Checkout = ({ cart, setCart }) => {
     const handleSubmit = () => {
         setActiveStep(activeStep + 1);
     };
+
     const handlePlaceOrder = () => {
+        const date = new Date().toDateString();
         const order = {
             cus_name: user?.displayName,
             cus_email: user?.email,
             // product_name: cart,
             total_amount: grandTotal,
+            date: date
 
         };
         // console.log(order);

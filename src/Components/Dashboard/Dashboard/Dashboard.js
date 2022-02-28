@@ -22,6 +22,7 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import useAuth from '../../../hooks/useAuth';
 import AddCommentIcon from '@mui/icons-material/AddComment';
 import DensitySmallIcon from '@mui/icons-material/DensitySmall';
+import PersonIcon from '@mui/icons-material/Person';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 const drawerWidth = 240;
 
@@ -207,6 +208,16 @@ export default function Dashboard() {
                                     </ListItem>
                                 </Link>
                             </nav>
+                            <nav>
+                                <Link to="allUser" style={{ textDecoration: 'none' }}>
+                                    <ListItem button>
+                                        <ListItemIcon>
+                                            <PersonIcon variant="outlined" color="primary" />
+                                        </ListItemIcon>
+                                        <ListItemText primary="All USER" />
+                                    </ListItem>
+                                </Link>
+                            </nav>
                         </Box>
                     }
 
@@ -214,9 +225,11 @@ export default function Dashboard() {
                 </List>
 
             </Drawer>
-            <div className="content">
-                <Outlet />
-            </div>
+            <Box sx={{ backgroundColor: '#e7ebf0', width: '100vw', height: '100vh' }}>
+                <div className="content">
+                    <Outlet />
+                </div>
+            </Box>
         </Box>
     );
 }

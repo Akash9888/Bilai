@@ -2,37 +2,56 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { useState } from 'react';
 import useProducts from '../../hooks/useProducts';
 import useCart from '../../hooks/useCart';
 import useAuth from '../../hooks/useAuth';
+import './AdressForm.css';
+
 
 const AddressForm = ({ handleNext }) => {
-    const [addressData, setAdressData] = useState({});
+
     const [products] = useProducts();
     const [cart] = useCart(products);
-    const [phone, setPhone] = useState('');
-
     const { user } = useAuth();
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [phone, setPhone] = useState('');
+    const [address, setAdress] = useState('');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [zipCode, setZipCode] = useState('');
+    const [country, setCountry] = useState('');
+    const [error, setError] = useState('');
 
-    const mobileRegex = /^(?:\+88|88)?(01[3-9]\d{8})$/;
-    const handleOnBlur = e => {
-        const field = e.target.name;
+
+    const handleOnchange = e => {
         const value = e.target.value;
-        const newAdressData = { ...addressData };
-        newAdressData[field] = value;
-        setAdressData(newAdressData);
-    }
-
+        setError({ phone: '' });
+        setPhone(value);
+        let reg = new RegExp(/^(?:\+88|88)?(01[3-9]\d{8})$/).test(value);
+        if (!reg) {
+            setError({ phone: "Input a valid Phone Number" })
+        }
+    };
     const handleSubmit = () => {
+        if (firstName === '' || lastName === '' || phone === '' || address === '' || city === '' || state === '' || zipCode === '' || country === '') {
+            return;
+        }
         const order = {
             email: user?.email,
+            firstName: firstName,
+            lastName: lastName,
             phone: phone,
+            address: address,
+            city: city,
+            state: state,
+            zipCode: zipCode,
+            country: country,
             user_order: cart,
-            adress: addressData,
+
         };
-        // console.log(order);
 
 
         fetch('http://localhost:5000/orders', {
@@ -44,7 +63,7 @@ const AddressForm = ({ handleNext }) => {
         })
             .then(res => res.json())
             .then(result => {
-                // console.log(result);
+                console.log(result);
                 if (result.insertedId) {
                     handleNext();
                 }
@@ -64,8 +83,7 @@ const AddressForm = ({ handleNext }) => {
                             name="firstName"
                             label="First name"
                             fullWidth
-                            // defaultValue={user.displayName}
-                            onBlur={handleOnBlur}
+                            onBlur={e => setFirstName(e.target.value)}
                             autoComplete="given-name"
                             variant="standard"
                         />
@@ -77,7 +95,7 @@ const AddressForm = ({ handleNext }) => {
                             name="lastName"
                             label="Last name"
                             fullWidth
-                            onBlur={handleOnBlur}
+                            onBlur={e => setLastName(e.target.value)}
                             autoComplete="family-name"
                             variant="standard"
                         />
@@ -87,9 +105,12 @@ const AddressForm = ({ handleNext }) => {
                             required
                             id="phone"
                             name="phone"
-                            label="Phone"
+                            value={phone}
+                            label="Phone Number"
                             fullWidth
-                            onBlur={e => setPhone(e.target.value)}
+                            onChange={handleOnchange}
+                            error={Boolean(error?.phone)}
+                            helperText={(error?.phone)}
                             autoComplete="Phone Number"
                             variant="standard"
                         />
@@ -101,7 +122,7 @@ const AddressForm = ({ handleNext }) => {
                             name="address1"
                             label="Address line 1"
                             fullWidth
-                            onBlur={handleOnBlur}
+                            onBlur={e => setAdress(e.target.value)}
                             autoComplete="shipping address-line1"
                             variant="standard"
                         />
@@ -114,7 +135,7 @@ const AddressForm = ({ handleNext }) => {
                             name="city"
                             label="City"
                             fullWidth
-                            onBlur={handleOnBlur}
+                            onChange={e => setCity(e.target.value)}
                             autoComplete="shipping address-level2"
                             variant="standard"
                         />
@@ -125,7 +146,7 @@ const AddressForm = ({ handleNext }) => {
                             name="state"
                             label="State/Province/Region"
                             fullWidth
-                            onBlur={handleOnBlur}
+                            onBlur={e => setState(e.target.value)}
                             variant="standard"
                         />
                     </Grid>
@@ -136,7 +157,7 @@ const AddressForm = ({ handleNext }) => {
                             name="zip"
                             label="Zip / Postal code"
                             fullWidth
-                            onBlur={handleOnBlur}
+                            onChange={e => setZipCode(e.target.value)}
                             autoComplete="shipping postal-code"
                             variant="standard"
                         />
@@ -148,14 +169,14 @@ const AddressForm = ({ handleNext }) => {
                             name="country"
                             label="Country"
                             fullWidth
-                            onBlur={handleOnBlur}
+                            onBlur={e => setCountry(e.target.value)}
                             autoComplete="shipping country"
                             variant="standard"
                         />
                     </Grid>
                 </Grid>
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1 }}>
-                    <button variant="contained" type="submit" onClick={handleSubmit}>Submit</button>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
+                    <button className="button" variant="contained" type="submit" onClick={handleSubmit}>Submit</button>
                 </Box>
             </Box>
 

@@ -3,14 +3,11 @@ import BlogFeeds from "./Components/Blog/BlogFeeds";
 import DocFeeds from "./Components/doctor/DocFeeds";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Banner from "./Components/Banner/Banner";
-// import Products from "./Components/Products/Products";
 import BottomNav from "./Components/Navbar/BottomNav";
 import Cart from "./Components/Cart/Cart";
-// import BottomNav from "./Components/BottomNav";
 import Checkout from "./Components/ChecoutForm/Checkout/Checkout";
 import DayCare from "./Components/Care/DayCare";
 import FullArticle from "./Components/Blog/FullArticle";
-// import Footer from "./Components/footer/Footer";
 import Appointment from "./Components/Appointment/Appointment";
 import Login from "./Login/Login/Login";
 import Register from "./Login/Register/Register";
@@ -43,6 +40,7 @@ import Shipping from "./Components/Policy/Shipping";
 import Term from "./Components/Policy/Term";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import Success from "./Components/Success/Success";
+import SendMail from "./Components/SendMail/SendMail";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -50,7 +48,7 @@ const App = () => {
     const [displayProdcuts, setDisplayProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch("http://localhost:5000/products")
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data);
@@ -69,7 +67,6 @@ const App = () => {
             newCart = [...cart, product];
         }
         setCart(newCart);
-        // save to local storage (for now)
         addToDb(product.key);
     };
     return (
@@ -167,6 +164,14 @@ const App = () => {
                                     </AdminRoute>
                                 }
                             />
+                            <Route
+                                path="allUser"
+                                element={
+                                    <AdminRoute>
+                                        <AllUser />
+                                    </AdminRoute>
+                                }
+                            />
                         </Route>
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
@@ -185,7 +190,8 @@ const App = () => {
                             path="/doctorProfile/:id"
                             element={<DocProfile />}
                         />
-
+                        <Route path="/profile" element={<AllUser />} />
+                        <Route path="/userProfile" element={<UserProfile />} />
                         <Route path="/faqs" element={<FAQ />} />
                         <Route path="/privacy" element={<Privacy />} />
                         <Route path="/return" element={<Return />} />
@@ -194,6 +200,7 @@ const App = () => {
                         {/* <Route path="*" element={<FourZeroFour />} /> */}
                         {/* <Route path="*" element={<UserProfile />} /> */}
                         <Route path="/success" element={<Success />} />
+                        <Route path="/sendMail" element={<SendMail />} />
                         <Route path="*" element={<FourZeroFour />} />
                     </Routes>
                     <Footer />

@@ -5,6 +5,7 @@ import Feauture from "../AtAGlance/Feauture";
 // import Blog from "../Blog/Blog";
 import SampleBlog from "../AtAGlance/SampleBlog";
 import TestomonialSlide from "../AtAGlance/Testmonial/TestomonialSlide";
+import SendMail from "../SendMail/SendMail";
 
 const Banner = () => {
     return (
@@ -14,6 +15,7 @@ const Banner = () => {
             <Feauture />
             <SampleBlog />
             <TestomonialSlide />
+            <SendMail />
         </div>
     );
 };
