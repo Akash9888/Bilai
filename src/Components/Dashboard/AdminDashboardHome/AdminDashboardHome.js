@@ -24,16 +24,16 @@ const AdminDashboardHome = () => {
     return (
         <Container sx={{ mt: 2 }}>
             <Grid container spacing={2}>
-                <Grid item xs={4}>
+                <Grid item xs={6} md={4} >
                     <Chart totalBalance={totalBalance} totalAppointment={totalAppointment} />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={6} md={4}>
                     <TotalAppointmentMade totalAppointment={totalAppointment} />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} md={4}>
                     <Balance totalBalance={totalBalance} />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} md={12}>
                     <PurchaseHistory totalBalance={totalBalance} />
                 </Grid>
             </Grid>

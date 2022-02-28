@@ -1,4 +1,4 @@
-import { Container, Typography, CardMedia } from '@mui/material';
+import { Container, CardMedia } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import Table from '@mui/material/Table';
@@ -11,25 +11,21 @@ import Paper from '@mui/material/Paper';
 
 const MyOrder = () => {
     const [myOrder, setMyOrder] = useState([]);
-    const [singleOrder, setSingleOrder] = useState([]);
     const { user } = useAuth();
 
     useEffect(() => {
         fetch(`http://localhost:5000/orders/${user.email}`)
             .then(res => res.json())
             .then(data => setMyOrder(data))
-    }, [])
-    // console.log(myOrder);
+    }, [myOrder, user.email]);
     return (
         <Container sx={{ mt: 2 }}>
-            <Typography variant="h4" color="primary" gutterBottom component="div" align="center">
-                TOTAL ORDER {myOrder.length}
-            </Typography>
+
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell align="lect">Image</TableCell>
+                            <TableCell align="left">Image</TableCell>
                             <TableCell>Name</TableCell>
                             <TableCell align="left">Quantity</TableCell>
                             <TableCell align="left">Price</TableCell>
@@ -40,8 +36,8 @@ const MyOrder = () => {
                             
                         ))} */}
                         {
-                            myOrder.map((orders) => {
-                                orders?.user_order.map((row) => {
+                            myOrder.map((orders) => (
+                                orders?.user_order.map((row) => (
                                     <TableRow
 
                                         key={row._id}
@@ -58,11 +54,12 @@ const MyOrder = () => {
                                         <TableCell component="th" scope="row">
                                             {row?.name}
                                         </TableCell>
-                                        <TableCell align="left">{row.quantity}</TableCell>
-                                        <TableCell align="left">{row.price}</TableCell>
+                                        <TableCell align="left">{row?.quantity}</TableCell>
+                                        <TableCell align="left">{row?.price}</TableCell>
                                     </TableRow>
-                                })
-                            })
+                                    // console.log(row);
+                                ))
+                            ))
                         }
 
                     </TableBody>
