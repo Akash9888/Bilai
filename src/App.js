@@ -38,7 +38,7 @@ import Privacy from "./Components/Policy/Privacy";
 import Return from "./Components/Policy/Return";
 import Shipping from "./Components/Policy/Shipping";
 import Term from "./Components/Policy/Term";
-// import UserProfile from "./Components/UserProfile/UserProfile";
+import UserProfile from "./Components/UserProfile/UserProfile";
 import Success from "./Components/Success/Success";
 
 const App = () => {
@@ -161,6 +161,14 @@ const App = () => {
                                 element={
                                     <AdminRoute>
                                         <AllAppointmet />
+                                    </AdminRoute>
+                                }
+                            />
+                            <Route
+                                path="allUser"
+                                element={
+                                    <AdminRoute>
+                                        <AllUser />
                                     </AdminRoute>
                                 }
                             />

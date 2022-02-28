@@ -20,7 +20,7 @@ const useCart = products => {
             setCart(storedCart);
         }
 
-    }, [products]);
+    }, [products, products.length]);
 
     return [cart, setCart];
 }

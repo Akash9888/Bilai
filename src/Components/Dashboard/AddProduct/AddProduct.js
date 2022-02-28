@@ -64,129 +64,131 @@ const AddProduct = () => {
                 <Typography variant="h3" sx={{ m: 3, textAlign: "center" }}>
                     Add Product
                 </Typography>
-                <form onSubmit={handleSubmit}>
-                    <Grid container spacing={2}>
-                        <Grid item xs={6} sm={4} md={3} lg={2}>
-                            <TextField
-                                id="key"
-                                type="number"
-                                name="key"
-                                onBlur={e => setKey(e.target.value)}
-                                required
-                                fullWidth
-                                label="Key"></TextField>
-                        </Grid>
-                        <Grid item xs={6} sm={4} md={3} lg={2}>
-                            <TextField
-                                id="category"
-                                type="text"
-                                name="category"
-                                onBlur={e => setCategory(e.target.value)}
-                                required
-                                fullWidth
-                                label="Category"></TextField>
-                        </Grid>
+                <Box>
+                    <form onSubmit={handleSubmit}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={6} sm={4} md={3} lg={2}>
+                                <TextField
+                                    id="key"
+                                    type="number"
+                                    name="key"
+                                    onBlur={e => setKey(e.target.value)}
+                                    required
+                                    fullWidth
+                                    label="Key"></TextField>
+                            </Grid>
+                            <Grid item xs={6} sm={4} md={3} lg={2}>
+                                <TextField
+                                    id="category"
+                                    type="text"
+                                    name="category"
+                                    onBlur={e => setCategory(e.target.value)}
+                                    required
+                                    fullWidth
+                                    label="Category"></TextField>
+                            </Grid>
 
-                        <Grid item xs={6} sm={4} md={3} lg={3}>
-                            <TextField
-                                id="seller"
-                                type="text"
-                                name="seller"
-                                onBlur={e => setSeller(e.target.value)}
-                                required
-                                fullWidth
-                                label="Seller Name"></TextField>
-                        </Grid>
-                        <Grid item xs={6} sm={4} md={3} lg={2}>
-                            <TextField
-                                id="stock"
-                                name="stock"
-                                type="number"
-                                onBlur={e => setStock(e.target.value)}
-                                required
-                                fullWidth
-                                label="Stock"></TextField>
-                        </Grid>
-                        <Grid item xs={6} sm={4} md={3} lg={3}>
-                            <TextField
-                                id="star"
-                                type="number"
-                                name="star"
-                                onBlur={e => setStar(e.target.value)}
-                                required
-                                fullWidth
-                                label="Star"></TextField>
-                        </Grid>
+                            <Grid item xs={6} sm={4} md={3} lg={3}>
+                                <TextField
+                                    id="seller"
+                                    type="text"
+                                    name="seller"
+                                    onBlur={e => setSeller(e.target.value)}
+                                    required
+                                    fullWidth
+                                    label="Seller Name"></TextField>
+                            </Grid>
+                            <Grid item xs={6} sm={4} md={3} lg={2}>
+                                <TextField
+                                    id="stock"
+                                    name="stock"
+                                    type="number"
+                                    onBlur={e => setStock(e.target.value)}
+                                    required
+                                    fullWidth
+                                    label="Stock"></TextField>
+                            </Grid>
+                            <Grid item xs={6} sm={4} md={3} lg={3}>
+                                <TextField
+                                    id="star"
+                                    type="number"
+                                    name="star"
+                                    onBlur={e => setStar(e.target.value)}
+                                    required
+                                    fullWidth
+                                    label="Star"></TextField>
+                            </Grid>
 
-                        <Grid item xs={6} sm={4} md={3} lg={2}>
-                            <TextField
-                                id="price"
-                                type="number"
-                                name="price"
-                                onBlur={e => setPrice(e.target.value)}
-                                required
-                                fullWidth
-                                label="Product Price"></TextField>
-                        </Grid>
-                        <Grid item xs={6} sm={4} md={3} lg={2}>
-                            <TextField
-                                id="shipping"
-                                type="number"
-                                name="shipping"
-                                onBlur={e => setShipping(e.target.value)}
-                                required
-                                fullWidth
-                                label="Shipping Coast"></TextField>
-                        </Grid>
-                        <Grid item xs={6} sm={8} md={3} lg={8}>
-                            <TextField
-                                id="name"
-                                type="text"
-                                name="name"
+                            <Grid item xs={6} sm={4} md={3} lg={2}>
+                                <TextField
+                                    id="price"
+                                    type="number"
+                                    name="price"
+                                    onBlur={e => setPrice(e.target.value)}
+                                    required
+                                    fullWidth
+                                    label="Product Price"></TextField>
+                            </Grid>
+                            <Grid item xs={6} sm={4} md={3} lg={2}>
+                                <TextField
+                                    id="shipping"
+                                    type="number"
+                                    name="shipping"
+                                    onBlur={e => setShipping(e.target.value)}
+                                    required
+                                    fullWidth
+                                    label="Shipping Coast"></TextField>
+                            </Grid>
+                            <Grid item xs={6} sm={8} md={3} lg={8}>
+                                <TextField
+                                    id="name"
+                                    type="text"
+                                    name="name"
 
-                                onBlur={e => setName(e.target.value)}
-                                multiline
-                                maxRows={2}
-                                required
-                                fullWidth
-                                label="Product Name"></TextField>
+                                    onBlur={e => setName(e.target.value)}
+                                    multiline
+                                    maxRows={2}
+                                    required
+                                    fullWidth
+                                    label="Product Name"></TextField>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    id="description"
+                                    type="text"
+                                    multiline
+                                    name="description"
+                                    onBlur={e => setDescription(e.target.value)}
+                                    maxRows={5}
+                                    required
+                                    fullWidth
+                                    label="Product Description"></TextField>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={4}>
+                                <div>
+                                    <Typography variant="body2">
+                                        Product Image
+                                    </Typography>
+                                    <label htmlFor="contained-button-file">
+                                        <Input
+                                            accept="image/*"
+                                            id="contained-button-file"
+                                            type='file'
+                                            onChange={e => setImg(e.target.files[0])}
+                                        />
+                                    </label>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={12}>
+                                <Box sx={{ textAlign: "center" }}>
+                                    <Button type="submit" variant="contained">
+                                        Add Product
+                                    </Button>
+                                </Box>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                id="description"
-                                type="text"
-                                multiline
-                                name="description"
-                                onBlur={e => setDescription(e.target.value)}
-                                maxRows={5}
-                                required
-                                fullWidth
-                                label="Product Description"></TextField>
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={4}>
-                            <div>
-                                <Typography variant="body2">
-                                    Product Image
-                                </Typography>
-                                <label htmlFor="contained-button-file">
-                                    <Input
-                                        accept="image/*"
-                                        id="contained-button-file"
-                                        type='file'
-                                        onChange={e => setImg(e.target.files[0])}
-                                    />
-                                </label>
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={12}>
-                            <Box sx={{ textAlign: "center" }}>
-                                <Button type="submit" variant="contained">
-                                    Add Product
-                                </Button>
-                            </Box>
-                        </Grid>
-                    </Grid>
-                </form>
+                    </form>
+                </Box>
                 {
                     success && <Alert severity="success">{success}!</Alert>
 

@@ -225,10 +225,11 @@ export default function Dashboard() {
                 </List>
 
             </Drawer>
-            <div className="content">
-
-                <Outlet />
-            </div>
+            <Box sx={{ backgroundColor: '#e7ebf0', width: '100vw', height: '100vh' }}>
+                <div className="content">
+                    <Outlet />
+                </div>
+            </Box>
         </Box>
     );
 }

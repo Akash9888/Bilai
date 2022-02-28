@@ -41,6 +41,10 @@ const Shop = ({ cart, products, setProducts, handleAddToCart, displayProdcuts, s
         setDisplayProducts(matchedProducts);
 
     };
+
+    useEffect(() => {
+
+    }, [])
     return (
         <Box sx={{ mt: 4 }}>
             <Box
