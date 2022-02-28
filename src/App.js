@@ -39,6 +39,7 @@ import Shipping from "./Components/Policy/Shipping";
 import Term from "./Components/Policy/Term";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import Success from "./Components/Success/Success";
+import SendMail from "./Components/SendMail/SendMail";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -198,6 +199,7 @@ const App = () => {
                         {/* <Route path="*" element={<FourZeroFour />} /> */}
                         {/* <Route path="*" element={<UserProfile />} /> */}
                         <Route path="/success" element={<Success />} />
+                        <Route path="/sendMail" element={<SendMail />} />
                         <Route path="*" element={<FourZeroFour />} />
                     </Routes>
                     <Footer />

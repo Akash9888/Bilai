@@ -149,7 +149,6 @@ const ResponsiveAppBar = (props) => {
                         </IconButton>
                     </Box>
                     <Box sx={{ ml: 8 }}>
-
                         <CardMedia
                             component="img"
                             height="60"
@@ -157,7 +156,6 @@ const ResponsiveAppBar = (props) => {
                             image="https://i.ibb.co/HFQPY4L/cat.png"
                             alt="Bilai | A True Compainion"
                         />
-
                     </Box>
                     <Typography
                         variant="h6"
@@ -253,8 +251,8 @@ const ResponsiveAppBar = (props) => {
                                         color: "white",
                                         display: "block",
                                         textDecoration: "none",
-                                        fontSize: '16px',
-                                        mr: 5
+                                        fontSize: "16px",
+                                        mr: 5,
                                     }}>
                                     Home
                                 </Button>
@@ -268,14 +266,13 @@ const ResponsiveAppBar = (props) => {
                                         color: "white",
                                         display: "block",
                                         textDecoration: "none",
-                                        fontSize: '16px',
-                                        mr: 5
+                                        fontSize: "16px",
+                                        mr: 5,
                                     }}>
                                     Shop
                                 </Button>
                             </Link>
                         </nav>
-
 
                         <nav>
                             <Link
@@ -288,9 +285,9 @@ const ResponsiveAppBar = (props) => {
                                         color: "white",
                                         display: "block",
                                         //mr: 5,
-                                        fontSize: '16px',
+                                        fontSize: "16px",
                                         textDecoration: "none",
-                                        mr: 5
+                                        mr: 5,
                                     }}>
                                     Doctors
                                 </Button>
@@ -306,7 +303,7 @@ const ResponsiveAppBar = (props) => {
                                         color: "white",
                                         display: "block",
                                         mr: 5,
-                                        fontSize: '16px'
+                                        fontSize: "16px",
                                     }}>
                                     Blog
                                 </Button>
@@ -322,8 +319,8 @@ const ResponsiveAppBar = (props) => {
                                         // my: 2,
                                         color: "white",
                                         display: "block",
-                                        fontSize: '16px',
-                                        mr: 5
+                                        fontSize: "16px",
+                                        mr: 5,
                                         //mr: 5,
                                     }}>
                                     Adaptions
@@ -342,7 +339,7 @@ const ResponsiveAppBar = (props) => {
                                         color: "white",
                                         display: "block",
                                         textDecoration: "none",
-                                        fontSize: '16px',
+                                        fontSize: "16px",
                                         mr: 5,
                                     }}>
                                     Day Care
@@ -361,7 +358,7 @@ const ResponsiveAppBar = (props) => {
                                             color: "white",
                                             display: "block",
                                             textDecoration: "none",
-                                            fontSize: '16px',
+                                            fontSize: "16px",
                                             mr: 5,
                                         }}>
                                         Dashboard{" "}
@@ -380,8 +377,8 @@ const ResponsiveAppBar = (props) => {
                                     color: "white",
                                     display: "block",
                                     textDecoration: "none",
-                                    fontSize: '16px',
-                                    mr: 5
+                                    fontSize: "16px",
+                                    mr: 5,
                                 }}>
                                 Logout{" "}
                             </Button>
@@ -397,7 +394,7 @@ const ResponsiveAppBar = (props) => {
                                             color: "white",
                                             display: "block",
                                             textDecoration: "none",
-                                            fontSize: '16px',
+                                            fontSize: "16px",
                                             mr: 5,
                                         }}>
                                         Login{" "}
@@ -417,7 +414,7 @@ const ResponsiveAppBar = (props) => {
                                             color: "white",
                                             display: "block",
                                             textDecoration: "none",
-                                            fontSize: '16px',
+                                            fontSize: "16px",
                                             mr: 5,
                                         }}>
                                         Register{" "}
@@ -425,7 +422,6 @@ const ResponsiveAppBar = (props) => {
                                 </Link>
                             </nav>
                         )}
-
                     </Box>
 
                     <Box sx={{ mr: 5 }}>
@@ -453,7 +449,13 @@ const ResponsiveAppBar = (props) => {
                                 aria-haspopup="true"
                                 onClick={handleProfileMenuOpen}
                                 color="inherit">
-                                <AccountCircle />
+                                <CardMedia
+                                    component="img"
+                                    height="40"
+                                    sx={{ borderRadius: "50%" }}
+                                    image={user?.photoURL}
+                                    alt="Paella dish"
+                                />
                             </IconButton>
                         </Box>
                         <Box sx={{ display: { xs: "flex", md: "none" } }}>
