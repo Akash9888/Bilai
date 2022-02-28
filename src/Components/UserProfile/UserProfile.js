@@ -1,61 +1,85 @@
-import { Container, Grid, TextField, Typography } from "@mui/material";
+import {
+    Container,
+    Grid,
+    TextField,
+    Typography,
+    CardMedia,
+} from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const UserProfile = () => {
     const { user } = useAuth();
+    const [singleUserData, setSingleUserData] = useState({});
 
     useEffect(() => {
         fetch(`http://localhost:5000/singleuser/${user.email}`)
             .then((res) => res.json())
-            .then((data) => console.log(data));
-    }, []);
+            .then((data) => setSingleUserData(data));
+    }, [user?.email]);
+    // console.log(singleUserData);
     return (
         <Container sx={{ mt: 2 }}>
             <Typography variant="h4" sx={{ m: 2, textAlign: "center" }}>
                 My Profile
-                {user.email}
             </Typography>
             <Grid container spacing={2}>
-                <Grid item xs={0} md={2}></Grid>
+                <Grid item xs={6} md={2}>
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        sx={{ textAlign: "center" }}
+                        image={singleUserData?.photoUrl}
+                        alt={singleUserData?.email}
+                    />
+                </Grid>
                 <Grid item xs={12}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} md={6}>
-                            <TextField
-                                id="fname"
+                            {/* <TextField
+                                id="fName"
                                 fullWidth
                                 label="First Name"
-                                value={user?.displayName}
-                                //defaultValue={user?.displayName} // onChange={handleChange}
+                                value={singleUserData?._id}
+                                defaultValue={singleUserData?._id}
+                                // onChange={handleChange}
+                            /> */}
+                            <TextField
+                                label="First Name"
+                                color="secondary"
+                                fullWidth
+                                value={singleUserData?.firsName}
+                                focused
                             />
                         </Grid>
                         <Grid item xs={12} md={6}>
                             <TextField
-                                id="lname"
-                                fullWidth
                                 label="Last Name"
-                                value="Tushar"
-                                // onChange={handleChange}
+                                color="secondary"
+                                fullWidth
+                                value={singleUserData?.lastName}
+                                focused
                             />
                         </Grid>
                         <Grid item xs={12} md={6}>
                             <TextField
-                                id="email"
-                                fullWidth
                                 label="Email"
-                                value="akash.tushar98@gmail.com"
-                                // onChange={handleChange}
+                                color="secondary"
+                                fullWidth
+                                value={singleUserData?.email}
+                                focused
                             />
                         </Grid>
+
                         <Grid item xs={12} md={6}>
                             <TextField
-                                id="mobile"
-                                fullWidth
                                 label="Mobile"
+                                color="secondary"
+                                fullWidth
                                 value="01776774988"
-                                // onChange={handleChange}
+                                focused
                             />
                         </Grid>
                         <Grid item xs={12} md={6}>

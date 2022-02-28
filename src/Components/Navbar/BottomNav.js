@@ -16,7 +16,8 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import { CardMedia } from "@mui/material";
 const ResponsiveAppBar = (props) => {
     const { user, logout } = useAuth();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -472,7 +473,13 @@ const ResponsiveAppBar = (props) => {
                                 aria-haspopup="true"
                                 onClick={handleProfileMenuOpen}
                                 color="inherit">
-                                <AccountCircle />
+                                <CardMedia
+                                    component="img"
+                                    height="40"
+                                    sx={{ borderRadius: "50%" }}
+                                    image={user?.photoURL}
+                                    alt="Paella dish"
+                                />
                             </IconButton>
                         </Box>
                         <Box sx={{ display: { xs: "flex", md: "none" } }}>
