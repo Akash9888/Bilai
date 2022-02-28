@@ -16,8 +16,8 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import { CardMedia } from "@mui/material";
+
 const ResponsiveAppBar = (props) => {
     const { user, logout } = useAuth();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -148,19 +148,12 @@ const ResponsiveAppBar = (props) => {
                             <MenuIcon />
                         </IconButton>
                     </Box>
-                    <Box>
-                        <Avatar
-                            sx={{
-                                display: {
-                                    xs: "none",
-                                    sm: "none",
-                                    md: "block",
-                                    lg: "block",
-                                    xl: "block",
-                                    ml: 4,
-                                },
-                            }}
-                            src="https://i.ibb.co/HFQPY4L/cat.png"
+                    <Box sx={{ ml: 8 }}>
+                        <CardMedia
+                            component="img"
+                            height="60"
+                            sx={{ p: 1 }}
+                            image="https://i.ibb.co/HFQPY4L/cat.png"
                             alt="Bilai | A True Compainion"
                         />
                     </Box>
@@ -248,7 +241,7 @@ const ResponsiveAppBar = (props) => {
                         sx={{
                             flexGrow: 1,
                             display: { xs: "none", md: "flex" },
-                            ml: 4,
+                            ml: 15,
                         }}>
                         <nav>
                             <Link to="/" style={{ textDecoration: "none" }}>
@@ -258,6 +251,8 @@ const ResponsiveAppBar = (props) => {
                                         color: "white",
                                         display: "block",
                                         textDecoration: "none",
+                                        fontSize: "16px",
+                                        mr: 5,
                                     }}>
                                     Home
                                 </Button>
@@ -271,25 +266,10 @@ const ResponsiveAppBar = (props) => {
                                         color: "white",
                                         display: "block",
                                         textDecoration: "none",
+                                        fontSize: "16px",
+                                        mr: 5,
                                     }}>
                                     Shop
-                                </Button>
-                            </Link>
-                        </nav>
-
-                        <nav>
-                            <Link
-                                to="medicine"
-                                style={{ textDecoration: "none" }}>
-                                <Button
-                                    onClick={handleCloseNavMenu}
-                                    sx={{
-                                        // my: 2,
-                                        color: "white",
-                                        display: "block",
-                                        // mr: 2,
-                                    }}>
-                                    Medicine
                                 </Button>
                             </Link>
                         </nav>
@@ -304,8 +284,10 @@ const ResponsiveAppBar = (props) => {
                                         // my: 2,
                                         color: "white",
                                         display: "block",
-                                        // mr: 2,
+                                        //mr: 5,
+                                        fontSize: "16px",
                                         textDecoration: "none",
+                                        mr: 5,
                                     }}>
                                     Doctors
                                 </Button>
@@ -320,6 +302,8 @@ const ResponsiveAppBar = (props) => {
                                     sx={{
                                         color: "white",
                                         display: "block",
+                                        mr: 5,
+                                        fontSize: "16px",
                                     }}>
                                     Blog
                                 </Button>
@@ -335,7 +319,9 @@ const ResponsiveAppBar = (props) => {
                                         // my: 2,
                                         color: "white",
                                         display: "block",
-                                        // mr: 2,
+                                        fontSize: "16px",
+                                        mr: 5,
+                                        //mr: 5,
                                     }}>
                                     Adaptions
                                 </Button>
@@ -353,12 +339,34 @@ const ResponsiveAppBar = (props) => {
                                         color: "white",
                                         display: "block",
                                         textDecoration: "none",
-                                        // mr: 2,
+                                        fontSize: "16px",
+                                        mr: 5,
                                     }}>
                                     Day Care
                                 </Button>
                             </Link>
                         </nav>
+                        {user?.email && (
+                            <nav>
+                                <Link
+                                    to="dashboard"
+                                    style={{ textDecoration: "none" }}>
+                                    <Button
+                                        onClick={handleCloseNavMenu}
+                                        sx={{
+                                            // my: 2,
+                                            color: "white",
+                                            display: "block",
+                                            textDecoration: "none",
+                                            fontSize: "16px",
+                                            mr: 5,
+                                        }}>
+                                        Dashboard{" "}
+                                    </Button>
+                                </Link>
+                            </nav>
+                        )}
+
                         {user?.email ? (
                             <Button
                                 onClick={() => {
@@ -369,6 +377,8 @@ const ResponsiveAppBar = (props) => {
                                     color: "white",
                                     display: "block",
                                     textDecoration: "none",
+                                    fontSize: "16px",
+                                    mr: 5,
                                 }}>
                                 Logout{" "}
                             </Button>
@@ -384,7 +394,8 @@ const ResponsiveAppBar = (props) => {
                                             color: "white",
                                             display: "block",
                                             textDecoration: "none",
-                                            // mr: 2,
+                                            fontSize: "16px",
+                                            mr: 5,
                                         }}>
                                         Login{" "}
                                     </Button>
@@ -403,52 +414,17 @@ const ResponsiveAppBar = (props) => {
                                             color: "white",
                                             display: "block",
                                             textDecoration: "none",
-                                            // mr: 2,
+                                            fontSize: "16px",
+                                            mr: 5,
                                         }}>
                                         Register{" "}
                                     </Button>
                                 </Link>
                             </nav>
                         )}
-                        {user?.email && (
-                            <nav>
-                                <Link
-                                    to="dashboard"
-                                    style={{ textDecoration: "none" }}>
-                                    <Button
-                                        onClick={handleCloseNavMenu}
-                                        sx={{
-                                            // my: 2,
-                                            color: "white",
-                                            display: "block",
-                                            textDecoration: "none",
-                                            // mr: 2,
-                                        }}>
-                                        Dashboard{" "}
-                                    </Button>
-                                </Link>
-                            </nav>
-                        )}
-                        <nav>
-                            <Link
-                                to="orderReview"
-                                style={{ textDecoration: "none" }}>
-                                <Button
-                                    onClick={handleCloseNavMenu}
-                                    sx={{
-                                        // my: 2,
-                                        color: "white",
-                                        display: "block",
-                                        textDecoration: "none",
-                                        // mr: 2,
-                                    }}>
-                                    Order Review{" "}
-                                </Button>
-                            </Link>
-                        </nav>
                     </Box>
 
-                    <Box sx={{ mr: 2 }}>
+                    <Box sx={{ mr: 5 }}>
                         <Box sx={{ flexGrow: 1 }} />
 
                         <Box sx={{ display: { xs: "none", md: "flex" } }}>

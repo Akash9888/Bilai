@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 import Calendar from '../../../Shared/Calendar/Calendar';
+import AdminDashboardHome from '../AdminDashboardHome/AdminDashboardHome';
 import BookedAppointment from '../BookedAppointment/BookedAppointment';
 
 const DashboardHome = () => {
@@ -12,7 +13,7 @@ const DashboardHome = () => {
     return (
         <>
             {
-                admin && <p>this is the admin page</p>
+                admin && <AdminDashboardHome />
             }
             {
                 !admin && <Box component="main" sx={{ flexGrow: 1, p: 1 }}>

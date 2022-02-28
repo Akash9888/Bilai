@@ -16,13 +16,11 @@ const styles = theme => ({
     },
 });
 const Product = ({ product, handleAddToCart }) => {
-    // console.log(product);
+
     const [open, setOpen] = useState(false);
-    const [counter, setCounter] = useState(0);
     const handleOpen = () => {
         setOpen(true);
     };
-    // console.log(product.length);
     const handleClose = () => {
         setOpen(false);
     };

@@ -23,10 +23,7 @@ const theme = createTheme();
 const Checkout = ({ cart, setCart }) => {
     const [activeStep, setActiveStep] = React.useState(0);
     const { user } = useAuth();
-    // navigate('/path')
-    // const [products] = useProducts();
 
-    // console.log(cart);
     let totalQuantity = 0;
     let total = 0;
     for (const product of cart) {
@@ -43,12 +40,15 @@ const Checkout = ({ cart, setCart }) => {
     const handleSubmit = () => {
         setActiveStep(activeStep + 1);
     };
+
     const handlePlaceOrder = () => {
+        const date = new Date().toDateString();
         const order = {
             cus_name: user?.displayName,
             cus_email: user?.email,
             // product_name: cart,
             total_amount: grandTotal,
+            date: date
 
         };
         // console.log(order);

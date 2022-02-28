@@ -67,7 +67,6 @@ const App = () => {
             newCart = [...cart, product];
         }
         setCart(newCart);
-        // save to local storage (for now)
         addToDb(product.key);
     };
     return (
@@ -162,6 +161,14 @@ const App = () => {
                                 element={
                                     <AdminRoute>
                                         <AllAppointmet />
+                                    </AdminRoute>
+                                }
+                            />
+                            <Route
+                                path="allUser"
+                                element={
+                                    <AdminRoute>
+                                        <AllUser />
                                     </AdminRoute>
                                 }
                             />

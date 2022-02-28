@@ -2,7 +2,7 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { useState } from 'react';
 import useProducts from '../../hooks/useProducts';
 import useCart from '../../hooks/useCart';
@@ -15,7 +15,6 @@ const AddressForm = ({ handleNext }) => {
     const [products] = useProducts();
     const [cart] = useCart(products);
     const { user } = useAuth();
-
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [phone, setPhone] = useState('');
@@ -53,7 +52,6 @@ const AddressForm = ({ handleNext }) => {
             user_order: cart,
 
         };
-        console.log(order);
 
 
         fetch('http://localhost:5000/orders', {
