@@ -19,33 +19,31 @@ const UserProfile = () => {
             .then((res) => res.json())
             .then((data) => setSingleUserData(data));
     }, [user?.email]);
-    // console.log(singleUserData);
+
     return (
         <Container sx={{ mt: 2 }}>
             <Typography variant="h4" sx={{ m: 2, textAlign: "center" }}>
                 My Profile
             </Typography>
             <Grid container spacing={2}>
-                <Grid item xs={6} md={2}>
-                    <CardMedia
-                        component="img"
-                        height="140"
-                        sx={{ textAlign: "center" }}
-                        image={singleUserData?.photoUrl}
-                        alt={singleUserData?.email}
-                    />
+                <Grid item xs={12}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={0} md={5}></Grid>
+                        <Grid item xs={0} md={2}>
+                            <CardMedia
+                                component="img"
+                                height="200px"
+                                sx={{ borderRadius: 5 }}
+                                image={singleUserData?.photoUrl}
+                                alt={singleUserData?.email}
+                            />
+                        </Grid>
+                        <Grid item xs={0} md={5}></Grid>
+                    </Grid>
                 </Grid>
                 <Grid item xs={12}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} md={6}>
-                            {/* <TextField
-                                id="fName"
-                                fullWidth
-                                label="First Name"
-                                value={singleUserData?._id}
-                                defaultValue={singleUserData?._id}
-                                // onChange={handleChange}
-                            /> */}
                             <TextField
                                 label="First Name"
                                 color="secondary"
