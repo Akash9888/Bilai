@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Loading from "../Loader/Loading";
 import Blog from "./Blog";
@@ -61,95 +61,6 @@ function BlogFeeds() {
                         ))}
                     </Grid>
                 </Grid>
-
-                {/* <Grid item xs={12} sm={6} md={8} lg={9}>
-                    <Grid container spacing={2}>
-                        <Box sx={{ flexGrow: 1, backgroundColor: "#32a852" }}>
-                            <Grid item xs={12} sm={6} md={4}>
-                                {blogDetails.map((blog) => (
-                                    <Blog key={blog.id} blog={blog}></Blog>
-                                ))}
-                            </Grid>
-                        </Box>
-                    </Grid>
-                </Grid> */}
-
-                {/* <Grid item xs={12} sm={6} md={4} lg={3}>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <Typography variant="h4">Categories</Typography>
-                            <Button
-                                variant="outlined"
-                                size="small"
-                                sx={{ margin: "10px 10px 0px 0px" }}>
-                                Pet
-                            </Button>
-                            <Button
-                                variant="outlined"
-                                size="small"
-                                sx={{ margin: "10px 10px 0px 0px" }}>
-                                Cat
-                            </Button>
-                            <Button
-                                variant="outlined"
-                                size="small"
-                                sx={{ margin: "10px 10px 0px 0px" }}>
-                                Dog
-                            </Button>
-                            <Button
-                                variant="outlined"
-                                size="small"
-                                sx={{ margin: "10px 10px 0px 0px" }}>
-                                Rabbit
-                            </Button>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Typography variant="h4">Tag</Typography>
-                            <Button
-                                variant="outlined"
-                                size="small"
-                                sx={{ margin: "10px 10px 0px 0px" }}>
-                                Recipes
-                            </Button>
-                            <Button
-                                variant="outlined"
-                                size="small"
-                                sx={{ margin: "10px 10px 0px 0px" }}>
-                                Grooming
-                            </Button>
-                            <Button
-                                variant="outlined"
-                                size="small"
-                                sx={{ margin: "10px 10px 0px 0px" }}>
-                                Disease Pevention
-                            </Button>
-                            <Button
-                                variant="outlined"
-                                size="small"
-                                sx={{ margin: "10px 10px 0px 0px" }}>
-                                Health & Wellness
-                            </Button>
-                            <Button
-                                variant="outlined"
-                                size="small"
-                                sx={{ margin: "10px 10px 0px 0px" }}>
-                                Skin Health & Dermatology
-                            </Button>
-                            <Button
-                                variant="outlined"
-                                size="small"
-                                sx={{ margin: "10px 10px 0px 0px" }}>
-                                Safety
-                            </Button>
-                            <Button
-                                variant="outlined"
-                                size="small"
-                                sx={{ margin: "10px 10px 0px 0px" }}>
-                                Fleas, Ticks, & Heartworms
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </Grid> */}
             </Grid>
         </Box>
     );

@@ -1,14 +1,14 @@
 import { Button, Chip, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useEffect, useState } from "react";
+import React  from "react";
 import { Link, useParams } from "react-router-dom";
 import Doctors from "./DocList";
 
-console.log(Doctors);
+
 
 const DocProfile = () => {
     const { id } = useParams();
-    // console.log(id);
+
     const {
         name,
         imgUrl,
@@ -46,7 +46,6 @@ const DocProfile = () => {
                         <Typography variant="h4" sx={{ color: "#6e79f0" }}>
                             {name}
                         </Typography>
-
                         <Typography variant="h6" sx={{ color: "#7d7d80" }}>
                             {qualification}
                         </Typography>

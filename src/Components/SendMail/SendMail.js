@@ -2,12 +2,12 @@ import { Button, Container, Grid, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
-import Swal from "sweetalert2/dist/sweetalert2.js";
+
 
 const SendMail = () => {
     const form = useRef();
-
     const sendEmail = (e) => {
         e.preventDefault();
 
@@ -20,15 +20,18 @@ const SendMail = () => {
             )
             .then(
                 (result) => {
-                    // console.log(result.text);
-
-                    Swal.fire("Any fool can use a computer");
+                    Swal.fire(
+                        'Thank You!',
+                        'Message Send Successfully!',
+                        'success'
+                    )
+                    e.target.reset();
                 },
                 (error) => {
                     // console.log(error.text);
                 }
             );
-        e.target.reset();
+
     };
     return (
         <Container sx={{ backgroundColor: "#99cef7", p: 2, borderRadius: 3 }}>
@@ -76,6 +79,7 @@ const SendMail = () => {
                                 value="Send">
                                 Send
                             </Button>
+
                         </Box>
                     </form>
                 </Grid>

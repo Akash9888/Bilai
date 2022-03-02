@@ -1,17 +1,21 @@
 import { Chip, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
-import items from "./BlogData";
+// import items from "./BlogData";
 // const allTags = [...new Set(items.map((item) => item))];
 // console.log(allTags);
 
 const FullArticle = () => {
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/blogs')
+            .then(res => res.json())
+            .then(data => setItems(data))
+    }, []);
     const { id } = useParams();
     const allTags = [...new Set(items.map((item) => item))];
-    console.log(id);
-    console.log(allTags[id].author);
 
     return (
         <>

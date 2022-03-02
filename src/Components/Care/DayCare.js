@@ -11,7 +11,7 @@ import { Container } from "@mui/material";
 //     textAlign: "center",
 //     color: theme.palette.text.secondary,
 // }));
-const dayCare = () => {
+const DayCare = () => {
     return (
         <>
             <Container sx={{ mt: 2 }}>
@@ -32,4 +32,4 @@ const dayCare = () => {
     );
 };
 
-export default dayCare;
+export default DayCare;

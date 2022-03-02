@@ -17,34 +17,32 @@ import { useState } from 'react';
 import { Alert, Paper } from '@mui/material';
 
 const Register = () => {
-    const [loginData, setLoginData] = React.useState({});
-    const { registerUser, message } = useAuth();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [password2, setPassword2] = useState('');
+    const { registerUser, message, authError } = useAuth();
     const [error, setError] = useState('');
 
-    const handleOnChange = e => {
-        const field = e.target.name;
-        const value = e.target.value;
-        const newLoginData = { ...loginData };
-        newLoginData[field] = value;
-        // console.log(newLoginData);
-        setLoginData(newLoginData);
-    }
-    console.log(message);
     const handleSignUp = e => {
+        setError('');
         e.preventDefault();
-        if (!loginData.email && !loginData.password) {
+        if (!email || !password) {
             setError('Please Input an Email and a Password');
             return;
         }
-        if (loginData.password < 8) {
+        if (password < 8) {
             setError('Password Should be At least length of 8');
             return;
         }
-        registerUser(loginData.email, loginData.password, loginData.name);
+        if (password !== password2) {
+            setError('Password Should Be Matched');
+            return;
+        }
+        registerUser(email, password, name);
         setError('');
     }
     const theme = createTheme();
-
     return (
 
         <ThemeProvider theme={theme}>
@@ -65,17 +63,16 @@ const Register = () => {
                         <Typography component="h1" variant="h5">
                             Sign up
                         </Typography>
-                        <Box component="form" noValidate onClick={handleSignUp} sx={{ mt: 3 }}>
+                        <Box component="form" onSubmit={handleSignUp} sx={{ mt: 3 }}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} >
                                     <TextField
-
                                         name="name"
                                         required
                                         fullWidth
                                         id="firstName"
                                         label="Name"
-                                        onBlur={handleOnChange}
+                                        onChange={(e) => setName(e.target.value)}
                                         autoFocus
                                     />
                                 </Grid>
@@ -88,7 +85,7 @@ const Register = () => {
                                         type="email"
                                         label="Email Address"
                                         name="email"
-                                        onBlur={handleOnChange}
+                                        onChange={(e) => setEmail(e.target.value)}
 
                                     />
                                 </Grid>
@@ -99,7 +96,7 @@ const Register = () => {
                                         name="password"
                                         label="Password"
                                         type="password"
-                                        onBlur={handleOnChange}
+                                        onChange={(e) => setPassword(e.target.value)}
                                         id="password"
                                     />
                                 </Grid>
@@ -110,7 +107,7 @@ const Register = () => {
                                         name="password2"
                                         label="Retype Password"
                                         type="password"
-                                        onBlur={handleOnChange}
+                                        onChange={(e) => setPassword2(e.target.value)}
                                     />
                                 </Grid>
 
@@ -129,6 +126,9 @@ const Register = () => {
                         }
                         {
                             message && <Alert severity="success">{message}</Alert>
+                        }
+                        {
+                            authError && <Alert severity="success">{authError}</Alert>
                         }
                         <Grid container justifyContent="flex-end">
                             <Grid item>
