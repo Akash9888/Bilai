@@ -5,6 +5,7 @@ function BlogButton({ button, filter }) {
     return (
         <>
             {button.map((tag, i) => {
+                // console.log(tag);
                 return (
                     <>
                         <Button

@@ -1,6 +1,6 @@
 import { Button, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Blog from "../Blog/Blog";
 import items from "../Blog/BlogData";
 // console.log(items);
@@ -10,6 +10,18 @@ import { Link } from "react-router-dom";
 const allTags = items.slice(0, 3);
 // console.log(allTags);
 const SampleBlog = () => {
+    const [items, setItems] = useState([]);
+    const [buttons, setButtons] = useState([]);
+    const [blogDetails, setBlogDetails] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:5000/blogs")
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data.slice(0, 3));
+                setBlogDetails(data.slice(0, 3));
+            });
+    }, []);
+
     return (
         <Container sx={{ p: 2 }}>
             <Typography
@@ -20,7 +32,7 @@ const SampleBlog = () => {
             {/* <Grid container spacing={2}> */}
             {/* <Grid item xs={12} sm={12} md={4}> */}
             <Grid container spacing={2}>
-                {allTags.map((blog, index) => (
+                {blogDetails.map((blog, index) => (
                     // console.log("index: " + index)
                     <Blog key={blog.id} blog={blog} index={index}></Blog>
                 ))}

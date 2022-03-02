@@ -2,26 +2,25 @@ import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Blog from "./Blog";
 import BlogButton from "./BlogButton";
-import items from "./BlogData";
-
-const allTags = ["All", ...new Set(items.map((item) => item.tag))];
-// console.log(allTags);
-// console.log("items: " + items);
+// import items from "./BlogData";
 
 function BlogFeeds() {
-    // const blogArray = [1, 2, 3, 4, 5, 6];
-    // const [blogList, setBlogList] = useState([]);
-    // useEffect(() => {
-    //     fetch("Blog.json")
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             setBlogList(data);
-    //         });
-    // }, []);
-    // console.log("items" + items);
-    const [blogDetails, setBlogDetails] = useState(items);
-    const [buttons, setButtons] = useState(allTags);
-    // console.log("button= " + buttons);
+    const [items, setItems] = useState([]);
+    const [buttons, setButtons] = useState([]);
+    const [blogDetails, setBlogDetails] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:5000/blogs")
+            .then((res) => res.json())
+            .then((data) => {
+                setItems(data);
+                setBlogDetails(data);
+                // setButtons(new Set(data.map((item) => item.tag)));
+                const val = data.map((item) => item.tag);
+                // console.log(new Set(val));
+                val.unshift("All");
+                setButtons(Array.from(new Set(val)));
+            });
+    }, []);
 
     //Filter Function
     const filter = (button) => {
@@ -30,11 +29,13 @@ function BlogFeeds() {
             return;
         }
 
-        console.log(button);
+        console.log("key: " + button);
         const filteredData = items.filter((item) => item.tag === button);
-        console.log("filtered data: " + filteredData);
+        console.log(filteredData);
+        setBlogDetails([]);
+        console.log(blogDetails);
         setBlogDetails(filteredData);
-        console.log("blogDetails :" + blogDetails);
+        console.log(blogDetails);
     };
 
     return (
