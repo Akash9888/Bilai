@@ -1,14 +1,10 @@
-import {
-    Alert,
-    Box,
-    Button,
-    Container,
-    Grid,
-    Input,
-    TextField,
-    Typography,
-} from "@mui/material";
 import React, { useState } from "react";
+import { Box, Button, Container, Grid, Input, TextField, Typography } from "@mui/material";
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { withSwalInstance } from 'sweetalert2-react';
+import swal from 'sweetalert2';
+
+const SweetAlert = withSwalInstance(swal);
 
 const AddDoctor = () => {
     const [id, setId] = useState('');
@@ -17,25 +13,38 @@ const AddDoctor = () => {
     const [qualification, setQualification] = useState('');
     const [designation, setDesignation] = useState('');
     const [expertise, setExpertise] = useState('');
+    const [experience, setExperience] = useState('');
     const [organization, setOrganization] = useState('');
     const [address, setAddress] = useState('');
     const [visitHour, setVisitHour] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [imgUrl, setImgUrl] = useState(null);
-
-
     const [success, setSuccess] = useState(false);
 
+    const resetForm = () => {
+        setId('');
+        SetRegistrationNumber('')
+        setName('');
+        setQualification('');
+        setDesignation('');
+        setOrganization('');
+        setExperience('');
+        setExpertise('')
+        setAddress('');
+        setVisitHour('');
+        setPhone('');
+        setEmail('');
+        setImgUrl('');
+        setSuccess('')
+    }
     const handleSubmit = e => {
         e.preventDefault();
         // console.log('object');
         if (!imgUrl) {
             return;
         }
-
         const formData = new FormData();
-
         formData.append('id', id);
         formData.append('registrationNumber', registrationNumber);
         formData.append('name', name);
@@ -43,6 +52,7 @@ const AddDoctor = () => {
         formData.append('designation', designation);
         formData.append('expertise', expertise);
         formData.append('organization', organization);
+        formData.append('experience', experience);
         formData.append('address', address);
         formData.append('visitHour', visitHour);
         formData.append('phone', phone);
@@ -56,13 +66,14 @@ const AddDoctor = () => {
         })
             .then(res => res.json())
             .then(data => {
-                setSuccess('Doctor Added Successfully');
+                Swal.fire(
+                    'Doctor Added Successfully!'
+                );
             })
             .catch(error => {
                 console.error('Error:', error);
             });
-
-        // console.log(formData);
+        resetForm();
     }
     return (
         <Container>
@@ -76,27 +87,30 @@ const AddDoctor = () => {
                             id="id"
                             name="id"
                             type="number"
-                            onBlur={e => setId(e.target.value)}
+                            value={id}
+                            onChange={e => setId(e.target.value)}
                             required
                             fullWidth
-                            label="Id"></TextField>
+                            label="Id" />
                     </Grid>
                     <Grid item xs={8} sm={8} md={4}>
                         <TextField
                             id="registrationNumber"
                             name="registrationNumber"
                             type="text"
-                            onBlur={e => SetRegistrationNumber(e.target.value)}
+                            value={registrationNumber}
+                            onChange={e => SetRegistrationNumber(e.target.value)}
                             required
                             fullWidth
-                            label="Registration Number"></TextField>
+                            label="Registration Number" />
                     </Grid>
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
                             id="name"
                             type="text"
                             name="name"
-                            onBlur={e => setName(e.target.value)}
+                            value={name}
+                            onChange={e => setName(e.target.value)}
                             required
                             fullWidth
                             label="Doctor Name"></TextField>
@@ -106,10 +120,11 @@ const AddDoctor = () => {
                             id="experience"
                             type="text"
                             name="experience"
-                            onBlur={e => setId(e.target.value)}
+                            value={experience}
+                            onChange={e => setExperience(e.target.value)}
                             required
                             fullWidth
-                            label="Experience"></TextField>
+                            label="Experience" />
                     </Grid>
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
@@ -118,10 +133,11 @@ const AddDoctor = () => {
                             type="text"
                             required
                             fullWidth
-                            onBlur={e => setQualification(e.target.value)}
+                            value={qualification}
+                            onChange={e => setQualification(e.target.value)}
                             multiline
                             maxRows={3}
-                            label="Qualification"></TextField>
+                            label="Qualification" />
                     </Grid>
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
@@ -130,10 +146,11 @@ const AddDoctor = () => {
                             type="text"
                             required
                             fullWidth
-                            onBlur={e => setDesignation(e.target.value)}
+                            value={designation}
+                            onChange={e => setDesignation(e.target.value)}
                             multiline
                             maxRows={3}
-                            label="Designation"></TextField>
+                            label="Designation" />
                     </Grid>
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
@@ -142,22 +159,24 @@ const AddDoctor = () => {
                             type="text"
                             required
                             fullWidth
-                            onBlur={e => setExpertise(e.target.value)}
+                            value={expertise}
+                            onChange={e => setExpertise(e.target.value)}
                             multiline
                             maxRows={3}
-                            label="Expertise"></TextField>
+                            label="Expertise" />
                     </Grid>
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
                             id="organization"
-                            name="oraganization"
+                            name="organization"
                             type="text"
                             required
                             fullWidth
-                            onBlur={e => setOrganization(e.target.value)}
+                            value={organization}
+                            onChange={e => setOrganization(e.target.value)}
                             multiline
                             maxRows={3}
-                            label="Organization"></TextField>
+                            label="Organization" />
                     </Grid>
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
@@ -166,10 +185,11 @@ const AddDoctor = () => {
                             type="text"
                             required
                             fullWidth
-                            onBlur={e => setAddress(e.target.value)}
+                            value={address}
+                            onChange={e => setAddress(e.target.value)}
                             multiline
                             maxRows={3}
-                            label="Chamber Address"></TextField>
+                            label="Chamber Address" />
                     </Grid>
 
                     <Grid item xs={12} sm={8} md={6}>
@@ -177,10 +197,11 @@ const AddDoctor = () => {
                             id="visitHour"
                             name="visitHour"
                             type="text"
-                            onBlur={e => setVisitHour(e.target.value)}
+                            value={visitHour}
+                            onChange={e => setVisitHour(e.target.value)}
                             required
                             fullWidth
-                            label="Visiting Hours"></TextField>
+                            label="Visiting Hours" />
                     </Grid>
 
                     <Grid item xs={12} sm={12} md={6}>
@@ -188,20 +209,22 @@ const AddDoctor = () => {
                             id="phone"
                             name="phone"
                             type="number"
-                            onBlur={e => setPhone(e.target.value)}
+                            value={phone}
+                            onChange={e => setPhone(e.target.value)}
                             required
                             fullWidth
-                            label="Phone Number"></TextField>
+                            label="Phone Number" />
                     </Grid>
                     <Grid item xs={12} sm={12} md={6}>
                         <TextField
                             id="email"
                             name="email"
                             type="email"
-                            onBlur={e => setEmail(e.target.value)}
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
                             required
                             fullWidth
-                            label="Email"></TextField>
+                            label="Email" />
                     </Grid>
 
                     <Grid item xs={12} sm={12} md={4}>
@@ -229,10 +252,6 @@ const AddDoctor = () => {
                     </Grid>
                 </Grid>
             </form>
-            {
-                success && <Alert severity="success">{success}!</Alert>
-
-            }
         </Container>
     );
 };

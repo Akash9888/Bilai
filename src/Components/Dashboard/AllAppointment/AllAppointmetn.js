@@ -7,7 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
+import Chip from '@mui/material/Chip';
 import { Button, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
@@ -123,7 +123,7 @@ export default function CustomizedTables() {
                                     <StyledTableCell align="right">{row.date}</StyledTableCell>
                                     <StyledTableCell align="right">
                                         {
-                                            row?.status === 'Approved' ? <p>Approved</p> :
+                                            row?.status === 'Approved' ? <Chip label="Approved" /> :
                                                 <Button onClick={() => updateField(row._id)}>Approve</Button>
                                         }
                                     </StyledTableCell>

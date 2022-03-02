@@ -10,7 +10,6 @@ const SendMail = () => {
     const form = useRef();
     const sendEmail = (e) => {
         e.preventDefault();
-
         emailjs
             .sendForm(
                 "service_0mtrrxk",

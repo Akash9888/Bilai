@@ -336,7 +336,7 @@ const ResponsiveAppBar = (props) => {
 
                         <nav>
                             <Link
-                                to="/daycare"
+                                to="daycare"
                                 style={{ textDecoration: "none" }}>
                                 <Button
                                     onClick={handleCloseNavMenu}

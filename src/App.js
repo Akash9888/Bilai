@@ -102,10 +102,8 @@ const App = () => {
                                 </PrivateRoute>
                             }
                         />
-                        {/* <Route path="/daycare" element={<DayCare />} /> */}
                         <Route path="/daycare" element={<DayCare />} />
                         <Route path="/adaptions" element={<Adaptions />} />
-                        {/* <PrivateRoute path="/appointment" element={<Appointment />} /> */}
                         <Route
                             path="/appointment"
                             element={
