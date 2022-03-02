@@ -40,6 +40,7 @@ import UserProfile from "./Components/UserProfile/UserProfile";
 import Success from "./Components/Success/Success";
 import SendMail from "./Components/SendMail/SendMail";
 import DayCare from './Components/Care/DayCare';
+import Adaptions from "./Components/Adaptions/Adaptions";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -103,6 +104,7 @@ const App = () => {
                         />
                         {/* <Route path="/daycare" element={<DayCare />} /> */}
                         <Route path="/daycare" element={<DayCare />} />
+                        <Route path="/adaptions" element={<Adaptions />} />
                         {/* <PrivateRoute path="/appointment" element={<Appointment />} /> */}
                         <Route
                             path="/appointment"
