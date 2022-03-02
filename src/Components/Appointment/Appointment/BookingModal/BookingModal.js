@@ -16,21 +16,35 @@ const style = {
 };
 const BookingModal = ({ firstName, date, booking, openBooking, handleBookingClose, setBookingSuccess }) => {
     const { user } = useAuth();
-    const [time, setTime] = React.useState('');
+    const [time, setTime] = useState('');
+    const [phone, setPhone] = useState('');
+    const [error, setError] = useState('');
+    const [bookingInfo, setBookingInfo] = useState({});
+    const initialInfo = { name: user.displayName, email: user.email, phone: '', };
+    // console.log(initialInfo);
+    const handleChange = e => {
+        const value = e.target.value;
+        setError({ phone: '' });
+        setPhone(value);
+        let reg = new RegExp(/^(?:\+88|88)?(01[3-9]\d{8})$/).test(value);
+        if (!reg) {
+            setError({ phone: "Input a valid Phone Number" })
+        }
+    };
 
-    const initialInfo = { name: user.displayName, email: user.email, phone: '', time: time };
-    const [bookingInfo, setBookingInfo] = useState({})
     const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
         const newInfo = { ...initialInfo, status: 'Pending' };
         newInfo[field] = value;
-        // console.log(newInfo);
         setBookingInfo(newInfo);
+    }
+    const handleOnChange = e => {
+        setTime(e.target.value);
     }
     const hadleBookSubmit = e => {
         const appointment = {
-            ...bookingInfo, doctorName: firstName, date: date.toLocaleDateString()
+            ...initialInfo, doctorName: firstName, date: date.toLocaleDateString(), phone: phone, time: time, status: 'pending'
         };
         // console.log(appointment);
         fetch('http://localhost:5000/appointments', {
@@ -51,10 +65,8 @@ const BookingModal = ({ firstName, date, booking, openBooking, handleBookingClos
         // collecting data form user and saving it to the database 
         e.preventDefault();
     }
+    console.log(bookingInfo);
 
-    const handleOnChange = e => {
-        setTime(e.target.value);
-    }
     return (
         <Modal
             aria-labelledby="transition-modal-title"
@@ -108,8 +120,11 @@ const BookingModal = ({ firstName, date, booking, openBooking, handleBookingClos
                             sx={{ width: '90%', m: 1 }}
                             id="outlined-size-small"
                             name="phone"
-                            onBlur={handleOnBlur}
-                            defaultValue='Phone Number'
+                            value={phone}
+                            label="Phone Number"
+                            onChange={handleChange}
+                            error={Boolean(error?.phone)}
+                            helperText={(error?.phone)}
                             size="small"
                         />
                         <TextField

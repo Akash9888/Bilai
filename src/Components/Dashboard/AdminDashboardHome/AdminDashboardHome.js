@@ -14,6 +14,7 @@ const AdminDashboardHome = () => {
             .then(res => res.json())
             .then(data => setTotalBalance(data))
     }, [totalBalance])
+
     useEffect(() => {
         fetch(`http://localhost:5000/dashboard/allAppointment`)
             .then(res => res.json())

@@ -83,7 +83,7 @@ const AddressForm = ({ handleNext }) => {
                             name="firstName"
                             label="First name"
                             fullWidth
-                            onBlur={e => setFirstName(e.target.value)}
+                            onChange={e => setFirstName(e.target.value)}
                             autoComplete="given-name"
                             variant="standard"
                         />
@@ -95,7 +95,7 @@ const AddressForm = ({ handleNext }) => {
                             name="lastName"
                             label="Last name"
                             fullWidth
-                            onBlur={e => setLastName(e.target.value)}
+                            onChange={e => setLastName(e.target.value)}
                             autoComplete="family-name"
                             variant="standard"
                         />
@@ -122,7 +122,7 @@ const AddressForm = ({ handleNext }) => {
                             name="address1"
                             label="Address line 1"
                             fullWidth
-                            onBlur={e => setAdress(e.target.value)}
+                            onChange={e => setAdress(e.target.value)}
                             autoComplete="shipping address-line1"
                             variant="standard"
                         />
@@ -146,7 +146,7 @@ const AddressForm = ({ handleNext }) => {
                             name="state"
                             label="State/Province/Region"
                             fullWidth
-                            onBlur={e => setState(e.target.value)}
+                            onChange={e => setState(e.target.value)}
                             variant="standard"
                         />
                     </Grid>
@@ -169,7 +169,7 @@ const AddressForm = ({ handleNext }) => {
                             name="country"
                             label="Country"
                             fullWidth
-                            onBlur={e => setCountry(e.target.value)}
+                            onChange={e => setCountry(e.target.value)}
                             autoComplete="shipping country"
                             variant="standard"
                         />

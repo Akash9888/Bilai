@@ -27,7 +27,6 @@ const Blog = ({ blog, index }) => {
         authorPic,
         blogPic,
     } = blog;
-    console.log(blog, index);
     return (
         <Grid item xs={12} sm={12} md={6} lg={4}>
             <Card

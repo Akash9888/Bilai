@@ -1,21 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import initializeFirebase from "../Login/Firebase/firebase.init";
 import {
-    getAuth,
-    updateProfile,
-    createUserWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    GoogleAuthProvider,
-    signInWithPopup,
-    sendEmailVerification,
-    sendPasswordResetEmail,
-    confirmPasswordReset,
-    getIdToken,
+    getAuth, updateProfile, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendEmailVerification, sendPasswordResetEmail, confirmPasswordReset, getIdToken,
 } from "firebase/auth";
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { withSwalInstance } from 'sweetalert2-react';
+import swal from 'sweetalert2';
 
-import { useEffect } from "react";
+const SweetAlert = withSwalInstance(swal);
 
 // initilizing firebase app
 initializeFirebase();
@@ -35,6 +27,8 @@ const useFirebase = () => {
             .then((userCredential) => {
                 setAuthError("");
                 const user = userCredential.user;
+
+                verifyEmail();
                 const newUser = {
                     email,
                     displayName: name,
@@ -42,14 +36,19 @@ const useFirebase = () => {
                     lastName: userCredential._tokenResponse.lastName,
                     photUrl: userCredential._tokenResponse.photoUrl,
                 };
-                verifyEmail();
                 setUser(newUser);
                 // setMessage('');
                 saveUser(email, name, "POST");
                 updateProfile(auth.currentUser, {
                     displayName: name,
                 })
-                    .then(() => {})
+                    .then(() => {
+                        Swal.fire(
+                            'Thank You!',
+                            'Verify The Email Please.Check Your Inbox or Spam!',
+                            'success'
+                        )
+                    })
                     .catch((error) => setAuthError(error.message));
             })
             .catch((error) => {
@@ -60,24 +59,36 @@ const useFirebase = () => {
     };
     const verifyEmail = () => {
         sendEmailVerification(auth.currentUser).then((result) => {
-            // console.log(result);
         });
     };
-
     const loginUser = (email, password, location, navigate) => {
         setIsLoading(true);
+        // console.log(auth);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const user = userCredential.user;
-                const destination = location?.state?.from || "/";
-                navigate(destination);
-                setAuthError("");
+                // console.log(auth);
+                // console.log(auth.currentUser);
+                if (auth.currentUser.emailVerified === true) {
+                    setUser(userCredential.user);
+                    const destination = location?.state?.from || "/";
+                    navigate(destination);
+                    setAuthError("")
+                } else {
+                    Swal.fire(
+                        'Please Verify The Email First!',
+                    )
+                }
+
             })
             .catch((error) => {
                 setAuthError(error.message);
                 // console.log(error.message);
             })
             .finally(() => setIsLoading(false));
+
+
+
+
     };
 
     const forgetPassword = (email) => {
@@ -85,7 +96,13 @@ const useFirebase = () => {
         sendPasswordResetEmail(auth, email, {
             url: "http://localhost:3000/login",
         })
-            .then(() => {})
+            .then(() => {
+                Swal.fire(
+                    'Thank You!',
+                    'Email for Password reset send Successfully!',
+                    'success'
+                )
+            })
             .catch((error) => {
                 const errorMessage = error.message;
             });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Container, Grid, Input, TextField, Typography } from "@mui/material";
+import { Alert, Box, Button, Container, Grid, Input, TextField, Typography } from "@mui/material";
 
 const AddBlog = () => {
     const [id, setId] = useState('');
@@ -14,6 +14,8 @@ const AddBlog = () => {
     const [block3, setBlock3] = useState('');
     const [image, setImage] = useState(null);
     const [image2, setImage2] = useState(null);
+
+    const [success, setSuccess] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -40,7 +42,7 @@ const AddBlog = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log('Success:', result);
+                setSuccess('Blog Added Successfully');
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -202,6 +204,10 @@ const AddBlog = () => {
                         </Grid>
                     </Grid>
                 </form>
+                {
+                    success && <Alert severity="success">{success}!</Alert>
+
+                }
             </Container>
         </div>
     );

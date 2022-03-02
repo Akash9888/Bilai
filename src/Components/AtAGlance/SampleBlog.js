@@ -1,15 +1,21 @@
 import { Button, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Blog from "../Blog/Blog";
-import items from "../Blog/BlogData";
+// import items from "../Blog/BlogData";
 // console.log(items);
 import { Link } from "react-router-dom";
 
 // const allTags = [...new Set(items.map((item) => item.tag))];
-const allTags = items.slice(0, 3);
 // console.log(allTags);
 const SampleBlog = () => {
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/blogs')
+            .then(res => res.json())
+            .then(data => setItems(data))
+    }, []);
+    const allTags = items.slice(0, 3);
     return (
         <Container sx={{ p: 2 }}>
             <Typography

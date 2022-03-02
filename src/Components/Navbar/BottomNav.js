@@ -6,7 +6,6 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 // import image1 from "../photos/search.png";
@@ -17,9 +16,10 @@ import { ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { CardMedia } from "@mui/material";
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const ResponsiveAppBar = (props) => {
     const { user, logout } = useAuth();
+
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -77,10 +77,23 @@ const ResponsiveAppBar = (props) => {
             }}
             open={isMenuOpen}
             onClose={handleMenuClose}>
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Dashboard</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+            {
+                user?.emailVerified === true ? <Box>
+                    <Link to="userProfile" style={{ textDecoration: 'none', color: 'black' }}>
+                        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+                    </Link>
+                    <MenuItem onClick={() => {
+                        handleMenuClose();
+                        logout();
+                    }}>Logout</MenuItem>
+                </Box> : <Box>
+                    <Link to='/login' style={{ textDecoration: 'none', color: 'black' }}><MenuItem onClick={handleMenuClose}>Login</MenuItem></Link>
+                    <Link to='/register' style={{ textDecoration: 'none', color: 'black' }}><MenuItem onClick={handleMenuClose}>Register</MenuItem></Link>
+                </Box>
+            }
+
+
+
         </Menu>
     );
 
@@ -104,7 +117,7 @@ const ResponsiveAppBar = (props) => {
                 <IconButton
                     size="large"
                     component={Link}
-                    to="/cart"
+                    to="orderReview"
                     aria-label="show 4 new carts"
                     color="primary">
                     <Badge badgeContent={totalQuantity} color="error">
@@ -151,7 +164,7 @@ const ResponsiveAppBar = (props) => {
                     <Box sx={{ ml: 8 }}>
                         <CardMedia
                             component="img"
-                            height="60"
+                            height="50"
                             sx={{ p: 1 }}
                             image="https://i.ibb.co/HFQPY4L/cat.png"
                             alt="Bilai | A True Compainion"
@@ -198,14 +211,7 @@ const ResponsiveAppBar = (props) => {
                             to="shop">
                             Shop
                         </MenuItem>
-                        <MenuItem
-                            component={Link}
-                            onClick={handleCloseNavMenu}
-                            // the 'to' prop (and any other props not recognized by MenuItem itself)
-                            // will be passed down to the Link component
-                            to="">
-                            Medicine
-                        </MenuItem>
+
                         <MenuItem
                             component={Link}
                             onClick={handleCloseNavMenu}
@@ -330,7 +336,7 @@ const ResponsiveAppBar = (props) => {
 
                         <nav>
                             <Link
-                                to="daycare"
+                                to="/daycare"
                                 style={{ textDecoration: "none" }}>
                                 <Button
                                     onClick={handleCloseNavMenu}
@@ -346,7 +352,7 @@ const ResponsiveAppBar = (props) => {
                                 </Button>
                             </Link>
                         </nav>
-                        {user?.email && (
+                        {user?.emailVerified === true && (
                             <nav>
                                 <Link
                                     to="dashboard"
@@ -367,7 +373,7 @@ const ResponsiveAppBar = (props) => {
                             </nav>
                         )}
 
-                        {user?.email ? (
+                        {/* {user?.emailVerified === true ? (
                             <Button
                                 onClick={() => {
                                     handleCloseNavMenu();
@@ -401,8 +407,8 @@ const ResponsiveAppBar = (props) => {
                                     </Button>
                                 </Link>
                             </nav>
-                        )}
-                        {!user?.email && (
+                        )} */}
+                        {/* {!user?.email && (
                             <nav>
                                 <Link
                                     to="register"
@@ -421,7 +427,7 @@ const ResponsiveAppBar = (props) => {
                                     </Button>
                                 </Link>
                             </nav>
-                        )}
+                        )} */}
                     </Box>
 
                     <Box sx={{ mr: 5 }}>
@@ -449,14 +455,22 @@ const ResponsiveAppBar = (props) => {
                                 aria-haspopup="true"
                                 onClick={handleProfileMenuOpen}
                                 color="inherit">
-                                <CardMedia
-                                    component="img"
-                                    height="40"
-                                    sx={{ borderRadius: "50%" }}
-                                    image={user?.photoURL}
-                                    alt="Paella dish"
-                                />
+                                {
+                                    !user?.email && <AccountCircleIcon />
+                                }
+
+                                {
+                                    user?.email && <CardMedia
+                                        component="img"
+                                        height="40"
+                                        sx={{ borderRadius: "50%" }}
+                                        image={user?.photoURL}
+                                        alt=":"
+                                    />
+                                }
+
                             </IconButton>
+
                         </Box>
                         <Box sx={{ display: { xs: "flex", md: "none" } }}>
                             <IconButton
