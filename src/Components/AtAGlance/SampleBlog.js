@@ -2,23 +2,20 @@ import { Button, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import Blog from "../Blog/Blog";
-import items from "../Blog/BlogData";
 // console.log(items);
 import { Link } from "react-router-dom";
+import Loading from "../Loader/Loading";
 
-// const allTags = [...new Set(items.map((item) => item.tag))];
-const allTags = items.slice(0, 3);
-// console.log(allTags);
 const SampleBlog = () => {
-    const [items, setItems] = useState([]);
-    const [buttons, setButtons] = useState([]);
     const [blogDetails, setBlogDetails] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
+        setLoading(true);
         fetch("http://localhost:5000/blogs")
             .then((res) => res.json())
             .then((data) => {
-                console.log(data.slice(0, 3));
                 setBlogDetails(data.slice(0, 3));
+                setLoading(false);
             });
     }, []);
 
@@ -29,22 +26,22 @@ const SampleBlog = () => {
                 sx={{ textAlign: "center", p: 2, color: "#757273" }}>
                 Read Blog
             </Typography>
-            {/* <Grid container spacing={2}> */}
-            {/* <Grid item xs={12} sm={12} md={4}> */}
-            <Grid container spacing={2}>
-                {blogDetails.map((blog, index) => (
-                    // console.log("index: " + index)
-                    <Blog key={blog.id} blog={blog} index={index}></Blog>
-                ))}
-            </Grid>
-            {/* </Grid> */}
-            {/* </Grid> */}
 
-            <Link to="blogfeed" style={{ textDecoration: "none" }}>
-                <Box sx={{ p: 3, textAlign: "center" }}>
-                    <Button variant="outlined">Read More</Button>
-                </Box>
-            </Link>
+            <div>
+                {" "}
+                {loading && <Loading />}
+                <Grid container spacing={2}>
+                    {blogDetails.map((blog, index) => (
+                        // console.log("index: " + index)
+                        <Blog key={blog.id} blog={blog} index={index}></Blog>
+                    ))}
+                </Grid>
+                <Link to="blogfeed" style={{ textDecoration: "none" }}>
+                    <Box sx={{ p: 3, textAlign: "center" }}>
+                        <Button variant="outlined">Read More</Button>
+                    </Box>
+                </Link>
+            </div>
         </Container>
     );
 };

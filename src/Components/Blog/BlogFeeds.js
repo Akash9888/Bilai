@@ -1,5 +1,6 @@
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import Loading from "../Loader/Loading";
 import Blog from "./Blog";
 import BlogButton from "./BlogButton";
 // import items from "./BlogData";
@@ -8,7 +9,9 @@ function BlogFeeds() {
     const [items, setItems] = useState([]);
     const [buttons, setButtons] = useState([]);
     const [blogDetails, setBlogDetails] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
+        setLoading(true);
         fetch("http://localhost:5000/blogs")
             .then((res) => res.json())
             .then((data) => {
@@ -19,6 +22,7 @@ function BlogFeeds() {
                 // console.log(new Set(val));
                 val.unshift("All");
                 setButtons(Array.from(new Set(val)));
+                setLoading(false);
             });
     }, []);
 
@@ -39,11 +43,11 @@ function BlogFeeds() {
     };
 
     return (
-        // <Container sx={{ mt: 3 }}>
         <Box sx={{ p: 3 }}>
+            {loading && <Loading />}
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} md={4} lg={3}>
-                    <Typography variant="h4">Tag</Typography>
+                    {/* <Typography variant="h5">Tag</Typography> */}
                     <BlogButton button={buttons} filter={filter} />
                 </Grid>
                 <Grid item xs={12} sm={6} md={8} lg={9}>
