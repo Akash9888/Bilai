@@ -21,7 +21,6 @@ const DocCard = (props) => {
     console.log("props", props);
     const { name, address, specialisation, imgUrl } = props.doc;
     const [openBooking, setBookingOpen] = React.useState(false);
-    // const [bookingSuccess, setBookingSuccess] = useState(false);
     const handleBookingOpen = () => setBookingOpen(true);
     const handleBookingClose = () => setBookingOpen(false);
     return (

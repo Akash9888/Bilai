@@ -454,7 +454,7 @@ const ResponsiveAppBar = (props) => {
                                     height="40"
                                     sx={{ borderRadius: "50%" }}
                                     image={user?.photoURL}
-                                    alt="Paella dish"
+                                    alt=""
                                 />
                             </IconButton>
                         </Box>
