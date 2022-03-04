@@ -111,10 +111,10 @@ const Carousel = () => {
                                     variant="h3"
                                     gutterBottom
                                     component="div">
-                                    Lorem ipsum dolor sit amet
+                                   Our Pets deserved best of best
                                 </Typography>
 
-                                <ThemeProvider theme={theme}>
+                                {/* <ThemeProvider theme={theme}>
                                     <Box
                                         sx={{
                                             display: {
@@ -149,7 +149,7 @@ const Carousel = () => {
                                             laborum fugiat deleniti
                                         </Typography>
                                     </Box>
-                                </ThemeProvider>
+                                </ThemeProvider> */}
 
                                 <Link
                                     to="shop"
