@@ -1,4 +1,4 @@
-import { Box, Container, Grid } from "@mui/material";
+import { Box, CircularProgress, Container, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import DocCard from "../doctor/DocCard";
 import AppointmentBanner from "./Appointment/AppointmentBanner/AppointmentBanner";
@@ -9,12 +9,13 @@ const Appointment = () => {
     const [docList, setDocList] = useState([]);
     const [bookingSuccess, setBookingSuccess] = useState(false);
     useEffect(() => {
-        fetch("sample.json")
+        fetch("http://localhost:5000/doctors")
             .then((res) => res.json())
             .then((data) => {
                 setDocList(data);
             });
     }, []);
+    console.log(docList.length);
     return (
         <div>
             <AppointmentBanner
@@ -26,6 +27,22 @@ const Appointment = () => {
             <Container sx={{ mt: 3 }}>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={1}>
+                        {
+                            docList.length === 0 &&
+
+                            <Grid
+                                container
+                                spacing={0}
+                                direction="column"
+                                alignItems="center"
+                                justifyContent="center"
+                            >
+                                <Grid item xs={3}>
+                                    <CircularProgress />
+                                </Grid>
+
+                            </Grid>
+                        }
                         {docList.map((doc, index) => (
                             <DocCard
                                 setBookingSuccess={setBookingSuccess}

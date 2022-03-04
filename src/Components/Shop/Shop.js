@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Grid, TextField } from '@mui/material';
+import { Button, CircularProgress, Container, Grid, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import Product from '../Product/Product';
 import Cart from './Cart/Cart';
@@ -23,33 +23,40 @@ const Shop = ({ cart, products, setProducts, handleAddToCart, displayProdcuts, s
     }
     return (
         <Box sx={{ mt: 4 }}>
-            <Grid container spacing={1}>
+            <Grid container spacing={2}>
                 <Grid item xs={12} md={6} sx={{ ml: 2 }}>
                     <TextField
                         fullWidth
                         onChange={handleSearch}
                         id="fullWidth" />
                 </Grid>
-                <Grid item xs={4} md={1} sx={{ mt: 1 }}>
-                    <Button value="All" size="medium" onClick={handleAllItem} variant="outlined">All</Button>
+                <Grid item xs={12} md={5} sx={{ mt: 1 }}>
+                    <Button value="All" sx={{ mr: 2 }} size="medium" onClick={handleAllItem} variant="outlined">All</Button>
+                    <Button value="Dog" sx={{ mr: 2 }} size="medium" onClick={handleClick} variant="outlined">Dog Item</Button>
+                    <Button value="Cat" sx={{ mr: 2 }} size="medium" onClick={handleClick} variant="outlined">Cat Item</Button>
+                    <Button value="Toys" sx={{ mr: 2 }} size="medium" onClick={handleClick} variant="outlined">Toy</Button>
+                    <Button value="Medicine" sx={{ mr: 2, md: { mt: 2 } }} size="medium" onClick={handleClick} variant="outlined">Medicine</Button>
+                </Grid>
+                {/* <Grid item xs={4} md={1} sx={{ mt: 1 }}>
                 </Grid>
                 <Grid item xs={4} md={1} sx={{ mt: 1 }}>
-                    <Button value="Dog" size="medium" onClick={handleClick} variant="outlined">Dog Item</Button>
                 </Grid>
                 <Grid item xs={4} md={1} sx={{ mt: 1 }}>
-                    <Button value="Cat" size="medium" onClick={handleClick} variant="outlined">Cat Item</Button>
                 </Grid>
                 <Grid item xs={4} md={1} sx={{ mt: 1 }}>
-                    <Button value="Toys" size="medium" onClick={handleClick} variant="outlined">Toy</Button>
-                </Grid>
-                <Grid item xs={4} md={1} sx={{ mt: 1 }}>
-                    <Button value="Medicine" size="medium" onClick={handleClick} variant="outlined">Medicine</Button>
-                </Grid>
+                </Grid> */}
             </Grid>
 
             <div className='shop-container'>
                 <Container sx={{ mt: 1 }}>
                     <Grid container justify="center" spacing={1}>
+                        {
+                            displayProdcuts.length === 0 && <Grid sx={{ mt: 4 }} container spacing={0} direction="column" alignItems="center" justifyContent="center">
+                                <Grid item xs={3}>
+                                    <CircularProgress />
+                                </Grid>
+                            </Grid>
+                        }
                         {
                             displayProdcuts.map(product => (<Grid item key={product.id} xs={10} sm={6} md={4} lg={4}>
                                 <Product product={product} key={product.key}

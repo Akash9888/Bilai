@@ -1,14 +1,11 @@
 import { Button, Chip, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React  from "react";
+import React from "react";
 import { Link, useParams } from "react-router-dom";
 import Doctors from "./DocList";
 
-
-
 const DocProfile = () => {
     const { id } = useParams();
-
     const {
         name,
         imgUrl,
@@ -16,11 +13,9 @@ const DocProfile = () => {
         registrationNumber,
         qualification,
         designation,
-        expertise,
         organization,
         address,
         visitHour,
-        phone,
         email,
     } = Doctors[id];
 

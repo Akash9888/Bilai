@@ -4,6 +4,7 @@ import Chart from './Chart/Chart';
 import Balance from './Balance/Balance';
 import PurchaseHistory from './PurchaseHistory/PurchaseHistory';
 import TotalAppointmentMade from './TotalAppointmnetMade/TotalAppointmentMade';
+import OrderDetails from './OrderDetails/OrderDetails';
 
 const AdminDashboardHome = () => {
     const [totalBalance, setTotalBalance] = useState([]);
@@ -36,6 +37,9 @@ const AdminDashboardHome = () => {
                 </Grid>
                 <Grid item xs={12} md={12}>
                     <PurchaseHistory totalBalance={totalBalance} />
+                </Grid>
+                <Grid item xs={12} md={12}>
+                    <OrderDetails />
                 </Grid>
             </Grid>
         </Container>

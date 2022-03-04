@@ -13,6 +13,7 @@ import AddressForm from '../AddressForm';
 import Review from '../Review';
 import { clearTheCart } from '../../../utilities/fakeDb';
 import useAuth from '../../../hooks/useAuth';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const steps = ['Shipping address', 'Payment details'];
@@ -23,7 +24,7 @@ const theme = createTheme();
 const Checkout = ({ cart, setCart }) => {
     const [activeStep, setActiveStep] = React.useState(0);
     const { user } = useAuth();
-
+    const uuid = uuidv4();
     let totalQuantity = 0;
     let total = 0;
     for (const product of cart) {
@@ -48,7 +49,8 @@ const Checkout = ({ cart, setCart }) => {
             cus_email: user?.email,
             // product_name: cart,
             total_amount: grandTotal,
-            date: date
+            date: date,
+            uniqueID: uuid
 
         };
         // console.log(order);
@@ -73,7 +75,7 @@ const Checkout = ({ cart, setCart }) => {
     const getStepContent = step => {
         switch (step) {
             case 0:
-                return <AddressForm handleNext={handleSubmit} />;
+                return <AddressForm uuid={uuid} handleNext={handleSubmit} />;
             case 1:
                 return <Review cart={cart} setCart={setCart} total={total} grandTotal={grandTotal} />;
             default:

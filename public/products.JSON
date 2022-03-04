@@ -139,13 +139,49 @@
     {
         "key": "12",
         "category": "Toys",
-        "name": "Chew Toy",
-        "seller": "Asus",
+        "name": "Petstages Catnip and Dental Health Cat Toys",
+        "seller": "BD Toys",
         "stock": 35,
         "star": 3,
         "img": "https://m.media-amazon.com/images/I/71bNP5QUiJS._AC_SL1500_.jpg",
         "description": "Andiker Cat Spiral Spring, 12 Pc Cat Creative Toy to Kill Time and Keep Fit Interactive cat Toy Durable Heavy Plastic Spring Colorful Springs Cat Toy for Swatting, Biting, Hunting Kitten Toys",
         "price": 499,
         "shipping": 7.99
+    },
+    {
+        "key": "13",
+        "category": "Medicine",
+        "name": "Itrafungol (Itraconazole) Oral Solution",
+        "seller": "Walmart",
+        "stock": 40,
+        "star": 3,
+        "img": "https://s.yimg.com/aah/yhst-135855760451349/itrafungol-oral-solution-52-ml-30.jpg",
+        "description": "Itrafungol (Itraconazole) is a prescription oral antifungal solution for cats. It is for the treatment of feline dermatophytosis (ringworms) caused by Microsporum canis. Available in a 10 mg/ml, 52 ml bottle.",
+        "price": 574,
+        "shipping": 40
+    },
+    {
+        "key": "14",
+        "category": "Medicine",
+        "name": "Atopica (Cyclosporine) Capsules for Dogs",
+        "seller": "WalMart",
+        "stock": 74,
+        "star": 3,
+        "img": "https://www.grovet.com/media/catalog/product/cache/58dc63f078a469577c44956aa95961c7/a/t/atopica_caps_50_mg_1_.jpg",
+        "description": "Atopica is the first medication specifically approved for the control of chronic atopic dermatitis in dogs weighing at least 4 lbs (1.8 kg). It effectively relieves itchiness and reduces skin lesions. Also provides proven long-term relief and 98% of pet owners would recommend to friends.",
+        "price": 700,
+        "shipping": 40
+    },
+    {
+        "key": "15",
+        "category": "Medicine",
+        "name": "Vetradent Powder Water Additive for Dogs & Cats, 300 gm",
+        "seller": "WalMart",
+        "stock": 64,
+        "star": 3,
+        "img": "https://cdn11.bigcommerce.com/s-0owqhj1f/images/stencil/400x400/products/3525/5192/Vetradent_Water_Additive_for_Dogs_Cats_17_oz__93978.1621008538.png?c=2",
+        "description": "Vetradent Powder Water Additive is formulated with Biotrate Technology to support dental health in dogs and cats. It is an odorless, tasteless, and colorless powder that mixes easily with drinking water to help control plaque and tartar formation, as well as freshen breath. This concentrated powder formula is ideal for multiple pet households or large dogs. ",
+        "price": 566,
+        "shipping": 80
     }
 ]

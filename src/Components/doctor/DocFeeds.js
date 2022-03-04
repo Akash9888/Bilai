@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
+
 import { Container } from "@mui/material";
 
 import DocProfile from "./DocProfile";

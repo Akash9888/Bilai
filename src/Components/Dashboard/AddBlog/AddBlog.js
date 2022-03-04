@@ -23,7 +23,6 @@ const AddBlog = () => {
             return;
         }
         const formData = new FormData();
-        // formData.append('addBlog', addBlog);
         formData.append('id', id);
         formData.append('category', category);
         formData.append('tag', tag);

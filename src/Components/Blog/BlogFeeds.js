@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Loading from "../Loader/Loading";
 import Blog from "./Blog";
@@ -32,14 +32,9 @@ function BlogFeeds() {
             setBlogDetails(items);
             return;
         }
-
-        console.log("key: " + button);
         const filteredData = items.filter((item) => item.tag === button);
-        console.log(filteredData);
         setBlogDetails([]);
-        console.log(blogDetails);
         setBlogDetails(filteredData);
-        console.log(blogDetails);
     };
 
     return (

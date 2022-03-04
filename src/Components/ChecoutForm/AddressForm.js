@@ -2,7 +2,7 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { Box } from '@mui/material';
+import { Button } from '@mui/material';
 import { useState } from 'react';
 import useProducts from '../../hooks/useProducts';
 import useCart from '../../hooks/useCart';
@@ -10,7 +10,7 @@ import useAuth from '../../hooks/useAuth';
 import './AdressForm.css';
 
 
-const AddressForm = ({ handleNext }) => {
+const AddressForm = ({ handleNext, uuid }) => {
 
     const [products] = useProducts();
     const [cart] = useCart(products);
@@ -35,10 +35,10 @@ const AddressForm = ({ handleNext }) => {
             setError({ phone: "Input a valid Phone Number" })
         }
     };
-    const handleSubmit = () => {
-        if (firstName === '' || lastName === '' || phone === '' || address === '' || city === '' || state === '' || zipCode === '' || country === '') {
-            return;
-        }
+    console.log(cart);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
         const order = {
             email: user?.email,
             firstName: firstName,
@@ -50,10 +50,9 @@ const AddressForm = ({ handleNext }) => {
             zipCode: zipCode,
             country: country,
             user_order: cart,
-
+            uniqueId: uuid
         };
-
-
+        console.log(order);
         fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
@@ -74,7 +73,7 @@ const AddressForm = ({ handleNext }) => {
             <Typography variant="h6" gutterBottom>
                 Shipping Adress
             </Typography>
-            <Box>
+            <form onSubmit={handleSubmit}>
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={6}>
                         <TextField
@@ -175,11 +174,10 @@ const AddressForm = ({ handleNext }) => {
                         />
                     </Grid>
                 </Grid>
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
-                    <button className="button" variant="contained" type="submit" onClick={handleSubmit}>Submit</button>
-                </Box>
-            </Box>
 
+                <Button type="submit" variant='contained'>Submit</Button>
+
+            </form>
 
         </React.Fragment >
     );

@@ -1,11 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Button, Card, CardContent, Grid, Typography } from "@mui/material";
-import Swal from 'sweetalert2/dist/sweetalert2.js';
-import { withSwalInstance } from 'sweetalert2-react';
-import swal from 'sweetalert2';
+import { Button, Card, CardContent, Grid, Link, Typography } from "@mui/material";
+
 import { Box } from "@mui/system";
-const SweetAlert = withSwalInstance(swal);
 
 const DayCarePackage = () => {
     return (
@@ -101,16 +97,16 @@ const DayCarePackage = () => {
                         </CardContent>
                         <div align="center">
 
-                            <Link to="/singlecare">
-                                <Button
-                                    variant="outlined"
-                                    sx={{
-                                        width: "80%",
-                                        borderRadius: "50px",
-                                        px: "8px",
-                                    }}>
-                                    Pree Book
-                                </Button></Link>
+
+                            <Button
+                                variant="outlined"
+                                sx={{
+                                    width: "80%",
+                                    borderRadius: "50px",
+                                    px: "8px",
+                                }}>
+                                Pree Book
+                            </Button>
 
                         </div>
                         <div>

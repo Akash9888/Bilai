@@ -41,6 +41,7 @@ import Success from "./Components/Success/Success";
 import SendMail from "./Components/SendMail/SendMail";
 import DayCare from './Components/Care/DayCare';
 import Adaptions from "./Components/Adaptions/Adaptions";
+import AllAdoptionDetails from "./Components/Dashboard/AllAdoptionDetails/AllAdoptionDetails";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -55,6 +56,7 @@ const App = () => {
                 setDisplayProducts(data);
             });
     }, []);
+
     const handleAddToCart = (product) => {
         const exists = cart.find((pd) => pd.key === product.key);
         let newCart = [];
@@ -91,9 +93,7 @@ const App = () => {
                             }
                         />
                         <Route path="/doctor" element={<DocFeeds />} />
-                        {/* <Route path="/cart" element={<Cart cart={cart} handleUpdateQuantity={handleUpdateQuantity} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart} />} /> */}
                         <Route path="/blogfeed" element={<BlogFeeds />} />
-
                         <Route
                             path="/orderReview/checkout"
                             element={
@@ -121,12 +121,19 @@ const App = () => {
                                 </PrivateRoute>
                             }>
                             <Route index element={<DashboardHome />} />
-                            {/* <Route path="" element={<DashboardHome />} /> */}
                             <Route
                                 path="addDoctor"
                                 element={
                                     <AdminRoute>
                                         <AddDoctor />
+                                    </AdminRoute>
+                                }
+                            />
+                            <Route
+                                path="allAdoptions"
+                                element={
+                                    <AdminRoute>
+                                        <AllAdoptionDetails />
                                     </AdminRoute>
                                 }
                             />
@@ -196,8 +203,6 @@ const App = () => {
                         <Route path="/return" element={<Return />} />
                         <Route path="/shipping" element={<Shipping />} />
                         <Route path="/term" element={<Term />} />
-                        {/* <Route path="*" element={<FourZeroFour />} /> */}
-                        {/* <Route path="*" element={<UserProfile />} /> */}
                         <Route path="/success" element={<Success />} />
                         <Route path="/sendMail" element={<SendMail />} />
                         <Route path="*" element={<FourZeroFour />} />

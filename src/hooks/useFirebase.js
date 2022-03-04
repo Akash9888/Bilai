@@ -26,7 +26,7 @@ const useFirebase = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError("");
-                const user = userCredential.user;
+                // const user = userCredential.user;
                 verifyEmail();
                 const newUser = {
                     email,

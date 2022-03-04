@@ -65,7 +65,6 @@ const BookingModal = ({ firstName, date, booking, openBooking, handleBookingClos
         // collecting data form user and saving it to the database 
         e.preventDefault();
     }
-    console.log(bookingInfo);
 
     return (
         <Modal
@@ -85,7 +84,6 @@ const BookingModal = ({ firstName, date, booking, openBooking, handleBookingClos
                         Booking Appointment of {firstName}
                     </Typography>
                     <form onSubmit={hadleBookSubmit}>
-
                         <FormControl sx={{ width: '90%', m: 1 }}>
                             <InputLabel id="demo-simple-select-label">Time</InputLabel>
                             <Select

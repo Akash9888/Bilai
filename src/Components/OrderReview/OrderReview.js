@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
 import Cart from '../Shop/Cart/Cart';
@@ -56,9 +56,8 @@ const OrderReview = () => {
     return (
 
         <Container sx={{ mt: 2 }}>
-
             {
-                cart.length === 0 ? <Box>
+                cart.length === 0 && <Box>
                     <Typography variant="h4" gutterBottom component="div">
                         You Have No items in the cart
                     </Typography>
@@ -74,66 +73,62 @@ const OrderReview = () => {
                     />
 
                     {/* </CardMedia> */}
-                </Box> : (
-                    <Box>
-                        <TableContainer component={Paper}>
-                            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell>Imgage</TableCell>
-                                        <TableCell align="right">Name</TableCell>
-                                        <TableCell align="right">Quantity</TableCell>
-                                        <TableCell align="right">Unit Price</TableCell>
-                                        <TableCell align="right">Action</TableCell>
+                </Box>
+            }{
+                cart.length !== 0 && <Box>
+                    <TableContainer component={Paper}>
+                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Imgage</TableCell>
+                                    <TableCell align="right">Name</TableCell>
+                                    <TableCell align="right">Quantity</TableCell>
+                                    <TableCell align="right">Unit Price</TableCell>
+                                    <TableCell align="right">Action</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {cart.map((row) => (
+                                    <TableRow
+                                        key={row.key}
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                        <TableCell component="th" scope="row">
+                                            <CardMedia
+                                                component="img"
+                                                height="100"
+                                                image={row.img}
+                                                alt="green iguana"
+                                            />
+                                        </TableCell>
+                                        <TableCell align="right">{row.name}</TableCell>
+                                        <TableCell align="right"><Button disabled={row.quantity === 1} onClick={() => handleReduce(row.key)}>-</Button>{row.quantity}<Button onClick={() => handleIncreased(row.key)}>+</Button></TableCell>
+                                        <TableCell align="right">{row.price}</TableCell>
+                                        <TableCell align="right"><Button onClick={() => handleRemove(row.key)}>Remove</Button></TableCell>
                                     </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {cart.map((row) => (
-                                        <TableRow
-                                            key={row.key}
-                                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                        >
-                                            <TableCell component="th" scope="row">
-                                                <CardMedia
-                                                    component="img"
-                                                    height="100"
-                                                    image={`data:image/png;base64,${row.img}`}
-                                                    alt="green iguana"
-                                                />
-                                            </TableCell>
-                                            <TableCell align="right">{row.name}</TableCell>
-                                            <TableCell align="right"><Button disabled={row.quantity === 1} onClick={() => handleReduce(row.key)}>-</Button>{row.quantity}<Button onClick={() => handleIncreased(row.key)}>+</Button></TableCell>
-                                            <TableCell align="right">{row.price}</TableCell>
-                                            <TableCell align="right"><Button onClick={() => handleRemove(row.key)}>Remove</Button></TableCell>
-                                        </TableRow>
-                                    ))}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
-                        <Grid container justifyContent="flex-end">
-                            {/* <h1>{products.length}</h1> */}
-                            <br />
-                            {/* <h1>{cart?.length}</h1> */}
-                            <br />
-                            <Cart cart={cart}></Cart>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                    <Grid container justifyContent="flex-end">
+                        <br />
+                        <br />
+                        <Cart cart={cart}></Cart>
 
-                        </Grid>
-                        <Grid container justifyContent="flex-end" sx={{ mb: 2 }}>
-                            <Button onClick={emptyTheCart} variant="contained">Empty The Cart</Button>
-                        </Grid>
-                        <Grid container justifyContent="flex-end">
-                            <Link to="checkout" style={{ textDecoration: 'none' }}>
-                                <Button variant="contained">Proceed To Pay</Button>
-                            </Link>
-                        </Grid>
-                    </Box>
-                )
+                    </Grid>
+                    <Grid container justifyContent="flex-end" sx={{ mb: 2 }}>
+                        <Button onClick={emptyTheCart} variant="contained">Empty The Cart</Button>
+                    </Grid>
+                    <Grid container justifyContent="flex-end">
+                        <Link to="checkout" style={{ textDecoration: 'none' }}>
+                            <Button variant="contained">Proceed To Pay</Button>
+                        </Link>
+                    </Grid>
+                </Box>
             }
 
-            {/* {
-                cart.length === 0 ? <p>Empty Cart</p> :
-                   
-            } */}
+
+
 
 
         </Container>

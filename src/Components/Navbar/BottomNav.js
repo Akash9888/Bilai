@@ -77,23 +77,11 @@ const ResponsiveAppBar = (props) => {
             }}
             open={isMenuOpen}
             onClose={handleMenuClose}>
-            {
-                user?.emailVerified === true ? <Box>
-                    <Link to="userProfile" style={{ textDecoration: 'none', color: 'black' }}>
-                        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-                    </Link>
-                    <MenuItem onClick={() => {
-                        handleMenuClose();
-                        logout();
-                    }}>Logout</MenuItem>
-                </Box> : <Box>
-                    <Link to='/login' style={{ textDecoration: 'none', color: 'black' }}><MenuItem onClick={handleMenuClose}>Login</MenuItem></Link>
-                    <Link to='/register' style={{ textDecoration: 'none', color: 'black' }}><MenuItem onClick={handleMenuClose}>Register</MenuItem></Link>
-                </Box>
-            }
-
-
-
+            <Box>
+                <Link to="userProfile" style={{ textDecoration: 'none', color: 'black' }}>
+                    <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+                </Link>
+            </Box>
         </Menu>
     );
 
@@ -373,7 +361,7 @@ const ResponsiveAppBar = (props) => {
                             </nav>
                         )}
 
-                        {/* {user?.emailVerified === true ? (
+                        {user?.emailVerified === true ? (
                             <Button
                                 onClick={() => {
                                     handleCloseNavMenu();
@@ -407,8 +395,8 @@ const ResponsiveAppBar = (props) => {
                                     </Button>
                                 </Link>
                             </nav>
-                        )} */}
-                        {/* {!user?.email && (
+                        )}
+                        {!user?.email && (
                             <nav>
                                 <Link
                                     to="register"
@@ -427,12 +415,11 @@ const ResponsiveAppBar = (props) => {
                                     </Button>
                                 </Link>
                             </nav>
-                        )} */}
+                        )}
                     </Box>
 
                     <Box sx={{ mr: 5 }}>
                         <Box sx={{ flexGrow: 1 }} />
-
                         <Box sx={{ display: { xs: "none", md: "flex" } }}>
                             <IconButton
                                 size="large"
