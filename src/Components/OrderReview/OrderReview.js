@@ -97,7 +97,7 @@ const OrderReview = () => {
                                                 <CardMedia
                                                     component="img"
                                                     height="100"
-                                                    image={row.img}
+                                                    image={`data:image/png;base64,${row.img}`}
                                                     alt="green iguana"
                                                 />
                                             </TableCell>

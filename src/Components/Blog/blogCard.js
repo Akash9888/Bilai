@@ -11,12 +11,12 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import { Avatar, Badge, Box, CardHeader, Chip, Container } from "@mui/material";
+import { Avatar, Badge, Box, CardHeader, Chip, } from "@mui/material";
 import { red } from "@mui/material/colors";
 import Grid from "@mui/material/Grid";
 
 export default function MediaCard(props) {
-    console.log("77777 :" + props.blog);
+
     const {
         id,
         catagory,
@@ -29,13 +29,12 @@ export default function MediaCard(props) {
         authorPic,
         blogPic,
     } = props.blog;
-    console.log(author);
     return (
         <>
             <Grid item xs={12} sm={6} md={4}>
                 <Card sx={{ maxWidth: 345 }}>
                     <CardHeader
-                        avatar={<Avatar alt={author} src={authorPic} />}
+                        avatar={<Avatar alt={author} src={`data:image/png;base64,${authorPic}`} />}
                         title={author}
                         subheader={date}></CardHeader>
                     <CardMedia
@@ -53,7 +52,7 @@ export default function MediaCard(props) {
                                 backgroundColor: "#56CCF2",
                                 color: "#FFFFFF",
                             }}
-                            // onClick={handleClick}
+                        // onClick={handleClick}
                         />
                         <Chip
                             label="Pet"
@@ -64,7 +63,7 @@ export default function MediaCard(props) {
                                 backgroundColor: "#56CCF2",
                                 color: "#FFFFFF",
                             }}
-                            // onClick={handleClick}
+                        // onClick={handleClick}
                         />
                         <Typography gutterBottom variant="h5" component="div">
                             {title}

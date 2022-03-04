@@ -99,7 +99,7 @@ function TestomonialSlide(props) {
                                 <div class="arrow"></div>
                             </blockquote>
                             <img
-                                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample17.jpg"
+                                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample18.jpg"
                                 alt="sample17"
                             />
                             <div class="author">

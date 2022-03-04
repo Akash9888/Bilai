@@ -32,7 +32,7 @@ const Product = ({ product, handleAddToCart }) => {
                 alt={product.name}
                 height="200"
                 sx={{ objectFit: 'cover', mt: 1 }}
-                image={product.img}
+                image={`data:image/png;base64,${product.img}`}
             />
             <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
@@ -74,7 +74,7 @@ const Product = ({ product, handleAddToCart }) => {
                     <Typography id="modal-modal-title" color="textSecondary" variant="subtitle1" component="h2">
                         Only {product.stock} items in Stock-Order Soon
                     </Typography>
-                    <Rating name="read-only" value={product.stock} readOnly />
+                    <Rating name="read-only" value={product.star} readOnly />
                 </DialogTitle>
                 <DialogActions>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

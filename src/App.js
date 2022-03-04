@@ -4,9 +4,7 @@ import DocFeeds from "./Components/doctor/DocFeeds";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Banner from "./Components/Banner/Banner";
 import BottomNav from "./Components/Navbar/BottomNav";
-import Cart from "./Components/Cart/Cart";
 import Checkout from "./Components/ChecoutForm/Checkout/Checkout";
-import DayCare from "./Components/Care/DayCare";
 import FullArticle from "./Components/Blog/FullArticle";
 import Appointment from "./Components/Appointment/Appointment";
 import Login from "./Login/Login/Login";
@@ -41,6 +39,8 @@ import Term from "./Components/Policy/Term";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import Success from "./Components/Success/Success";
 import SendMail from "./Components/SendMail/SendMail";
+import DayCare from './Components/Care/DayCare';
+import Adaptions from "./Components/Adaptions/Adaptions";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -102,8 +102,9 @@ const App = () => {
                                 </PrivateRoute>
                             }
                         />
-
+                        {/* <Route path="/daycare" element={<DayCare />} /> */}
                         <Route path="/daycare" element={<DayCare />} />
+                        <Route path="/adaptions" element={<Adaptions />} />
                         {/* <PrivateRoute path="/appointment" element={<Appointment />} /> */}
                         <Route
                             path="/appointment"

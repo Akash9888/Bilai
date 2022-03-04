@@ -10,6 +10,7 @@ import Paper from '@mui/material/Paper';
 
 import { Button, Grid } from '@mui/material';
 import { Box } from '@mui/system';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -36,7 +37,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 export default function CustomizedTables() {
     const [appointments, setAppointments] = React.useState([]);
-    const [modified, setModified] = React.useState(false);
+    const [setModified] = React.useState(false);
 
     React.useEffect(() => {
         fetch(`http://localhost:5000/dashboard/allAppointment`)
@@ -63,19 +64,34 @@ export default function CustomizedTables() {
     }
     const hadleDelete = id => {
         // console.log(id);
-        const proceed = window.confirm('Are You Sure You want to delete?');
-        if (proceed) {
-            const url = `http://localhost:5000/appoitments/${id}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        alert('Deleted SuccessFully');
-                    }
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const url = `http://localhost:5000/appoitments/${id}`;
+                fetch(url, {
+                    method: 'DELETE'
                 })
-        }
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+
+            }
+        })
+
     }
     return (
         <Grid container justifyContent="center">

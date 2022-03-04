@@ -18,28 +18,23 @@ import useAuth from '../../hooks/useAuth';
 import { Alert, Paper } from '@mui/material';
 
 const Login = () => {
-    const [loginData, setLoginData] = React.useState({});
-    const { authError, signInWithGoogle, loginUser, } = useAuth();
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const { authError, signInWithGoogle, loginUser } = useAuth();
     let location = useLocation();
     let navigate = useNavigate();
     const theme = createTheme();
-    // const destination = location.state.from;
-    // console.log(location.state.from);
-    const handleOnChange = e => {
-        const field = e.target.name;
-        const value = e.target.value;
-        const newLoginData = { ...loginData };
-        newLoginData[field] = value;
-        console.log(newLoginData);
-        setLoginData(newLoginData);
-    }
+
     const handleGoogleSignIn = () => {
         signInWithGoogle(location, navigate);
+
     }
 
     const handleSignIn = e => {
+
         e.preventDefault();
-        loginUser(loginData.email, loginData.password, location, navigate)
+        loginUser(email, password, location, navigate);
+        // reset();
     }
     return (
 
@@ -61,7 +56,7 @@ const Login = () => {
                         <Typography component="h1" variant="h5">
                             Login
                         </Typography>
-                        <Box component="form" noValidate onClick={handleSignIn} sx={{ mt: 3 }}>
+                        <form onSubmit={handleSignIn} sx={{ mt: 3 }}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
                                     <TextField
@@ -70,7 +65,7 @@ const Login = () => {
                                         id="email"
                                         label="Email Address"
                                         name="email"
-                                        onBlur={handleOnChange}
+                                        onChange={e => setEmail(e.target.value)}
                                         autoComplete="email"
                                     />
                                 </Grid>
@@ -81,7 +76,7 @@ const Login = () => {
                                         name="password"
                                         label="Password"
                                         type="password"
-                                        onBlur={handleOnChange}
+                                        onChange={e => setPassword(e.target.value)}
                                         id="password"
                                     />
                                 </Grid>
@@ -95,7 +90,7 @@ const Login = () => {
                             >
                                 Login
                             </Button>
-                        </Box>
+                        </form >
                         {
                             authError && <Alert severity="error">{authError}</Alert>
                         }
@@ -124,16 +119,6 @@ const Login = () => {
                             <button onClick={handleGoogleSignIn} className="login-with-google-btn mt-3">Sign In Using Google</button>
                         </Grid>
                     </Grid>
-                    {/* {
-                    isLoading &&
-                    <Grid container justifyContent="center">
-                        <Grid item>
-                            <CircularProgress />
-                        </Grid>
-                    </Grid>
-
-                } */}
-                    {/* <Copyright sx={{ mt: 5 }} /> */}
                 </Paper>
             </Container>
         </ThemeProvider>
