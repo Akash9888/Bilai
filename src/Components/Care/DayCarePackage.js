@@ -1,22 +1,22 @@
+import {
+    Button,
+    Card,
+    CardContent,
+    Grid,
+    Link,
+    Typography,
+} from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
-import { Button, Card, CardContent, Grid, Typography } from "@mui/material";
-import Swal from 'sweetalert2/dist/sweetalert2.js';
-import { withSwalInstance } from 'sweetalert2-react';
-import swal from 'sweetalert2';
-import { Box } from "@mui/system";
-const SweetAlert = withSwalInstance(swal);
 
 const DayCarePackage = () => {
     return (
-        <Box>
+        <>
             <Typography
                 variant="h4"
                 align="center"
                 sx={{ mt: 5, color: "#757273" }}>
                 Our Packages
             </Typography>
-
             <Grid container spacing={1}>
                 <Grid item xs={12} sm={6} md={3}>
                     <Card
@@ -100,18 +100,15 @@ const DayCarePackage = () => {
                             </Grid>
                         </CardContent>
                         <div align="center">
-
-                            <Link to="/singlecare">
-                                <Button
-                                    variant="outlined"
-                                    sx={{
-                                        width: "80%",
-                                        borderRadius: "50px",
-                                        px: "8px",
-                                    }}>
-                                    Pree Book
-                                </Button></Link>
-
+                            <Button
+                                variant="outlined"
+                                sx={{
+                                    width: "80%",
+                                    borderRadius: "50px",
+                                    px: "8px",
+                                }}>
+                                Pree Book
+                            </Button>
                         </div>
                         <div>
                             <Typography variant="caption">
@@ -121,7 +118,7 @@ const DayCarePackage = () => {
                             <Typography
                                 variant="caption"
                                 sx={{ display: "block" }}>
-                                <Link href="#">Terms and Conditions</Link>
+                                *<Link href="#">Terms and Conditions</Link>
                             </Typography>
                         </div>
                     </Card>{" "}
@@ -136,7 +133,19 @@ const DayCarePackage = () => {
                             borderRadius: 2,
                             p: 1,
                         }}>
-
+                        {/* <Typography
+                        sx={{
+                            backgroundColor: "#e53935",
+                            width: "50%",
+                            borderRadius: 2,
+                            mt: 2,
+                        }}>
+                        {" "}
+                        Contained
+                    </Typography> */}
+                        {/* <Button variant="contained" sx={{ cursor: "alias" }}>
+                    Contained
+                </Button> */}
                         <CardContent>
                             <Typography
                                 gutterBottom
@@ -212,17 +221,15 @@ const DayCarePackage = () => {
                         </Button> */}
                         </CardContent>
                         <div align="center">
-                            <Link to="/dayCare">
-                                <Button
-                                    variant="outlined"
-                                    sx={{
-                                        width: "80%",
-                                        borderRadius: "50px",
-                                        px: "8px",
-                                    }}>
-                                    Pree Book
-                                </Button>
-                            </Link>
+                            <Button
+                                variant="outlined"
+                                sx={{
+                                    width: "80%",
+                                    borderRadius: "50px",
+                                    px: "8px",
+                                }}>
+                                Pree Book
+                            </Button>
                         </div>
                         <div>
                             <Typography variant="caption">
@@ -525,7 +532,7 @@ const DayCarePackage = () => {
                     </Card>{" "}
                 </Grid>
             </Grid>
-        </Box>
+        </>
     );
 };
 

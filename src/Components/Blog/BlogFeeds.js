@@ -46,11 +46,11 @@ function BlogFeeds() {
         <Box sx={{ p: 3 }}>
             {loading && <Loading />}
             <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Grid item xs={12} sm={12} md={4} lg={3}>
                     {/* <Typography variant="h5">Tag</Typography> */}
                     <BlogButton button={buttons} filter={filter} />
                 </Grid>
-                <Grid item xs={12} sm={6} md={8} lg={9}>
+                <Grid item xs={12} sm={12} md={8} lg={9}>
                     <Grid container spacing={2}>
                         {blogDetails.map((blog, index) => (
                             // console.log("index: " + index)
