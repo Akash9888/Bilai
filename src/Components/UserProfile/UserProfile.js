@@ -32,8 +32,16 @@ const UserProfile = () => {
                         <Grid item xs={0} md={2}>
                             <CardMedia
                                 component="img"
-                                height="200px"
-                                sx={{ borderRadius: 5 }}
+                                height={{ xs: "100%", md: "200px" }}
+                                sx={{
+                                    borderRadius: 5,
+                                    // p: 1,
+                                    // display: {
+                                    //     xs: "none",
+                                    //     sm: "none",
+                                    //     md: "block",
+                                    // },
+                                }}
                                 image={singleUserData?.photoUrl}
                                 alt={singleUserData?.email}
                             />
@@ -43,6 +51,7 @@ const UserProfile = () => {
                 </Grid>
                 <Grid item xs={12}>
                     <Grid container spacing={2}>
+                        <Grid item xs={0} md={3}></Grid>
                         <Grid item xs={12} md={6}>
                             <TextField
                                 label="First Name"
@@ -52,6 +61,8 @@ const UserProfile = () => {
                                 focused
                             />
                         </Grid>
+                        <Grid item xs={0} md={3}></Grid>
+                        <Grid item xs={0} md={3}></Grid>
                         <Grid item xs={12} md={6}>
                             <TextField
                                 label="Last Name"
@@ -61,6 +72,8 @@ const UserProfile = () => {
                                 focused
                             />
                         </Grid>
+                        <Grid item xs={0} md={3}></Grid>
+                        <Grid item xs={0} md={3}></Grid>
                         <Grid item xs={12} md={6}>
                             <TextField
                                 label="Email"
@@ -70,8 +83,9 @@ const UserProfile = () => {
                                 focused
                             />
                         </Grid>
+                        <Grid item xs={0} md={3}></Grid>
 
-                        <Grid item xs={12} md={6}>
+                        {/* <Grid item xs={12} md={6}>
                             <TextField
                                 label="Mobile"
                                 color="secondary"
@@ -124,7 +138,7 @@ const UserProfile = () => {
                                 value="Bangladesh"
                                 // onChange={handleChange}
                             />
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                 </Grid>
                 <Grid item xs={0} sm={0} md={2}></Grid>

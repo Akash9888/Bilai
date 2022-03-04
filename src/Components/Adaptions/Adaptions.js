@@ -68,7 +68,6 @@ const Adaptions = () => {
                     );
                     reset();
                 }
-
             })
     }
     return (

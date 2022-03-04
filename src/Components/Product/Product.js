@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, ButtonGroup, Card, CardActions, CardContent, CardMedia, Dialog, DialogActions, DialogTitle, IconButton, Rating, Slide, Typography } from '@mui/material';
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Dialog, DialogActions, DialogTitle, IconButton, Rating, Slide, Typography } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 
@@ -32,7 +32,7 @@ const Product = ({ product, handleAddToCart }) => {
                 alt={product.name}
                 height="200"
                 sx={{ objectFit: 'cover', mt: 1 }}
-                image={`data:image/png;base64,${product.img}`}
+                image={product.img}
             />
             <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
@@ -71,23 +71,13 @@ const Product = ({ product, handleAddToCart }) => {
                     </Typography>
                     <Typography dangerouslySetInnerHTML={{ __html: product.description }} id="modal-modal-description" color="textSecondary" variant="body2" sx={{ mt: 2 }}>
                     </Typography>
-                    <Typography id="modal-modal-title" color="textSecondary" variant="subtitle1" component="h2">
+                    <Typography sx={{ mt: 2 }} id="modal-modal-title" color="textSecondary" variant="subtitle1" component="h2">
                         Only {product.stock} items in Stock-Order Soon
                     </Typography>
-                    <Rating name="read-only" value={product.star} readOnly />
+                    <Rating sx={{ mt: 2 }} name="read-only" value={product.star} readOnly />
                 </DialogTitle>
                 <DialogActions>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <Box>
-                            {/* <ButtonGroup
-                                variant="contained" aria-label="small outlined button group">
-                                {<Button disabled={counter <= 0} onClick={() => {
-                                    setCounter(counter - 1)
-                                }}>-</Button>}
-                                {<Button disabled>{counter}</Button>}
-                                <Button disabled={counter >= product['countInStock']} onClick={() => { setCounter(counter + 1) }}>+</Button>
-                            </ButtonGroup> */}
-                        </Box>
                         <Box>
                             <IconButton aria-label="Add to Cart" onClick={() => handleAddToCart(product)} color="primary">
                                 <AddShoppingCart />

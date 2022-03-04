@@ -13,12 +13,16 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 function Footer() {
     const location = useLocation();
-    if (location.pathname.includes('/dashboard')) return null;
+    if (location.pathname.includes("/dashboard")) return null;
     return (
-        <Box sx={{
-            backgroundColor: "#4c5885", color: "white", mt: 4, p: 5,
-            maxWidth: '100%'
-        }}>
+        <Box
+            sx={{
+                backgroundColor: "#4c5885",
+                color: "white",
+                mt: 4,
+                p: 5,
+                maxWidth: "100%",
+            }}>
             <Container>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={0}>
@@ -28,7 +32,7 @@ function Footer() {
                             sm={12}
                             md={4}
                             lg={3}
-                        // style={{ backgroundColor: "#4a4444" }}
+                            // style={{ backgroundColor: "#4a4444" }}
                         >
                             <Typography
                                 variant="h6"
@@ -40,14 +44,24 @@ function Footer() {
                             </Typography>
                             <Grid container spacing={0}>
                                 <Grid item xs={2}>
-                                    <PetsIcon
+                                    <CardMedia
+                                        component="img"
+                                        height="50"
+                                        width="60"
+                                        // sx={{
+                                        //     mr: 10,
+                                        // }}
+                                        image="https://i.ibb.co/dfKRx6Y/pet-2.png"
+                                        alt="Bilai | A True Compainion"
+                                    />
+                                    {/* <PetsIcon
                                         color="primary"
                                         style={{
                                             width: "50px",
                                             height: "50px",
                                             marginLeft: "-10px",
                                         }}
-                                    />
+                                    /> */}
                                 </Grid>
                                 <Grid item xs={10}>
                                     <Typography variant="h3">BILAI.</Typography>
@@ -82,12 +96,11 @@ function Footer() {
                         </Grid>
                         <Grid
                             item
-                            item
                             xs={12}
                             sm={12}
                             md={4}
                             lg={2}
-                        // style={{ backgroundColor: "#e68c8c" }}
+                            // style={{ backgroundColor: "#e68c8c" }}
                         >
                             <Typography
                                 variant="h6"
@@ -178,12 +191,11 @@ function Footer() {
 
                         <Grid
                             item
-                            item
                             xs={12}
                             sm={12}
                             md={4}
                             lg={2}
-                        // style={{ backgroundColor: "#34e1eb" }}
+                            // style={{ backgroundColor: "#34e1eb" }}
                         >
                             <Typography
                                 variant="h6"
@@ -253,12 +265,11 @@ function Footer() {
                         </Grid>
                         <Grid
                             item
-                            item
                             xs={12}
                             sm={12}
                             md={4}
                             lg={2}
-                        // style={{ backgroundColor: "#e68c8c" }}
+                            // style={{ backgroundColor: "#e68c8c" }}
                         >
                             <Typography
                                 variant="h6"
@@ -296,12 +307,11 @@ function Footer() {
                         </Grid>
                         <Grid
                             item
-                            item
                             xs={12}
                             sm={12}
                             md={4}
                             lg={3}
-                        // style={{ backgroundColor: "#360516" }}
+                            // style={{ backgroundColor: "#360516" }}
                         >
                             <Typography
                                 variant="h6"

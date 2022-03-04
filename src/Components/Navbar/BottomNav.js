@@ -16,7 +16,7 @@ import { ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { CardMedia } from "@mui/material";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const ResponsiveAppBar = (props) => {
     const { user, logout } = useAuth();
 
@@ -77,23 +77,13 @@ const ResponsiveAppBar = (props) => {
             }}
             open={isMenuOpen}
             onClose={handleMenuClose}>
-            {
-                user?.emailVerified === true ? <Box>
-                    <Link to="userProfile" style={{ textDecoration: 'none', color: 'black' }}>
-                        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-                    </Link>
-                    <MenuItem onClick={() => {
-                        handleMenuClose();
-                        logout();
-                    }}>Logout</MenuItem>
-                </Box> : <Box>
-                    <Link to='/login' style={{ textDecoration: 'none', color: 'black' }}><MenuItem onClick={handleMenuClose}>Login</MenuItem></Link>
-                    <Link to='/register' style={{ textDecoration: 'none', color: 'black' }}><MenuItem onClick={handleMenuClose}>Register</MenuItem></Link>
-                </Box>
-            }
-
-
-
+            <Box>
+                <Link
+                    to="userProfile"
+                    style={{ textDecoration: "none", color: "black" }}>
+                    <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+                </Link>
+            </Box>
         </Menu>
     );
 
@@ -165,8 +155,15 @@ const ResponsiveAppBar = (props) => {
                         <CardMedia
                             component="img"
                             height="50"
-                            sx={{ p: 1 }}
-                            image="https://i.ibb.co/HFQPY4L/cat.png"
+                            sx={{
+                                p: 1,
+                                display: {
+                                    xs: "none",
+                                    sm: "none",
+                                    md: "block",
+                                },
+                            }}
+                            image="https://i.ibb.co/dfKRx6Y/pet-2.png"
                             alt="Bilai | A True Compainion"
                         />
                     </Box>
@@ -336,7 +333,7 @@ const ResponsiveAppBar = (props) => {
 
                         <nav>
                             <Link
-                                to="/daycare"
+                                to="daycare"
                                 style={{ textDecoration: "none" }}>
                                 <Button
                                     onClick={handleCloseNavMenu}
@@ -373,7 +370,7 @@ const ResponsiveAppBar = (props) => {
                             </nav>
                         )}
 
-                        {/* {user?.emailVerified === true ? (
+                        {user?.emailVerified === true ? (
                             <Button
                                 onClick={() => {
                                     handleCloseNavMenu();
@@ -407,8 +404,8 @@ const ResponsiveAppBar = (props) => {
                                     </Button>
                                 </Link>
                             </nav>
-                        )} */}
-                        {/* {!user?.email && (
+                        )}
+                        {!user?.email && (
                             <nav>
                                 <Link
                                     to="register"
@@ -427,12 +424,11 @@ const ResponsiveAppBar = (props) => {
                                     </Button>
                                 </Link>
                             </nav>
-                        )} */}
+                        )}
                     </Box>
 
                     <Box sx={{ mr: 5 }}>
                         <Box sx={{ flexGrow: 1 }} />
-
                         <Box sx={{ display: { xs: "none", md: "flex" } }}>
                             <IconButton
                                 size="large"
@@ -455,22 +451,18 @@ const ResponsiveAppBar = (props) => {
                                 aria-haspopup="true"
                                 onClick={handleProfileMenuOpen}
                                 color="inherit">
-                                {
-                                    !user?.email && <AccountCircleIcon />
-                                }
+                                {!user?.email && <AccountCircleIcon />}
 
-                                {
-                                    user?.email && <CardMedia
+                                {user?.email && (
+                                    <CardMedia
                                         component="img"
                                         height="40"
                                         sx={{ borderRadius: "50%" }}
                                         image={user?.photoURL}
                                         alt=":"
                                     />
-                                }
-
+                                )}
                             </IconButton>
-
                         </Box>
                         <Box sx={{ display: { xs: "flex", md: "none" } }}>
                             <IconButton

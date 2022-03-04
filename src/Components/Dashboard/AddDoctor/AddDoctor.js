@@ -224,7 +224,7 @@ const AddDoctor = () => {
                         <TextField
                             id="phone"
                             name="phone"
-                            type="text"
+                            type="number"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                             required

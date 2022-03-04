@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 
 const Blog = ({ blog, index }) => {
     const { tag, title, description, author, date, authorPic, blogPic } = blog;
-
     return (
         <Grid item xs={12} sm={12} md={6} lg={4}>
             <Card

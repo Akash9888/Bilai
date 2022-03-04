@@ -19,9 +19,9 @@ const FullArticle = () => {
             .then((res) => res.json())
             .then((data) => {
                 // setBlogDetails(data.slice(0, 3));
-                console.log(data);
-                console.log(data[id]);
-                console.log(data[id].tag);
+                // console.log(data);
+                // console.log(data[id]);
+                // console.log(data[id].tag);
                 setBlogDetails(data[id]);
                 // console.log(blogDetails);
                 setLoading(false);

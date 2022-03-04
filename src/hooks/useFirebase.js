@@ -15,7 +15,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState("");
-    const [message, setMessage] = useState("");
+    const [message,] = useState("");
     const [admin, setAdmin] = useState(false);
     const [token, setToken] = useState("");
     const auth = getAuth();
@@ -26,8 +26,7 @@ const useFirebase = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError("");
-                const user = userCredential.user;
-
+                // const user = userCredential.user;
                 verifyEmail();
                 const newUser = {
                     email,
@@ -37,7 +36,6 @@ const useFirebase = () => {
                     photUrl: userCredential._tokenResponse.photoUrl,
                 };
                 setUser(newUser);
-                // setMessage('');
                 saveUser(email, name, "POST");
                 updateProfile(auth.currentUser, {
                     displayName: name,
@@ -82,13 +80,8 @@ const useFirebase = () => {
             })
             .catch((error) => {
                 setAuthError(error.message);
-                // console.log(error.message);
             })
             .finally(() => setIsLoading(false));
-
-
-
-
     };
 
     const forgetPassword = (email) => {
@@ -105,6 +98,7 @@ const useFirebase = () => {
             })
             .catch((error) => {
                 const errorMessage = error.message;
+                setAuthError(errorMessage)
             });
         // .finally(() => setIsLoading(false));
     };

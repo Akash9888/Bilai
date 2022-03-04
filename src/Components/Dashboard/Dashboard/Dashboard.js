@@ -24,6 +24,7 @@ import AddCommentIcon from '@mui/icons-material/AddComment';
 import DensitySmallIcon from '@mui/icons-material/DensitySmall';
 import PersonIcon from '@mui/icons-material/Person';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+import ArchiveIcon from '@mui/icons-material/Archive';
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -195,6 +196,16 @@ export default function Dashboard() {
                                             <DensitySmallIcon color="primary" />
                                         </ListItemIcon>
                                         <ListItemText primary="ALL APPOINTMENT" />
+                                    </ListItem>
+                                </Link>
+                            </nav>
+                            <nav>
+                                <Link to="allAdoptions" style={{ textDecoration: 'none' }}>
+                                    <ListItem button>
+                                        <ListItemIcon>
+                                            <ArchiveIcon variant="outlined" color="primary" />
+                                        </ListItemIcon>
+                                        <ListItemText primary="All ADOPTIONS" />
                                     </ListItem>
                                 </Link>
                             </nav>

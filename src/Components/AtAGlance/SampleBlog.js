@@ -26,22 +26,28 @@ const SampleBlog = () => {
                 sx={{ textAlign: "center", p: 2, color: "#757273" }}>
                 Read Blog
             </Typography>
-
-            <div>
-                {" "}
-                {loading && <Loading />}
-                <Grid container spacing={2}>
-                    {blogDetails.map((blog, index) => (
-                        // console.log("index: " + index)
-                        <Blog key={blog.id} blog={blog} index={index}></Blog>
-                    ))}
-                </Grid>
-                <Link to="blogfeed" style={{ textDecoration: "none" }}>
-                    <Box sx={{ p: 3, textAlign: "center" }}>
-                        <Button variant="outlined">Read More</Button>
-                    </Box>
-                </Link>
-            </div>
+            {loading ? (
+                <Loading />
+            ) : (
+                <div>
+                    {" "}
+                    {loading && <Loading />}
+                    <Grid container spacing={2}>
+                        {blogDetails.map((blog, index) => (
+                            // console.log("index: " + index)
+                            <Blog
+                                key={blog.id}
+                                blog={blog}
+                                index={index}></Blog>
+                        ))}
+                    </Grid>
+                    <Link to="blogfeed" style={{ textDecoration: "none" }}>
+                        <Box sx={{ p: 3, textAlign: "center" }}>
+                            <Button variant="outlined">Read More</Button>
+                        </Box>
+                    </Link>
+                </div>
+            )}
         </Container>
     );
 };

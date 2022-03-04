@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 // import { PhotoCamera } from "@mui/icons-material";
-import {
-    Alert,
-    Box,
-    Button,
-    Container,
-    Grid,
-    Input,
-    TextField,
-    Typography,
-} from "@mui/material";
+import { Box, Button, Container, Grid, TextField, Typography, } from "@mui/material";
+
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { withSwalInstance } from 'sweetalert2-react';
+import swal from 'sweetalert2';
+
+const SweetAlert = withSwalInstance(swal);
+
 const AddProduct = () => {
     const [key, setKey] = useState('');
     const [category, setCategory] = useState('');
@@ -20,16 +18,13 @@ const AddProduct = () => {
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [shipping, setShipping] = useState('');
-    const [img, setImg] = useState(null);
+    const [img, setImg] = useState('');
 
-    const [success, setSuccess] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
         // console.log('object');
-        if (!img) {
-            return;
-        }
+
         const formData = new FormData();
 
         formData.append('key', key);
@@ -44,13 +39,16 @@ const AddProduct = () => {
         formData.append('img', img);
 
 
-        fetch('http://localhost:5000/allProducts', {
+        fetch('http://localhost:5000/products', {
             method: 'POST',
             body: formData
         })
             .then(res => res.json())
             .then(data => {
-                setSuccess('Product Added Successfully');
+                Swal.fire(
+                    'Product Added Successfully!',
+                    'success'
+                )
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -166,17 +164,14 @@ const AddProduct = () => {
                             </Grid>
                             <Grid item xs={12} sm={12} md={4}>
                                 <div>
-                                    <Typography variant="body2">
-                                        Product Image
-                                    </Typography>
-                                    <label htmlFor="contained-button-file">
-                                        <Input
-                                            accept="image/*"
-                                            id="contained-button-file"
-                                            type='file'
-                                            onChange={e => setImg(e.target.files[0])}
-                                        />
-                                    </label>
+                                    <TextField
+                                        id="img"
+                                        type="text"
+                                        name="img"
+                                        onBlur={e => setImg(e.target.value)}
+                                        required
+                                        fullWidth
+                                        label="Product Image"></TextField>
                                 </div>
                             </Grid>
                             <Grid item xs={12} sm={12} md={12}>
@@ -189,10 +184,6 @@ const AddProduct = () => {
                         </Grid>
                     </form>
                 </Box>
-                {
-                    success && <Alert severity="success">{success}!</Alert>
-
-                }
             </Container>
         </div>
     );
