@@ -217,6 +217,17 @@ const ResponsiveAppBar = (props) => {
                             to="Doctor">
                             Doctors
                         </MenuItem>
+                        {
+                            user?.emailVerified === true && <MenuItem
+                                component={Link}
+                                onClick={handleCloseNavMenu}
+                                // the 'to' prop (and any other props not recognized by MenuItem itself)
+                                // will be passed down to the Link component
+                                to="dashboard">
+                                Dashboard
+                            </MenuItem>
+                        }
+
                         <MenuItem
                             component={Link}
                             onClick={handleCloseNavMenu}
@@ -239,6 +250,27 @@ const ResponsiveAppBar = (props) => {
                             to="/daycare">
                             Daycare
                         </MenuItem>
+                        {user?.emailVerified === true ? <MenuItem
+
+                            onClick={() => {
+                                handleCloseNavMenu();
+                                logout();
+                            }}
+                        // the 'to' prop (and any other props not recognized by MenuItem itself)
+                        // will be passed down to the Link component
+                        >
+                            Logout
+                        </MenuItem> : (
+                            <MenuItem
+                                component={Link}
+                                onClick={handleCloseNavMenu}
+                                // the 'to' prop (and any other props not recognized by MenuItem itself)
+                                // will be passed down to the Link component
+                                to="login">
+                                Login
+                            </MenuItem>
+                        )
+                        }
                     </Menu>
                     <Box
                         sx={{
