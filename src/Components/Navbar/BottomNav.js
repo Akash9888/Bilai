@@ -244,7 +244,7 @@ const ResponsiveAppBar = (props) => {
                         sx={{
                             flexGrow: 1,
                             display: { xs: "none", md: "flex" },
-                            ml: 15,
+                            ml: 20,
                         }}>
                         <nav>
                             <Link to="/" style={{ textDecoration: "none" }}>
