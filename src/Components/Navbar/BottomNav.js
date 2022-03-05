@@ -15,7 +15,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import { CardMedia } from "@mui/material";
+import { Avatar, CardMedia } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const ResponsiveAppBar = (props) => {
     const { user, logout } = useAuth();
@@ -452,16 +452,25 @@ const ResponsiveAppBar = (props) => {
                                 onClick={handleProfileMenuOpen}
                                 color="inherit">
                                 {!user?.email && <AccountCircleIcon />}
+                            </IconButton>
+                            <IconButton
+                                size="large"
+                                edge="end"
+                                aria-label="account of current user"
+                                aria-controls={menuId}
+                                aria-haspopup="true"
+                                onClick={handleProfileMenuOpen}
+                                color="inherit">
 
-                                {user?.email && (
-                                    <CardMedia
+                                {
+                                    user?.photoURL === null && user.emailVerified === true ? <Avatar>{user.displayName.charAt(0)}</Avatar> : <CardMedia
                                         component="img"
                                         height="40"
                                         sx={{ borderRadius: "50%" }}
                                         image={user?.photoURL}
-                                        alt=":"
+                                        alt=""
                                     />
-                                )}
+                                }
                             </IconButton>
                         </Box>
                         <Box sx={{ display: { xs: "flex", md: "none" } }}>
