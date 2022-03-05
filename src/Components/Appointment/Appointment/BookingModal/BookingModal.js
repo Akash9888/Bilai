@@ -37,7 +37,7 @@ const BookingModal = ({
     const [time, setTime] = useState("");
     const [phone, setPhone] = useState("");
     const [error, setError] = useState("");
-    const [bookingInfo, setBookingInfo] = useState({});
+    const [setBookingInfo] = useState({});
     const initialInfo = {
         name: user.displayName,
         email: user.email,
@@ -68,7 +68,7 @@ const BookingModal = ({
         const appointment = {
             ...initialInfo,
             doctorName: firstName,
-            date: date.toLocaleDateString(),
+            date: date.toDateString(),
             phone: phone,
             time: time,
             status: "pending",

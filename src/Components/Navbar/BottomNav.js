@@ -15,7 +15,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import { CardMedia } from "@mui/material";
+import { Avatar, CardMedia } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const ResponsiveAppBar = (props) => {
     const { user, logout } = useAuth();
@@ -217,6 +217,17 @@ const ResponsiveAppBar = (props) => {
                             to="Doctor">
                             Doctors
                         </MenuItem>
+                        {
+                            user?.emailVerified === true && <MenuItem
+                                component={Link}
+                                onClick={handleCloseNavMenu}
+                                // the 'to' prop (and any other props not recognized by MenuItem itself)
+                                // will be passed down to the Link component
+                                to="dashboard">
+                                Dashboard
+                            </MenuItem>
+                        }
+
                         <MenuItem
                             component={Link}
                             onClick={handleCloseNavMenu}
@@ -239,12 +250,33 @@ const ResponsiveAppBar = (props) => {
                             to="/daycare">
                             Daycare
                         </MenuItem>
+                        {user?.emailVerified === true ? <MenuItem
+
+                            onClick={() => {
+                                handleCloseNavMenu();
+                                logout();
+                            }}
+                        // the 'to' prop (and any other props not recognized by MenuItem itself)
+                        // will be passed down to the Link component
+                        >
+                            Logout
+                        </MenuItem> : (
+                            <MenuItem
+                                component={Link}
+                                onClick={handleCloseNavMenu}
+                                // the 'to' prop (and any other props not recognized by MenuItem itself)
+                                // will be passed down to the Link component
+                                to="login">
+                                Login
+                            </MenuItem>
+                        )
+                        }
                     </Menu>
                     <Box
                         sx={{
                             flexGrow: 1,
                             display: { xs: "none", md: "flex" },
-                            ml: 15,
+                            ml: 20,
                         }}>
                         <nav>
                             <Link to="/" style={{ textDecoration: "none" }}>
@@ -452,16 +484,25 @@ const ResponsiveAppBar = (props) => {
                                 onClick={handleProfileMenuOpen}
                                 color="inherit">
                                 {!user?.email && <AccountCircleIcon />}
+                            </IconButton>
+                            <IconButton
+                                size="large"
+                                edge="end"
+                                aria-label="account of current user"
+                                aria-controls={menuId}
+                                aria-haspopup="true"
+                                onClick={handleProfileMenuOpen}
+                                color="inherit">
 
-                                {user?.email && (
-                                    <CardMedia
+                                {
+                                    user?.photoURL === null && user.emailVerified === true ? <Avatar>{user.displayName.charAt(0)}</Avatar> : <CardMedia
                                         component="img"
                                         height="40"
                                         sx={{ borderRadius: "50%" }}
                                         image={user?.photoURL}
-                                        alt=":"
+                                        alt=""
                                     />
-                                )}
+                                }
                             </IconButton>
                         </Box>
                         <Box sx={{ display: { xs: "flex", md: "none" } }}>
