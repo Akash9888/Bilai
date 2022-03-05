@@ -239,7 +239,7 @@ const ResponsiveAppBar = (props) => {
                         <MenuItem
                             component={Link}
                             onClick={handleCloseNavMenu}
-                            to="/adoption">
+                            to="adaptions">
                             Adoptions
                         </MenuItem>
                         <MenuItem

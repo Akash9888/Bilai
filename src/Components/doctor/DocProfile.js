@@ -16,7 +16,7 @@ const DocProfile = () => {
                 setDocList(data[id]);
                 setLoading(false);
             });
-    }, []);
+    }, [id]);
 
     return (
         <>

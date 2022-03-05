@@ -23,8 +23,13 @@ const steps = ['Shipping address', 'Payment details'];
 const theme = createTheme();
 const Checkout = ({ cart, setCart }) => {
     const [activeStep, setActiveStep] = React.useState(0);
+    const [uniqueId, setUniqueId] = React.useState('');
     const { user } = useAuth();
-    const uuid = uuidv4();
+    React.useEffect(() => {
+        const uuid = uuidv4();
+        setUniqueId(uuid)
+
+    }, [])
     let totalQuantity = 0;
     let total = 0;
     for (const product of cart) {
@@ -41,7 +46,6 @@ const Checkout = ({ cart, setCart }) => {
     const handleSubmit = () => {
         setActiveStep(activeStep + 1);
     };
-
     const handlePlaceOrder = () => {
         const date = new Date().toDateString();
         const order = {
@@ -50,7 +54,7 @@ const Checkout = ({ cart, setCart }) => {
             // product_name: cart,
             total_amount: grandTotal,
             date: date,
-            uniqueID: uuid
+            uniqueID: `${uniqueId}`
 
         };
         // console.log(order);
@@ -75,7 +79,7 @@ const Checkout = ({ cart, setCart }) => {
     const getStepContent = step => {
         switch (step) {
             case 0:
-                return <AddressForm uuid={uuid} handleNext={handleSubmit} />;
+                return <AddressForm uuid={uniqueId} handleNext={handleSubmit} />;
             case 1:
                 return <Review cart={cart} setCart={setCart} total={total} grandTotal={grandTotal} />;
             default:

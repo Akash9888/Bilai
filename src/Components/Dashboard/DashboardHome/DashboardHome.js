@@ -22,7 +22,7 @@ const DashboardHome = () => {
                             <Calendar date={date} setDate={setDate}></Calendar>
                         </Grid>
                         <Grid item xs={12} md={8} sm={8}>
-                            <BookedAppointment date={date}></BookedAppointment>
+                            <BookedAppointment date={date} setDate={setDate}></BookedAppointment>
                         </Grid>
                     </Grid>
                 </Box>

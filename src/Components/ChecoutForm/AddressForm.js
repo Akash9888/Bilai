@@ -50,7 +50,7 @@ const AddressForm = ({ handleNext, uuid }) => {
             zipCode: zipCode,
             country: country,
             user_order: cart,
-            uniqueId: uuid
+            uniqueId: `${uuid}`
         };
         console.log(order);
         fetch('http://localhost:5000/orders', {
