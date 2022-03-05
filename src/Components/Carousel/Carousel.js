@@ -29,15 +29,21 @@ theme.typography.h3 = {
 
 const images = [
     {
-        label: "San Francisco – Oakland Bay Bridge, United States",
+        label: "Our Pets deserved best of best",
+        label2: "Our Pets deserved",
+        text: "With all the options available in the market, do you know exactly which ones to get for your dog? Let’s try to address these problems",
         imgPath: "https://i.ibb.co/yBShXg7/pexels-photo-1378849.jpg",
     },
     {
-        label: "Bird",
+        label: "Automated Toys,Welcome The Pet World",
+        label2: "Automated Toys",
+        text: "We at BILAI are on a mission to make the lives of pets better. Our tech-infused approach to products makes pet parenting easier for you and betters pet lives.",
         imgPath: "https://i.ibb.co/T4GX9Z2/pexels-photo-6816858.jpg",
     },
     {
-        label: "Bali, Indonesia",
+        label: "Essential Item You Need For Your Kitty",
+        label2: "Essential Item You Need",
+        text: "When we consider pets as our children, we look forward to raising the best versions of them. We know you love your pets, but nobody is perfect.",
         imgPath: "https://i.ibb.co/0FFrYbL/Adorable-furry-spitz-with-juice.jpg",
     },
 ];
@@ -86,7 +92,7 @@ const Carousel = () => {
                                         objectFit: "cover",
                                     }}
                                     src={step.imgPath}
-                                    alt={step.label}
+                                    alt={step.label2}
                                 />
 
                                 <Typography
@@ -111,10 +117,10 @@ const Carousel = () => {
                                     variant="h3"
                                     gutterBottom
                                     component="div">
-                                   Our Pets deserved best of best
+                                    {step.label}
                                 </Typography>
 
-                                {/* <ThemeProvider theme={theme}>
+                                <ThemeProvider theme={theme}>
                                     <Box
                                         sx={{
                                             display: {
@@ -140,16 +146,10 @@ const Carousel = () => {
                                             variant="subtitle2"
                                             component="div"
                                             gutterBottom>
-                                            body1. Lorem ipsum dolor sit amet,
-                                            consectetur adipisicing elit. Quos
-                                            blanditiis tenetur unde suscipit,
-                                            quam beatae rerum inventore
-                                            consectetur, neque doloribus,
-                                            cupiditate numquam dignissimos
-                                            laborum fugiat deleniti
+                                            {step.text}
                                         </Typography>
                                     </Box>
-                                </ThemeProvider> */}
+                                </ThemeProvider>
 
                                 <Link
                                     to="shop"
