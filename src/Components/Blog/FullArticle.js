@@ -61,6 +61,10 @@ const FullArticle = () => {
                                 <Chip
                                     label={blogDetails.tag}
                                     variant="outlined"
+                                    sx={{
+                                        backgroundColor: "#56CCF2",
+                                        color: "#FFFFFF",
+                                    }}
                                 />
                                 <Typography variant="h6">
                                     {blogDetails.title}
