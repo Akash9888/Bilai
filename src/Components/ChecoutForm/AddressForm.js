@@ -35,7 +35,7 @@ const AddressForm = ({ handleNext, uuid }) => {
             setError({ phone: "Input a valid Phone Number" })
         }
     };
-    console.log(cart);
+    // console.log(cart);
 
     const handleSubmit = (e) => {
         e.preventDefault();

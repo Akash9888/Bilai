@@ -169,7 +169,6 @@ const Carousel = () => {
                                             padding: "12px 24px",
                                             cursor: "pointer",
                                             borderRadius: "10px",
-                                            textAlign: "center",
                                             mt: 4,
                                         }}
                                         variant="contained">
