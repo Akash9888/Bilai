@@ -32,15 +32,16 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const BookedAppointment = ({ date }) => {
     const { user } = useAuth();
     const [appointments, setAppointments] = useState([]);
-    console.log(date);
+    // console.log(date);
+    const newData = date.toDateString();
     useEffect(() => {
-        const url = `http://localhost:5000/appointments?email=${user.email}&date=${date}`
+        const url = `http://localhost:5000/appointments?email=${user.email}&date=${newData}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 setAppointments(data);
             });
-    }, [user.email, date])
+    }, [user.email, newData])
     return (
         <div>
             <h2 style={{ color: '#192b68' }}>Appointments {appointments.length}</h2>

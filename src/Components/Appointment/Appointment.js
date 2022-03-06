@@ -15,7 +15,6 @@ const Appointment = () => {
                 setDocList(data);
             });
     }, []);
-    console.log(docList.length);
     return (
         <div>
             <AppointmentBanner

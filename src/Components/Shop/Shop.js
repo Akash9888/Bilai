@@ -28,6 +28,7 @@ const Shop = ({ cart, products, setProducts, handleAddToCart, displayProdcuts, s
                     <TextField
                         fullWidth
                         onChange={handleSearch}
+                        placeholder="Search Here"
                         id="fullWidth" />
                 </Grid>
                 <Grid item xs={12} md={5} sx={{ mt: 1 }}>

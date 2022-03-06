@@ -103,12 +103,20 @@ const App = () => {
                             }
                         />
                         <Route path="/daycare" element={<DayCare />} />
-                        <Route path="/adaptions" element={<Adaptions />} />
+                        {/* <Route path="/adaptions" element={<Adaptions />} /> */}
                         <Route
                             path="/appointment"
                             element={
                                 <PrivateRoute>
                                     <Appointment />
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path="/adaptions"
+                            element={
+                                <PrivateRoute>
+                                    <Adaptions />
                                 </PrivateRoute>
                             }
                         />

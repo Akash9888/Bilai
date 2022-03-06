@@ -27,7 +27,7 @@ const PurchaseHistory = ({ totalBalance }) => {
         <div>
             <TableContainer component={Paper}>
                 <Typography sx={{ ml: 1 }} color="primary" variant="h4" gutterBottom component="div">
-                    Recent Orders
+                    Recent Payments
                 </Typography>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
@@ -36,6 +36,7 @@ const PurchaseHistory = ({ totalBalance }) => {
                             <TableCell>Name</TableCell>
                             <TableCell>Email</TableCell>
                             <TableCell>Transaction Id</TableCell>
+                            <TableCell>Unique Id</TableCell>
                             <TableCell>Sale Amount</TableCell>
                         </TableRow>
                     </TableHead>
@@ -53,6 +54,8 @@ const PurchaseHistory = ({ totalBalance }) => {
                                 <TableCell>{row.cus_email
                                 }</TableCell>
                                 <TableCell>{row.tran_id
+                                }</TableCell>
+                                <TableCell>{row.uniqueID
                                 }</TableCell>
                                 <TableCell> &#2547; {row.total_amount}</TableCell>
                             </TableRow>
